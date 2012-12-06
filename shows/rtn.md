@@ -1,5 +1,5 @@
 ---
-show: "rtn"
+name: "rtn"
 title: "Retinauten"
 cover_url: "http://placekitten.com/500/500"
 ---
