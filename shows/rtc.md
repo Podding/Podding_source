@@ -1,5 +1,5 @@
 ---
-show: "rtc"
+name: "rtc"
 title: "Retinacast"
 cover_url: "http://placekitten.com/300/300"
 ---
