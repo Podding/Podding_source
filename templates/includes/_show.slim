@@ -1,5 +1,5 @@
 .show
-  h4
+  h4: a href="#{ url_for(show) }"
     | #{ show.title }
 
   .description
@@ -7,10 +7,21 @@
     == markdown show.content
 
   .episode-list
+
     #planned-episodes
+      | <span>Geplante Folgen: </span>
+      ul.episode-links-list
+
+      - for episode in show.planned_episodes
+        li: a href="#{ url_for(episode) }" #{ episode.show.title }: #{ episode.title }
+
 
     #live-episodes
 
     #published-episodes
-      p Lol.
+      | <span>Veröffentlichte Folgen: </span>
+    ul.episode-links-list
+
+      - for episode in show.published_episodes
+        li: a href="#{ url_for(episode) }" #{ episode.show.title }: #{ episode.title }
 
