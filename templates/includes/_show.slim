@@ -1,13 +1,16 @@
-.show 
-	h4
-		 | #{ show.title }
-	.description
-		== markdown show.content
-	.episode-list
-	  #planned-episodes
-	   
-	  #live-episodes
+.show
+  h4
+    | #{ show.title }
 
-	  #published-episodes
-	  	p Lol.
-	    
+  .description
+
+    == markdown show.content
+
+  .episode-list
+    #planned-episodes
+
+    #live-episodes
+
+    #published-episodes
+      p Lol.
+
