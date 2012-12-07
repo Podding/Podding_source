@@ -8,4 +8,4 @@ blog_url: "http://blog.roothausen.de"
 quip: "likes kittens!"
 ---
 
-This is a host.
+This is yet another host.
