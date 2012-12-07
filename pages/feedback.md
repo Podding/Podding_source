@@ -1,4 +1,5 @@
 ---
+name: "feedback"
 title: "Feedback"
 quip: "redet mit uns!"
 icon: "comments-alt"

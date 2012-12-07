@@ -1,3 +1,4 @@
 ---
-template: crew
+name: "crew"
+template: "crew"
 ---

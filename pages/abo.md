@@ -1,6 +1,7 @@
 ---
+name: "abo"
 title: "Abonnieren"
-template: abo
+template: "abo"
 ---
 [Bei iTunes abonieren](#derp)  
 [Feed für alle Sendungen](#derp)  

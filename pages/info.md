@@ -1,4 +1,5 @@
 ---
+name: "info"
 title: "Über uns"
 icon: "book"
 ---
