@@ -1,3 +1,4 @@
 ---
 name: "hosts"
+title: "Hosts"
 ---
