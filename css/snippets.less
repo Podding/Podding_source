@@ -3,7 +3,11 @@
 	&:after {content: ", "}
 	&:nth-last-child(2) { &:after { content:"";}}
 	&:last-child {
-		&:before { content: " & " }
+		&:before { content: " & "; }
+		&:after { content: ""; }
+	}
+	&:first-child&:last-child{ // cause Safari doesn't know about 
+		&:before { content: ""; }
 		&:after { content: ""; }
 	}
 }

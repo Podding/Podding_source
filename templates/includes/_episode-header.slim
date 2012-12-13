@@ -16,7 +16,7 @@
     a.comments href="" title="Kommentare zu #{ episode.title }"
      | <i class="icon-comments"></i> #{ episode.comments }
 
+    a.link-icon href="": i.icon-group
     ul.crew
-      a.link-icon href="": i.icon-group
       - for host in episode.hosts
         a.host href="/hosts/#{ host.name }" #{ host.name }
