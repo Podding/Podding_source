@@ -6,12 +6,14 @@
 		&:before { content: " & "; }
 		&:after { content: ""; }
 	}
-	&:first-child&:last-child{ // cause Safari doesn't know about 
-		&:before { content: ""; }
-		&:after { content: ""; }
-	}
+	
+
 }
 
+.single {
+	&:before { content: "" !important; }
+	&:after { content: "" !important; }
+}
 
 .candy-trans {
 	-webkit-transition: color 0.5s ease, border-color 0.5s ease;
@@ -80,7 +82,7 @@
 	list-style: none;
 	li {
 		display: inline;
-		margin-right: 0.5rem;
+		margin-right: 0.5em;
 	}
 }
 

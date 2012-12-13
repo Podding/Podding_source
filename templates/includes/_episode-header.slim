@@ -18,5 +18,10 @@
 
     a.link-icon href="": i.icon-group
     ul.crew
-      - for host in episode.hosts
-        a.host href="/hosts/#{ host.name }" #{ host.name }
+      - if episode.hosts.length == 1
+        - for host in episode.hosts  
+          li.single: a.host href="/hosts/#{ host.name }" #{ host.name }
+      
+      - elsif episode.hosts.length != 1
+        - for host in episode.hosts
+          li: a.host href="/hosts/#{ host.name }" #{ host.name }

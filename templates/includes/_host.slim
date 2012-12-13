@@ -28,8 +28,14 @@
     == markdown host.content
 
   .episode-links
-    | <span>Folgen: </span>
+    | <span>Folgen: </span>  
     ul.episode-links-list
+      - if host.episodes.length == 1
+        - for episode in host.episodes
+          li.single: a href="#{ url_for(episode) }" #{ episode.show.title }: #{ episode.title }
+      
+      - elsif host.episodes.length != 1
+        - for episode in host.episodes
+          li: a href="#{ url_for(episode) }" #{ episode.show.title }: #{ episode.title }
 
-      - for episode in host.episodes
-        li: a href="#{ url_for(episode) }" #{ episode.show.title }: #{ episode.title }
+      
