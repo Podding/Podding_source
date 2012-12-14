@@ -1,0 +1,322 @@
+/*
+podding - stylesheet for generic objects (lol)
+*/
+
+.title {
+    a {
+      .hide-link;
+      color: @highlight;
+    }
+  }
+
+/* Header section */
+  /* Site Header */
+
+  #site-title {
+    a {
+      color: @text;
+      .hide-link;
+    } 
+  }
+
+  #tagline {
+    font-size: 1.3rem;
+    line-height: 2*@line;
+    font-style: italic;
+    @media all and (min-width: @break1)   {
+      
+    }
+  }
+
+  /* Navigation */
+
+  nav {
+    height: 2*@line;
+    background-color: @highlight;
+    .bordered;
+    ul {
+      .inline-list;
+      margin: 0;
+      padding: 0.5*@line 0;
+      text-align: center;
+      li {
+        display: inline;
+        font-size: 1.2rem;
+        font-weight: 300;
+        line-height: @line;
+        i {
+          font-size: 18px;
+          font-weight: 700;
+        }
+        a {
+          .link-icon-alt;
+          color: @bg;
+          border: none;
+          :hover {
+            color: @text;
+          }
+        }
+      }
+
+      // this part compresses the menu descriptions according to viewport width
+      @media all and (max-width: @break1)   { 
+        span > span {
+          display: none;
+        }
+      }
+      @media all and (max-width: @break2)   {
+        span {
+          display: none;
+        }
+      }
+    }
+  }
+
+/* Sidebar */
+
+  #sidebar {
+    border-top: 1px solid @sub;
+    padding-top: @line;
+    @media all and (min-width: @break1)   {
+      border: none;
+      padding-top: 0;
+    }
+  }
+
+/* Footer */
+
+  #footer {
+    margin-top: @line;
+    border-top: 1px solid @sub;
+    padding-bottom: @line;
+    font-size: 0.8rem;
+    color: @text-less;
+    a { .hide-link; border-bottom: 1px solid; }
+  }
+
+/* Episodes */
+  .episode-list {
+    .more-link {      
+      color: @text-less;
+      .hide-link-hardcore;
+      img {
+        float: left;
+      }
+      span {
+        margin-left: 24px;
+        color: @text-less;
+        &:hover {
+              color: @highlight2;
+            }
+      }
+    }
+  }
+
+  .episode {
+    padding-bottom: @line;
+    margin-bottom: @line;
+    overflow: hidden;
+    .header {
+      margin-bottom: @line;
+      .episode-icon, .icon {
+        float: left;
+        width: 40px;
+        height: @line;
+        font-size: 24px;
+        vertical-align: middle;
+        .link-icon;
+      }
+
+      .title-label {
+        color: @text;
+      }
+
+      .meta-info {
+        margin-left: 40px;
+        color: @text-even-less;
+        a {
+          .hide-link;
+          margin-right: 0.5em;
+          }
+        .id { 
+          text-transform: uppercase; // CHOCKLOCK ENGAGE
+        }
+        .date {
+          
+        }
+        .crew {
+          margin: 0;
+          padding: 0;
+          display: inline;
+          .inline-list;
+          a {
+            text-decoration: none;
+            color: @sub;
+            margin: 0;
+            .hide-link;
+          }
+          li {
+            .itemized;
+          }
+
+        }
+        .live-info {
+          
+        }
+      }
+    }
+    .content {
+        margin-left: 40px;
+      }
+      .more-link-text {
+        .inline-icon;
+        .link-icon;
+        float: right;
+        color: @text-less;
+        border: none;
+      }
+  }
+
+
+  /* Planned Episodes from the future! */
+    .episode-planned {
+      &:after {
+        content: " / ";
+        color: @text-less;
+        font-weight: 800;
+      }
+      a { 
+        color: @highlight-less;
+        span { color: @text-less;}
+        &:hover {
+          color: @highlight2;
+        }
+      }
+    }
+
+  .more-link {
+    .inline-icon;
+    color: @text-even-less;
+    padding-left: 0.2rem;
+    }
+  }
+
+  /* Published episodes */
+
+  .episode-published {
+    border-bottom: 1px solid @highlight;
+  }
+
+  /* Episode lists */
+    #planned-episodes {
+        clear: both;
+        margin-bottom: @line;
+        overflow: hidden;
+        #planned-label {
+          width: 40px;
+          float: left;
+          color: @text;
+          i {font-size: 24px;vertical-align: middle;}
+        }
+      }
+
+    #planned-episodes-list {
+        float: left;
+        width: 90%;
+        @media all and (max-width: @break2)   { // prevent list from weird formatting on small screens
+          width: 85%;
+        }
+        margin: 0;
+        padding: 0;
+        .inline-list;
+        li {
+          float: left;
+          margin-right: 0.1em;
+          font-size: 1.2rem;
+          font-weight: 500;
+
+        }
+
+/* Hosts */ 
+
+  .host {
+    margin-bottom: 2*@line;
+    h4 {
+      margin: 0;
+      span {
+        .em-dashed;
+        font-style: italic;
+        color: @text-less;
+      }
+    }
+    img {
+      float: left;
+      width: 6*@line;
+      height: 6*@line;
+      margin: 0 @line @line 0;
+    }
+    .social-links {
+      margin: 0 0 @line 0;
+      .inline-list;
+      li {
+        .itemized;
+        a {
+          .hide-link;
+        }
+      }
+    }
+
+    .episode-links {
+      span {
+        float: left;
+      }
+      .episode-links-list {
+        display: inline;
+        .inline-list;
+        margin: 0;
+        padding-left: 10px;
+        li {
+          .itemized;
+          a {
+            color: @text;
+          }
+        }
+      }
+    }
+  }
+
+/* Content area decoration */
+
+  #content {  
+  }
+
+  #paging-links {
+    color: @text-less;
+    margin-bottom: 2*@line;
+    .link-older {
+      .inline-icon;
+      float: left;
+    }
+    .link-newer {
+      .inline-icon;
+      float: right;
+    }
+  }
+
+/* Styling for .pages */
+
+  .page {
+    margin-top: @line;
+  }
+
+  .page-title {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1.5*@line;
+    a {
+      .hide-link;
+    }
+    span.quip {
+      font-size: 1.2rem;
+    }
+  }
