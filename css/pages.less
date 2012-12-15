@@ -16,7 +16,6 @@ podding - stylesheet for specific pages
       
     }
     #planned-episodes-list {
-      
       float: left;
       width: 90%;
       @media all and (max-width: @break2)   { // prevent list from weird formatting on small screens
@@ -69,7 +68,9 @@ podding - stylesheet for specific pages
 
 .shows {
   .show {
+    overflow: hidden;
     clear: both;
-    margin-bottom: 2*@line;
+    margin-bottom: @line;
+    border-bottom: 1px solid @sub;
   }
 }
