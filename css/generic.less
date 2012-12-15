@@ -9,6 +9,15 @@ podding - stylesheet for generic objects (lol)
     }
   }
 
+.more-link-text {
+      .inline-icon;
+      .link-icon;
+      float: right;
+      color: @text-less;
+      border: none;
+      margin-right: 1em;
+    }
+
 /* Header section */
   /* Site Header */
 
@@ -95,23 +104,7 @@ podding - stylesheet for generic objects (lol)
   }
 
 /* Episodes */
-  .episode-list {
-    .more-link {      
-      color: @text-less;
-      .hide-link-hardcore;
-      img {
-        float: left;
-      }
-      span {
-        margin-left: 24px;
-        color: @text-less;
-        &:hover {
-              color: @highlight2;
-            }
-      }
-    }
-  }
-
+  
   .episode {
     padding-bottom: @line;
     margin-bottom: @line;
@@ -168,18 +161,62 @@ podding - stylesheet for generic objects (lol)
     .content {
         margin-left: 40px;
       }
-      .more-link-text {
-        .inline-icon;
-        .link-icon;
-        float: right;
-        color: @text-less;
-        border: none;
-      }
+      
   }
 
 
-  /* Planned Episodes from the future! */
-    .episode-planned {
+  
+
+  /* Published episodes */
+
+/* Episode lists */
+  .episode-list {
+    .more-link {      
+      color: @text-less;
+      .hide-link-hardcore;
+      img {
+        float: left;
+      }
+      span {
+        margin-left: 24px;
+        color: @text-less;
+        &:hover {
+              color: @highlight2;
+            }
+      }
+    }
+    .episode {
+      border-bottom: 1px solid @highlight;
+    }
+  }
+
+  .episode-list-mini {
+    
+    margin: 0;
+    padding: 0;
+    .inline-list;
+    li {
+      float: left;
+      margin-right: 0.1em;
+      font-size: 1.2rem;
+      font-weight: 500;
+
+    }
+    .more-link {
+    .inline-icon;
+    color: @text-even-less;
+    padding-left: 0.2rem;
+    }
+  }
+
+  .episode-list-mini-label {
+    width: 40px;
+    float: left;
+    color: @text;
+    i {font-size: 24px;vertical-align: middle;}
+  }
+
+  .episode-mini {
       &:after {
         content: " / ";
         color: @text-less;
@@ -194,48 +231,38 @@ podding - stylesheet for generic objects (lol)
       }
     }
 
-  .more-link {
-    .inline-icon;
-    color: @text-even-less;
-    padding-left: 0.2rem;
-  }
+/* Shows */
 
-  /* Published episodes */
+  .show {
+    img {
+      float: left;
+      width: 20%;
+      margin: 0 5% @line 0;
+    }
 
-  .episode-published {
-    border-bottom: 1px solid @highlight;
-  }
-
-  /* Episode lists */
-    #planned-episodes {
-        clear: both;
-        margin-bottom: @line;
-        overflow: hidden;
-        #planned-label {
-          width: 40px;
-          float: left;
-          color: @text;
-          i {font-size: 24px;vertical-align: middle;}
+    h2.show-title {
+        span {
+          text-transform: uppercase;
+          font-variant: small-caps;
+          color: @text-less;
+          font-size: 0.6em;
         }
       }
 
-    #planned-episodes-list {
-        float: left;
-        width: 90%;
-        @media all and (max-width: @break2)   { // prevent list from weird formatting on small screens
-          width: 85%;
-        }
-        margin: 0;
-        padding: 0;
-        .inline-list;
-        li {
-          float: left;
-          margin-right: 0.1em;
-          font-size: 1.2rem;
-          font-weight: 500;
+    .header {
+      clear: both;
+      overflow: hidden;
 
-        }
     }
+    .description {
+      float: right;
+      width: 75%;
+    }
+    section {
+      overflow: hidden;
+      margin-bottom: @line;
+    }
+  }
 
 /* Hosts */ 
 

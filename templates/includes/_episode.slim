@@ -1,7 +1,7 @@
 - if mode == "mini"
-  li class=["episode", "#{ episode.show }", "episode-#{ episode.status }"]
+  li class=["episode-mini", "#{ episode.show }", "episode-#{ episode.status }"]
         a.title-link href=""
-          | <span class="title-label">#{ episode.date }</span>#{ episode.title }
+          | <span class="title-label">#{ episode.date.strftime("%-d. %B %Y") }</span>#{ episode.title }
 - if mode != "mini"
   div class=["episode", "#{ episode.show }", "episode-#{ episode.status }"]
 

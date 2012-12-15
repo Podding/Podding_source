@@ -5,44 +5,71 @@ podding - stylesheet for specific pages
 
 /* Index */
 
-  .index #live-episodes {
-      margin-top: 2*@line;
+  .index  {
+      #live-episodes {
+        margin-top: 2*@line;
+      }
+    #planned-episodes {
+      clear: both;
+      margin-bottom: @line;
+      overflow: hidden;
+      
+    }
+    #planned-episodes-list {
+      
+      float: left;
+      width: 90%;
+      @media all and (max-width: @break2)   { // prevent list from weird formatting on small screens
+        width: 85%;
+      }
+    }
     }
 
-  /* Single Episode */
 
-  .single-episode {
-    
-    .episode {
-      border-bottom: none;
-    }
-  }
 
-  /* Crew Page */
+/* Single Episode */
 
+.single-episode {
   
+  .episode {
+    border-bottom: none;
+  }
+}
 
-  /* Abo page */
+/* Crew Page */
 
-  .page-abo {
-    .button {
-      margin-bottom: 0.5*@line;
+
+
+/* Abo page */
+
+.page-abo {
+  .button {
+    margin-bottom: 0.5*@line;
+  }
+}
+
+
+.feedtable {
+  width: 100%;
+  td {
+    padding: 3px 1rem;
+    a {
+      .hide-link;
+    }
+  }
+  tr {
+    &:nth-child(2n) {
+      background-color: @bg-less;
     }
   }
 
+}
 
-  .feedtable {
-    width: 100%;
-    td {
-      padding: 3px 1rem;
-      a {
-        .hide-link;
-      }
-    }
-    tr {
-      &:nth-child(2n) {
-        background-color: @bg-less;
-      }
-    }
+/* Shows */
 
+.shows {
+  .show {
+    clear: both;
+    margin-bottom: 2*@line;
   }
+}
