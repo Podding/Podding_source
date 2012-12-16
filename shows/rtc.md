@@ -1,6 +1,7 @@
 ---
 name: "rtc"
 title: "Retinacast"
+author: "Ratinacast Crew"
 cover_url: "http://placekitten.com/300/300"
 ---
 

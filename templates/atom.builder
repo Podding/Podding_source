@@ -3,7 +3,7 @@ xml.feed("xml:lang" => 'de',"xmlns" => "http://www.w3.org/2005/Atom", "xmlns:itu
   xml.title @show ? @show.title : settings.title
 
   xml.id "http://binaergewitter.de/"
-  xml.updated Date.parse(@episodes.first.date).to_datetime.rfc3339 unless @episodes.empty?
+  xml.updated @episodes.first.date.to_datetime.rfc3339 unless @episodes.empty?
   xml.author { xml.name(@show ? @show.author : settings.author) }
   xml.tag!("itunes:summary", "")
   xml.tag!("itunes:author", "author")
@@ -11,29 +11,32 @@ xml.feed("xml:lang" => 'de',"xmlns" => "http://www.w3.org/2005/Atom", "xmlns:itu
 
   xml.tag!("itunes:image", {"href" => @show ? @show.cover_url : settings.cover_url})
   xml.tag!("itunes:category", {"text" => "Technology"})
-  
+
   xml.tag!("itunes:owner"){
     xml.tag!("itunes:name", "author")
     xml.tag!("itunes:email", "info@binaergewitter.de")
   }
 
   xml.link({"rel" => "self", "href" => request.url})
+  @episodes.each do |episode| 
+    if !episode.meta_data["audioformats"].nil?
+      xml.tag!("debug", episode.meta_data["audioformats"][@audio_format])
 
-  @episodes.each do |episode|
-    if !episode.meta_data[@audio_format].nil?
-      xml.entry do
-        xml.title episode.title
-        xml.link "rel" => "alternate", "href" => episode.full_url
-        xml.link "href" => episode.meta_data[@audio_format], 'rel' => 'enclosure', 'type' => "audio/mpeg"
-        xml.id episode.meta_data[@audio_format]
-        xml.published Date.parse(episode.date).to_datetime.rfc3339
-        xml.updated Date.parse(episode.date).to_datetime.rfc3339
-        xml.author { xml.name("author") }
-        xml.summary do
-          xml.cdata!(markdown episode.content)
-        end
-        xml.content do
-          xml.cdata!(markdown episode.content)
+      if !episode.meta_data["audioformats"][@audio_format].nil?
+        xml.entry do
+          xml.title episode.title
+          xml.link "rel" => "alternate", "href" => episode.meta_data["full_url"]
+          xml.link "href" => episode.meta_data["audioformats"][@audio_format], 'rel' => 'enclosure', 'type' => "audio/mpeg"
+          xml.id episode.meta_data["audioformats"][@audio_format]
+          xml.published episode.date.to_datetime.rfc3339
+          xml.updated episode.date.to_datetime.rfc3339
+          xml.author { xml.name("author") }
+          xml.summary do
+            xml.cdata!(markdown episode.content)
+          end
+          xml.content do
+            xml.cdata!(markdown episode.content)
+          end
         end
       end
     end
