@@ -15,45 +15,16 @@
   .show-episodes
     - if mode == "short"
       - if show.planned_episodes.length != 0
-        section
-          a.link-icon.popover.episode-list-mini-label href="" data-tooltip=""
-            |  <i class="icon-calendar"></i>
-            span.popover-content Geplante Sendungen
-          ul.episode-list-mini
-            - for episode in show.planned_episodes
-              == slim :"includes/_episode", :locals => { :episode => episode, :mode => "mini" }
-            li.more-link
-              a.link-icon href="#{  }"
-                |  mehr... <i class="icon-circle-arrow-right"></i>
-
+        == slim :"includes/_episode-list", :locals => { :episodes => show.planned_episodes, :list_icon => "calendar", :mode => "mini", :list_label => "Geplante Folgen" }
 
       - if show.published_episodes.length != 0
-        section
-          a.link-icon.popover.episode-list-mini-label href=""
-            |  <i class="icon-folder-close"></i>
-            span.popover-content Veröffentlichte Folgen
-          ul.episode-list-mini
-            - for episode in show.published_episodes
-              == slim :"includes/_episode", :locals => { :episode => episode, :mode => "mini" }
-            li.more-link
-              a.link-icon href=""
-                |  mehr... <i class="icon-circle-arrow-right"></i>
+        == slim :"includes/_episode-list", :locals => { :episodes => show.published_episodes, :list_icon => "folder-close", :mode => "mini", :list_label => "Veröffentlichte Folgen" }
+        
     - elsif mode == "full"
       - if show.planned_episodes.length != 0
-        section
-          a.link-icon.tooltip.tooltip-right.episode-list-mini-label href="" data-tooltip="Geplante Sendungen"
-            |  <i class="icon-calendar"></i>
-          ul.episode-list-mini
-            - for episode in show.planned_episodes
-              == slim :"includes/_episode", :locals => { :episode => episode, :mode => "mini" }
-            li.more-link
-              a.link-icon href="#{  }"
-                |  mehr... <i class="icon-circle-arrow-right"></i>
-
+        == slim :"includes/_episode-list", :locals => { :episodes => show.planned_episodes, :list_icon => "calendar", :mode => "mini", :list_label => "Geplante Folgen" }
 
       - if show.published_episodes.length != 0
-        section.episode-list
-          - for episode in show.published_episodes
-            == slim :"includes/_episode", :locals => { :episode => episode, :mode => "short" }
+        == slim :"includes/_episode-list", :locals => { :episodes => show.planned_episodes, :list_icon => "", :mode => "short", :list_label => "" }
             
 

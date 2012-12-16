@@ -34,9 +34,8 @@
             | <i class="icon-link"></i> Live-Stream
 
   #published-episodes
-
-    - for episode in @episodes do
-      == slim :"includes/_episode", :locals => { :episode => episode, :mode => "short" }
+    == slim :"includes/_episode-list", :locals => { :episodes => @episodes, :list_icon => "", :mode => "short" }
+    
 
 
   #paging-links
