@@ -142,3 +142,97 @@
     }
 
   }
+
+/* Popovers! */
+
+  .popover {
+    position: relative;
+    height: @line;
+    display: inline-block;
+    vertical-align: baseline;
+    zoom: 1;
+    *display: inline;
+    *vertical-align: auto;
+    &:hover ul, &:hover span {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .popover-content {
+      width: 100%;
+      visibility: hidden; // comment this line for debugging
+      opacity: 0; // comment this line for debugging
+      position: absolute;
+      top: 0.5*@line;
+      left: 0;
+      right: 0;
+      .bordered;
+      border: 1px solid @highlight;
+      padding: 0 5px;
+      -webkit-transition-property: opacity, padding, visibility;
+      -moz-transition-property: opacity, padding, visibility;
+      -ms-transition-property: opacity, padding, visibility;
+      -o-transition-property: opacity, padding, visibility;
+      transition-property: opacity, padding, visibility;
+      -webkit-transition: 0.2s ease-out;
+      -moz-transition: 0.2s ease-out;
+      -ms-transition: 0.2s ease-out;
+      -o-transition: 0.2s ease-out;
+      transition: 0.2s ease-out;
+      background-color: @bg;
+      list-style: none;
+      color: @text;
+      text-align: center;
+      a {
+        .hide-link-less;
+      }
+      &:before, &:after {
+        display: block;
+        content: '';
+        width: 0;
+        height: 0;
+        position: absolute;
+        left: 15px;
+        border: 8px outset transparent;
+      }
+      &:before { // white triangle to "cut out" the arrow
+        border-bottom: 8px solid @highlight;
+        top: -17px;
+        left: 15px;
+      }
+      &:after {
+        border-bottom: 8px solid @bg; // creates a red triangle
+        top: -16px;
+        left: 15px;
+      }
+
+    }
+  }
+
+
+  
+
+  .popover span.popover-content {
+    top: 1.2*@line;
+    text-transform: none;
+  }
+
+ 
+  
+
+    /* Specific Popovers */
+
+    .episode-list-mini-label {
+      .popover {
+
+      }
+      span.popover-content {
+        top: 30px;
+        left: -20px;
+        width: 200px;
+        &:before, &:after {
+          left: 20px;
+        }
+      }
+      
+    }

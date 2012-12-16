@@ -3,22 +3,23 @@ header.instapaper_ignore
     | Retinacast
   p#tagline
   nav
-    ul
-      li.nav-item: a href="/pages/info"
+    ul#nav-list
+      li.nav-item: a.nav-link href="/pages/info"
         | <i class="icon-book"></i> <span>Info<span>rmationen</span></span>
-      li.nav-item: a href="/hosts"
+      li.nav-item: a.nav-link href="/hosts"
         | <i class="icon-group"></i> <span>Hosts</span>
-      li.nav-item.popover
+      li.nav-item.popover-menu
+        a.nav-link href="/shows"
+          | <i class="icon-star"></i> <span>Shows</span>
         ul.popover-content
             li: a href="/shows/rtn" Retinauten
             li: a href="/shows/rtc" Retinacast
-        a href="/shows"
-          | <i class="icon-star"></i> <span>Shows</span>
+        
 
-      li.nav-item: a href="/pages/abo"
+      li.nav-item: a.nav-link href="/pages/abo"
         | <i class="icon-rss"></i><span>Abo<span>nnieren</span></span>
-      li.nav-item: a href="/pages/feedback"
+      li.nav-item: a.nav-link href="/pages/feedback"
         | <i class="icon-comments-alt"></i> <span>Feedback</span>
-      li.nav-item: a href="/pages/archive"
+      li.nav-item: a.nav-link href="/pages/archive"
         | <i class="icon-list"></i> <span>Archiv</span>
 
