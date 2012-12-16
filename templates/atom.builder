@@ -3,7 +3,7 @@ xml.feed("xml:lang" => 'de',"xmlns" => "http://www.w3.org/2005/Atom", "xmlns:itu
   xml.title @show ? @show.title : settings.title
 
   xml.id "http://binaergewitter.de/"
-  xml.updated @episodes.first.date.to_datetime.rfc3339 unless @episodes.empty?
+  xml.updated @episodes.first.date.rfc3339 unless @episodes.empty?
   xml.author { xml.name(@show ? @show.author : settings.author) }
   xml.tag!("itunes:summary", "")
   xml.tag!("itunes:author", "author")
@@ -28,8 +28,8 @@ xml.feed("xml:lang" => 'de',"xmlns" => "http://www.w3.org/2005/Atom", "xmlns:itu
           xml.link "rel" => "alternate", "href" => episode.meta_data["full_url"]
           xml.link "href" => episode.meta_data["audioformats"][@audio_format], 'rel' => 'enclosure', 'type' => "audio/mpeg"
           xml.id episode.meta_data["audioformats"][@audio_format]
-          xml.published episode.date.to_datetime.rfc3339
-          xml.updated episode.date.to_datetime.rfc3339
+          xml.published episode.date.rfc3339
+          xml.updated episode.date.rfc3339
           xml.author { xml.name("author") }
           xml.summary do
             xml.cdata!(markdown episode.content)
