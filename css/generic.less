@@ -293,6 +293,9 @@ podding - stylesheet for generic objects (lol)
 /* Hosts */ 
 
   .host {
+    clear: both;
+    float: left;
+    width: 100%;
     margin-bottom: 2*@line;
     h4 {
       margin: 0;
@@ -301,12 +304,6 @@ podding - stylesheet for generic objects (lol)
         font-style: italic;
         color: @text-less;
       }
-    }
-    img {
-      float: left;
-      width: 6*@line;
-      height: 6*@line;
-      margin: 0 @line @line 0;
     }
     .social-links {
       margin: 0 0 @line 0;
@@ -336,6 +333,17 @@ podding - stylesheet for generic objects (lol)
         }
       }
     }
+  }
+
+  .host-image {
+      float: left;
+      width: 20%;
+      margin: 0;
+    }
+
+  .host-wrapper {
+    float: right;
+    width: 77.5%;
   }
 
 /* Content area decoration */
