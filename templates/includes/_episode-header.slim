@@ -6,7 +6,7 @@
     a.episode-icon.link-icon
       i.icon-bullhorn
 
-  h2.title: a.title-link href="/episode"
+  h2.title: a.title-link href="#{ url_for(episode) }"
     | <span class="title-label">#{ episode.show.title }</span> #{ episode.title }
   .meta-info
     a.id.link-icon.popover href="" title="ID der Sendung #{ episode.show.title }: #{ episode.title }"

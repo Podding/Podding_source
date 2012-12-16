@@ -10,7 +10,10 @@
     - if mode == "short" or mode == "full"
       .content
         .desciption.text-content
-          == markdown episode.content
+          == markdown episode.teaser
         - if mode == "short"
-          a.more-link-text href="" title="Link zu den Shownotes zu #{ episode.show.title } - #{ episode.title }"
+          a.more-link-text href="#{ url_for(episode) }" title="Link zu den Shownotes zu #{ episode.show.title } - #{ episode.title }"
              | <i class="icon-book"></i> Shownotes
+
+        - if mode == "full"
+          == markdown episode.content
