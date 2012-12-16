@@ -207,32 +207,23 @@
       }
 
     }
-  }
 
-
-  
-
-  .popover span.popover-content {
-    top: 1.2*@line;
-    text-transform: none;
-  }
-
- 
-  
-
-    /* Specific Popovers */
-
-    .episode-list-mini-label {
-      .popover {
-
-      }
-      span.popover-content {
-        top: 30px;
-        left: -20px;
-        width: 200px;
-        &:before, &:after {
-          left: 20px;
-        }
-      }
-      
+    span.popover-content {
+      top: 1.2*@line;
     }
+  }
+
+  .popover-label {
+    .popover;
+    .popover-content {
+      top: 30px;
+      left: -20px;
+      width: 200px;
+      &:before, &:after {
+        left: 20px;
+      }
+    }
+  }
+  
+
+    
