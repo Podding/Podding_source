@@ -15,17 +15,17 @@
   .show-episodes
     - if mode == "short"
       - if show.planned_episodes.length != 0
-        == slim :"includes/_episode-list", :locals => { :episodes => show.planned_episodes, :list_icon => "calendar", :mode => "mini", :list_label => "Geplante Folgen" }
+        == slim :"includes/_episode-list", :locals => { :episodes => show.planned_episodes, :list_icon => "calendar", :mode => "mini-date", :list_label => "Geplante Folgen" }
 
       - if show.live_episodes.length != 0
         == slim :"includes/_episode-list", :locals => { :episodes => show.planned_episodes, :list_icon => "", :mode => "short", :list_label => "" }
 
       - if show.published_episodes.length != 0
-        == slim :"includes/_episode-list", :locals => { :episodes => show.published_episodes, :list_icon => "folder-close", :mode => "mini", :list_label => "Veröffentlichte Folgen" }
+        == slim :"includes/_episode-list", :locals => { :episodes => show.published_episodes, :list_icon => "folder-close", :mode => "mini-date", :list_label => "Veröffentlichte Folgen" }
         
     - elsif mode == "full"
       - if show.planned_episodes.length != 0
-        == slim :"includes/_episode-list", :locals => { :episodes => show.planned_episodes, :list_icon => "calendar", :mode => "mini", :list_label => "Geplante Folgen" }
+        == slim :"includes/_episode-list", :locals => { :episodes => show.planned_episodes, :list_icon => "calendar", :mode => "mini-date", :list_label => "Geplante Folgen" }
 
       - if show.live_episodes.length != 0
         == slim :"includes/_episode-list", :locals => { :episodes => show.planned_episodes, :list_icon => "", :mode => "short", :list_label => "" }

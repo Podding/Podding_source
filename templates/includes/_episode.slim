@@ -1,8 +1,12 @@
-- if mode == "mini"
+- if mode == "mini-date"
   li class=["episode-mini", "#{ episode.show }", "episode-#{ episode.status }"]
         a.title-link href=""
           | <span class="title-label">#{ episode.date.strftime("%-d. %B %Y") }</span>#{ episode.title }
-- if mode != "mini"
+- if mode == "mini-show"
+  li class=["episode-mini", "#{ episode.show }", "episode-#{ episode.status }"]
+        a.title-link href=""
+          | <span class="title-label">#{ episode.show.title }</span>#{ episode.title }
+- if mode != "mini-date" and mode != "mini-show"
   div class=["episode", "#{ episode.show }", "episode-#{ episode.status }"]
 
     == slim :"includes/_episode-header", :locals => { :episode => episode }
