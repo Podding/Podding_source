@@ -10,13 +10,18 @@ podding - stylesheet for generic objects (lol)
   }
 
 .more-link-text {
-      .inline-icon;
-      .link-icon;
+  .inline-icon;
+  .link-icon;
+  float: right;
+  color: @text-less;
+  border: none;
+  margin-right: 1em;
+  @media all and (max-width: @break2)   {
       float: right;
-      color: @text-less;
-      border: none;
-      margin-right: 1em;
+      width: 50%;
+      margin: 0;
     }
+  }
 
 /* Header section */
   /* Site Header */
@@ -181,12 +186,49 @@ podding - stylesheet for generic objects (lol)
       }
     }
     .content {
+        float: left;
         margin-left: 40px;
       }
       
   }
 
+  .download-links-short { // these are displayed in short mode when rendering an episode
+    margin-right: 20%;
+    @media all and (max-width: @break2)   {
+      float: left;
+      width: 50%;
+      margin: 0;
+    }
+  }
 
+  .download-links-full {
+    float: left;
+    width: 100%;
+    padding: 0.5*@line 0;
+    text-align: center;
+  }
+
+  .download-link {
+    .more-link-text;
+    font-size: 1rem;
+    color: @text-even-less;
+    i { font-size: 1.4em; }
+  }
+
+  .download-link-short { // these are displayed in short mode when rendering an episode
+    .download-link;
+    @media all and (max-width: @break2)   {
+      float: left;
+    }
+  }
+
+  .download-link-full { // these are for episodes in full mode
+    .download-link;
+    float: none;
+    display: inline;
+    font-size: 1.2rem;
+    color: @text-less;
+  }
   
 
   /* Published episodes */

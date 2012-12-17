@@ -9,12 +9,23 @@
 
     - if mode == "short" or mode == "full"
       .content
-        .desciption.text-content
+        .teaser.text-content
           == markdown episode.teaser
         - if mode == "short"
           a.more-link-text href="#{ url_for(episode) }" title="Link zu den Shownotes zu #{ episode.show.title } - #{ episode.title }"
              | <i class="icon-book"></i> Shownotes
-
+          p.download-links-short
+            - for audio_format in episode.audioformats.keys do
+              a.download-link-short.popover href="#{episode.audioformats[audio_format]}" 
+                | <i class="icon-download"></i> #{audio_format}
+                span.popover-content Download #{ episode.show.title }: #{ episode.title } in #{ audio_format }
+        
         - if mode == "full"
-          == markdown episode.content
-          == slim :"includes/_episode-player", :locals => { :episode => episode}
+          .shownotes.text-content
+            == markdown episode.content
+            == slim :"includes/_episode-player", :locals => { :episode => episode}
+          p.download-links-full
+            - for audio_format in episode.audioformats.keys do
+              a.download-link-full.popover href="#{episode.audioformats[audio_format]}" 
+                | <i class="icon-download"></i> #{audio_format}
+                span.popover-content Download #{ episode.show.title }: #{ episode.title } in #{ audio_format }
