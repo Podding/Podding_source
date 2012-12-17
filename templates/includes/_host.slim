@@ -5,7 +5,7 @@
 
   .host-wrapper
     h4: a href="#{ url_for(host) }"
-      | #{ host.name }
+      | #{ host.full_name }
 
       - if host.quip
         <span class="quip">#{ host.quip }</span>
@@ -34,6 +34,6 @@
   - if mode == "full"
     - if host.episodes.length != 0
       .host-episodes
-        == slim :"includes/_episode-list", :locals => { :episodes => host.episodes, :list_icon => "folder-close", :mode => "mini-show", :list_label => "Sendungen mit #{host.name}" }
+        == slim :"includes/_episode-list", :locals => { :episodes => host.episodes, :list_icon => "folder-close", :mode => "mini-show", :list_label => "Sendungen mit #{host.full_name}" }
 
       
