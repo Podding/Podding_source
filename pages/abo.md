@@ -2,6 +2,7 @@
 name: "abo"
 title: "Abonnieren"
 template: "abo"
+icon: "rss"
 ---
 [Bei iTunes abonieren](#derp)  
 [Feed für alle Sendungen](#derp)  
