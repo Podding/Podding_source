@@ -153,10 +153,10 @@ podding - stylesheet for generic objects (lol)
 
       .meta-info {
         margin-left: 40px;
-        color: @text-even-less;
+        color: @text-less;
         a {
           .hide-link;
-          margin-right: 0.5em;
+          margin-right: 0.7em;
           }
         .id-content { 
           text-transform: uppercase; // CHOCKLOCK ENGAGE
@@ -175,7 +175,7 @@ podding - stylesheet for generic objects (lol)
             margin: 0;
             .hide-link;
           }
-          li {
+          li:not(.hosts-list-label) { // :not prevents the icon from being itemized
             .itemized;
           }
 
