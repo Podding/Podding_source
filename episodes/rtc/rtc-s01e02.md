@@ -1,5 +1,5 @@
 ---
-name: "breaking_bad"
+name: "rtc-s01e02"
 title: "Breaking Bad"
 show: "rtc"
 id: "s01e02"

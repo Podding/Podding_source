@@ -1,5 +1,5 @@
 ---
-name: "doctor_house"
+name: "rtc-s01e01"
 title: "Doctor House"
 show: "rtc"
 id: "s01e01"
