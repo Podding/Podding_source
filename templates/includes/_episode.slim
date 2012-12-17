@@ -30,6 +30,6 @@
             == slim :"includes/_episode-player", :locals => { :episode => episode}
           p.download-links-full
             - for audio_format in episode.audioformats.keys do
-              a.download-link-full.popover href="#{episode.audioformats[audio_format]}" 
+              a.download-link-full.popover href="#{episode.audioformats[audio_format]}" title="Download #{ episode.show.title }: #{ episode.title } in #{ audio_format }"
                 | <i class="icon-download"></i> #{audio_format}
                 span.popover-content Download #{ episode.show.title }: #{ episode.title } in #{ audio_format }
