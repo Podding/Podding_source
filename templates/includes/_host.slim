@@ -27,16 +27,13 @@
     .description.text-content
 
       == markdown host.content
+      - if mode == "short"
+        a.more-link-text href="#{ url_for(host) }" title="Mehr über #{ host.name } "
+               |  mehr... <i class="icon-circle-arrow-right"></i>
 
-    .episode-links
-      | <span>Folgen: </span>  
-      ul.episode-links-list
-        - if host.episodes.length == 1
-          - for episode in host.episodes
-            li.single: a href="#{ url_for(episode) }" #{ episode.show.title }: #{ episode.title }
-        
-        - elsif host.episodes.length != 1
-          - for episode in host.episodes
-            li: a href="#{ url_for(episode) }" #{ episode.show.title }: #{ episode.title }
+  - if mode == "full"
+    - if host.episodes.length != 0
+      .host-episodes
+        == slim :"includes/_episode-list", :locals => { :episodes => host.episodes, :list_icon => "folder-close", :mode => "mini-show", :list_label => "Sendungen mit #{host.name}" }
 
       
