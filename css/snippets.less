@@ -2,6 +2,7 @@
   Snippets Stylesheet for reusable stylings
 */
 
+
 /* Style inline lists and add delimeters */
 
   .inline-list { // Generic styling for lists that are displayed inline (like navigation, episode tags etc.)
@@ -247,12 +248,25 @@
     float: left;
     width: 20%;
     margin: 0;
+    @media all and (max-width: @break2)   {
+      width: 100%;
+      margin-bottom: -33%;
+    }
   }
+
+  
 
   .card-main {
     float: right;
     width: 75%;
+    @media all and (max-width: @break2)   {
+      width: 90%;
+      padding: 0.5*@line 5% 0 5%;
+      background: @bg;
+      
+    }
   }
+
 
   .card-title {
 
@@ -262,4 +276,10 @@
     clear: both;
     float: left;
     width: 100%;
+    @media all and (max-width: @break2)   {
+      width: 90%;
+      padding: 0 5%;
+      
+    }
   }
+
