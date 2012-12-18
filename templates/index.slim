@@ -1,40 +1,13 @@
 #content.episode-list.index
   #planned-episodes
-    .episode-list-mini-label
-      a.link-icon.popover-label href="" data-tooltip="Geplante Sendungen"
-        |  <i class="icon-calendar"></i>
-        span.popover-content Geplante Sendungen
-    ul.episode-list-mini
-      li.episode-mini.RTC.title
-        a.title-link href=""
-          | <span class="title-label">12. Oktober</span>Retinacast
-
-      li.episode-mini.RTC.title
-        a.title-link href=""
-          | <span class="title-label">10. Oktober</span>Pilotenpr&uuml;fung
-
-      li.more-link
-        a.link-icon href=""
-          |  mehr... <i class="icon-circle-arrow-right"></i>
-
+    - if planned_episodes.length != 0
+        == slim :"includes/_episode-list", :locals => { :episodes => @planned_episodes, :list_icon => "calendar", :mode => "mini-date", :list_label => "Geplante Folgen" }
 
   #live-episodes
-   .episode.episode-live.RTN
-      .header
-        a.episode-icon.link-icon
-          i.icon-bullhorn
-        h2.title: a.title-link href=""
-          | <span class="title-label">Jetzt live</span>Retinauten
-        .meta-info
-          a.id.link-icon href=""
-            | <i class="icon-barcode"></i> RTN002
-          a.date.link-icon href=""
-            | <i class="icon-time"></i> 7.10.2010 ab 19.00 Uhr
-          a.live-info.link-icon href=""
-            | <i class="icon-link"></i> Live-Stream
+   == slim :"includes/_episode-list", :locals => { :episodes => @live_episodes, :list_icon => "", :mode => "short" }
 
   #published-episodes
-    == slim :"includes/_episode-list", :locals => { :episodes => @episodes, :list_icon => "", :mode => "short" }
+    == slim :"includes/_episode-list", :locals => { :episodes => @published_episodes, :list_icon => "", :mode => "short" }
     
 
 
