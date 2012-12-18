@@ -251,6 +251,7 @@
     @media all and (max-width: @break2)   {
       width: 100%;
       margin-bottom: -33%;
+      
     }
   }
 
@@ -260,13 +261,19 @@
     float: right;
     width: 75%;
     @media all and (max-width: @break2)   {
-      width: 90%;
-      padding: 0.5*@line 5% 0 5%;
+      width: 100%;
+      padding: 0;
       background: @bg;
-      
     }
   }
 
+  .card-main-wrapper {
+    @media all and (max-width: @break2)   {
+      width: 90%;
+      padding: 0.5*@line 5% 0.5*@line 5%;
+      background: @bg;
+    }
+  }
 
   .card-title {
 

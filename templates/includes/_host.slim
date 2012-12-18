@@ -4,32 +4,33 @@
     img.card-cover-image src="#{ host.image_url }"
     
   .card-main
-    h4.card-title: a href="#{ url_for(host) }"
-      | #{ host.full_name }
+    .card-main-wrapper
+      h4.card-title: a href="#{ url_for(host) }"
+        | #{ host.full_name }
 
-      - if host.quip
-        <span class="quip">#{ host.quip }</span>
+        - if host.quip
+          <span class="quip">#{ host.quip }</span>
 
-    ul.social-links
+      ul.social-links
 
-      - if host.twitter
-        li: a href="https://twitter.com/#{ host.twitter }"
-          | <i class="icon-twitter"></i> Twitter
+        - if host.twitter
+          li: a href="https://twitter.com/#{ host.twitter }"
+            | <i class="icon-twitter"></i> Twitter
 
-      - if host.flattr
-        li: a href=""
-          | <i class="icon-money"></i> Flattr
+        - if host.flattr
+          li: a href=""
+            | <i class="icon-money"></i> Flattr
 
-      - if host.blog_url
-        li: a href="#{ host.blog_url }"
-         | <i class="icon-link"></i> Blog
+        - if host.blog_url
+          li: a href="#{ host.blog_url }"
+           | <i class="icon-link"></i> Blog
 
-    .description.text-content
+      .description.text-content
 
-      == markdown host.content
-      - if mode == "short"
-        a.more-link-text href="#{ url_for(host) }" title="Mehr über #{ host.name } "
-               |  mehr... <i class="icon-circle-arrow-right"></i>
+        == markdown host.content
+        - if mode == "short"
+          a.more-link-text href="#{ url_for(host) }" title="Mehr über #{ host.name } "
+                 |  mehr... <i class="icon-circle-arrow-right"></i>
 
   - if mode == "full"
     - if host.episodes.length != 0
