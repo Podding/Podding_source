@@ -1,10 +1,10 @@
 .host
 
   - if host.image_url
-    img.host-image src="#{ host.image_url }"
+    img.card-cover-image src="#{ host.image_url }"
 
-  .host-wrapper
-    h4: a href="#{ url_for(host) }"
+  .card-main
+    h4.card-title: a href="#{ url_for(host) }"
       | #{ host.full_name }
 
       - if host.quip
@@ -33,7 +33,7 @@
 
   - if mode == "full"
     - if host.episodes.length != 0
-      .host-episodes
+      .card-secondary
         == slim :"includes/_episode-list", :locals => { :episodes => host.episodes, :list_icon => "folder-close", :mode => "mini-show", :list_label => "Sendungen mit #{host.full_name}" }
 
       

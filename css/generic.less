@@ -299,13 +299,8 @@ podding - stylesheet for generic objects (lol)
 /* Shows */
 
   .show {
-    img {
-      float: left;
-      width: 20%;
-      margin: 0 5% @line 0;
-    }
-
-    h2.show-title {
+    .card;
+    .card-title {
         span {
           text-transform: uppercase;
           font-variant: small-caps;
@@ -313,17 +308,8 @@ podding - stylesheet for generic objects (lol)
           font-size: 0.6em;
         }
       }
-
-    .header {
-      clear: both;
-      float: left;
-      width: 100%;
-    }
-    .description {
-      float: right;
-      width: 75%;
-    }
-    section {
+    
+    .episode-list-container {
       float: left;
       width: 100%;
       margin-bottom: @line;
@@ -333,11 +319,8 @@ podding - stylesheet for generic objects (lol)
 /* Hosts */ 
 
   .host {
-    clear: both;
-    float: left;
-    width: 100%;
-    margin-bottom: 2*@line;
-    h4 {
+    .card;
+    .card-title {
       margin: 0;
       span {
         .em-dashed;
@@ -355,26 +338,8 @@ podding - stylesheet for generic objects (lol)
         }
       }
     }
-
-    
   }
 
-  .host-episodes {
-    clear: both;
-    float: left;
-    width: 100%;
-  }
-
-  .host-image {
-      float: left;
-      width: 20%;
-      margin: 0;
-    }
-
-  .host-wrapper {
-    float: right;
-    width: 77.5%;
-  }
 
 /* Content area decoration */
 

@@ -1,7 +1,8 @@
 .show
-  .header
-    img.cover src="#{ show.cover_url }"
-    h2.show-title: a href="#{ url_for(show) }"
+  img.card-cover-image src="#{ show.cover_url }"
+  .card-main
+    
+    h2.card-title: a href="#{ url_for(show) }"
       | <span>#{show.name}</span> #{ show.title }
 
     .description
@@ -12,7 +13,7 @@
         a.more-link-text href="#{ url_for(show) }" title="Mehr über #{ show.title } "
                |  mehr... <i class="icon-circle-arrow-right"></i>
 
-  .show-episodes
+  .card-secondary
     - if mode == "short"
       - if show.planned_episodes.length != 0
         == slim :"includes/_episode-list", :locals => { :episodes => show.planned_episodes, :list_icon => "calendar", :mode => "mini-date", :list_label => "Geplante Folgen" }
