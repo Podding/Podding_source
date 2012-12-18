@@ -1,6 +1,6 @@
 #content.episode-list.index
   #planned-episodes
-    - if planned_episodes.length != 0
+    - if @planned_episodes.length != 0
         == slim :"includes/_episode-list", :locals => { :episodes => @planned_episodes, :list_icon => "calendar", :mode => "mini-date", :list_label => "Geplante Folgen" }
 
   #live-episodes
@@ -8,7 +8,6 @@
 
   #published-episodes
     == slim :"includes/_episode-list", :locals => { :episodes => @published_episodes, :list_icon => "", :mode => "short" }
-    
 
 
   #paging-links

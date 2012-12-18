@@ -2,7 +2,7 @@
 
   - if host.image_url
     img.card-cover-image src="#{ host.image_url }"
-    
+
   .card-main
     .card-main-wrapper
       h4.card-title: a href="#{ url_for(host) }"
@@ -13,12 +13,12 @@
 
       ul.social-links
 
-        - if host.twitter
-          li: a href="https://twitter.com/#{ host.twitter }"
+        - if host.twitter_name
+          li: a href="#{ twitter_url(host) }"
             | <i class="icon-twitter"></i> Twitter
 
-        - if host.flattr
-          li: a href=""
+        - if host.flattr_name
+          li: a href="#{ flattr_url(host) }"
             | <i class="icon-money"></i> Flattr
 
         - if host.blog_url
@@ -28,6 +28,7 @@
       .description.text-content
 
         == markdown host.content
+
         - if mode == "short"
           a.more-link-text href="#{ url_for(host) }" title="Mehr über #{ host.name } "
                  |  mehr... <i class="icon-circle-arrow-right"></i>
@@ -35,6 +36,6 @@
   - if mode == "full"
     - if host.episodes.length != 0
       .card-secondary
-        == slim :"includes/_episode-list", :locals => { :episodes => host.episodes, :list_icon => "folder-close", :mode => "mini-show", :list_label => "Sendungen mit #{host.full_name}" }
+        == slim :"includes/_episode-list", :locals => { :episodes => host.episodes, :list_icon => "folder-close", :mode => "mini-show", :list_label => "Sendungen mit #{ host.full_name }" }
 
-      
+

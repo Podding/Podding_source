@@ -22,7 +22,7 @@
 		    a.link-icon href="#{  }"
 		      |  mehr... <i class="icon-circle-arrow-right"></i>
 
-- elsif mode == "short" 
+- elsif mode == "short"
 	section.episode-list
 	  - for episode in episodes
 	    == slim :"includes/_episode", :locals => { :episode => episode, :mode => "short" }
