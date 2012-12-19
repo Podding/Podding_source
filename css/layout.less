@@ -36,12 +36,15 @@ header, #sidebar {
 
 
 #content {
-	width: 100%;
+	width: 98%;
 	padding-bottom: @line;
 	margin: 0 auto;
 	#page-content.text-content-long {
 		margin: 0 auto;
 	}
+	@media all and (max-width: @break2)   {
+      width: 100%;
+    }
 	
 }
 
