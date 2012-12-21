@@ -65,7 +65,14 @@
 
 
 /* Icon Styles */
-  .link-icon {
+  
+  .spaced { // used for keeping a certain distance between icon and corresponding text
+    i {
+      margin-right: 0.1em;
+    }
+  }
+
+  .link-icon { // basic color styling for icons in links
     color: inherit;
     text-decoration: none;
     border: none;
@@ -82,9 +89,13 @@
     }
   }
 
-  .inline-icon { // you see this in action in the menu, the shownotes link etc.
+  .inline-icon { // you see this in the shownotes link etc.
+    .spaced;
     line-height: @line;
-    i {font-size: 28px;vertical-align: middle;}
+    i {
+      font-size: 28px;
+      vertical-align: middle;
+    }
   }
 
   .link-text {
@@ -223,7 +234,7 @@
     }
   }
 
-  .popover-label {
+  .popover-label { // the popover for labeling lists, like the short episode lists
     .popover;
     .popover-content {
       top: 30px;
@@ -231,6 +242,24 @@
       width: 200px;
       &:before, &:after {
         left: 20px;
+      }
+      @media all and (max-width: @break2)   { // display popovers as headings on small screns
+        
+        position: static;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        visibility: visible;
+        opacity: 1;
+        display: inline;
+        width: 100%;
+        border: none;
+        padding: 0;
+        background: transparent;
+        &:before, &:after {
+          visibility: hidden;
+        }
       }
     }
   }

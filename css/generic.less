@@ -84,9 +84,10 @@ podding - stylesheet for generic objects (lol)
 
   .nav-link {
     .link-icon-alt;
+    .spaced;
     color: @bg;
     border: none;
-    :hover {
+    &:hover {
       color: @text;
     }
   }
@@ -293,6 +294,10 @@ podding - stylesheet for generic objects (lol)
     float: left;
     color: @text;
     i {font-size: 24px;vertical-align: middle;}
+    @media all and (max-width: @break2)   { 
+      .link-text;
+      width: 100%;
+    }
   }
 
   .episode-mini {
