@@ -243,8 +243,13 @@
       &:before, &:after {
         left: 20px;
       }
-      @media all and (max-width: @break2)   { // display popovers as headings on small screns
-        
+    }
+    @media all and (max-width: @break2)   { // display popovers as headings on small screns
+      
+      width: 100%;
+      float: left;
+      
+      .popover-content {
         position: static;
         top: 0;
         left: 0;
@@ -253,10 +258,11 @@
         visibility: visible;
         opacity: 1;
         display: inline;
-        width: 100%;
+        
         border: none;
         padding: 0;
         background: transparent;
+        color: inherit;
         &:before, &:after {
           visibility: hidden;
         }

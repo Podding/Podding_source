@@ -276,7 +276,6 @@ podding - stylesheet for generic objects (lol)
   }
 
   .episode-list-mini {
-    
     margin: 0;
     padding: 0;
     .inline-list;
@@ -285,12 +284,18 @@ podding - stylesheet for generic objects (lol)
       margin-right: 0.1em;
       font-size: 1.2rem;
       font-weight: 500;
-
+      @media all and (max-width: @break2)   {
+        font-size: 1rem;
+        font: 300;
+      }
     }
     .more-link {
-    .inline-icon;
-    color: @text-even-less;
-    padding-left: 0.2rem;
+      .inline-icon;
+      color: @text-even-less;
+      padding-left: 0.2rem;
+      @media all and (max-width: @break2)   {
+        i {font-size: 1em;}
+      }
     }
   }
 
