@@ -14,7 +14,7 @@ podding - stylesheet for generic objects (lol)
   .inline-icon;
   .link-icon;
   margin-right: 1em;
-  @media all and (max-width: @break2)   {
+  @media all and (max-width: @break3)   {
       float: right;
       width: 50%;
       margin: 0;
@@ -153,6 +153,9 @@ podding - stylesheet for generic objects (lol)
       .meta-info {
         margin-left: 40px;
         color: @text-less;
+        @media all and (max-width: @break2)   {
+          margin-left: 0;
+        }
         a {
           .hide-link;
           margin-right: 0.7em;
@@ -187,13 +190,16 @@ podding - stylesheet for generic objects (lol)
     .content {
         float: left;
         margin-left: 40px;
+        @media all and (max-width: @break2)   {
+          margin-left: 0;
+        }
       }
       
   }
 
   .download-links-short { // these are displayed in short mode when rendering an episode
     margin-right: 20%;
-    @media all and (max-width: @break2)   {
+    @media all and (max-width: @break3)   {
       float: left;
       width: 50%;
       margin: 0;
@@ -208,7 +214,16 @@ podding - stylesheet for generic objects (lol)
   }
 
   .download-link {
-    .more-link-text;
+    .link-text;
+    .inline-icon;
+    .link-icon;
+    margin-right: 1em;
+    @media all and (max-width: @break3)   {
+        float: left;
+        width: 50%;
+        margin: 0;
+        text-align: left;
+      }
     font-size: 1rem;
     color: @text-even-less;
     i { font-size: 1.4em; }
@@ -216,9 +231,7 @@ podding - stylesheet for generic objects (lol)
 
   .download-link-short { // these are displayed in short mode when rendering an episode
     .download-link;
-    @media all and (max-width: @break2)   {
-      float: left;
-    }
+    
   }
 
   .download-link-full { // these are for episodes in full mode
