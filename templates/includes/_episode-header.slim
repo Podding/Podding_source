@@ -7,15 +7,15 @@
       i.icon-bullhorn
 
   h2.title: a.title-link href="#{ url_for(episode) }"
-    | <span class="title-label">#{ episode.show.title }</span> #{ episode.title }
+    | <span class="title-label">#{ episode.show.title }</span>#{ episode.title }
   .meta-info
     a.id.link-icon.popover href="" title="ID der Sendung #{ episode.show.title }: #{ episode.title }"
-      | <i class="icon-barcode"></i> <span class="id-content">#{ episode.name }</span>
+      | <i class="icon-barcode"></i><span class="id-content">#{ episode.name }</span>
       span.popover-content ID der Sendung #{ episode.show.title }: #{ episode.title }
     a.date.link-icon href=""
-     | <i class="icon-time"></i> #{ episode.date.strftime("%d.%m.%Y") }
+     | <i class="icon-time"></i>#{ episode.date.strftime("%d.%m.%Y") }
     a.comments href="" title="Kommentare zu #{ episode.title }"
-     | <i class="icon-comments"></i> #{ episode.comments }
+     | <i class="icon-comments"></i>#{ episode.comments }
 
     
     ul.hosts-list
