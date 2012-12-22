@@ -186,8 +186,9 @@
   }
 
 /* Popovers! */
-
-  .popover {
+  // the base class for popovers, this can be used directly or subclassed
+  // current sub-classes: popover-episode-list-label and popover-menu
+  .popover { 
     position: relative;
     height: @line;
     display: inline-block;
@@ -256,41 +257,7 @@
     }
   }
 
-  .popover-label { // the popover for labeling lists, like the short episode lists
-    .popover;
-    .popover-content {
-      top: 30px;
-      left: -20px;
-      width: 200px;
-      &:before, &:after {
-        left: 20px;
-      }
-    }
-    @media all and (max-width: @break2)   { // display popovers as headings on small screns
-      
-      width: 100%;
-      float: left;
-      margin-bottom: 0.5*@line;
-      .popover-content {
-        position: static;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        visibility: visible;
-        opacity: 1;
-        display: inline;
-        
-        border: none;
-        padding: 0;
-        background: transparent;
-        color: inherit;
-        &:before, &:after {
-          visibility: hidden;
-        }
-      }
-    }
-  }
+  
   
 /* Cards */
   // This is the object I don't quite have a name for yet. It is used in hosts and shows.
