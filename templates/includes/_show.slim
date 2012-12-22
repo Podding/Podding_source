@@ -3,7 +3,7 @@
   .card-main
     / I hate adding this, but I need it to prevent stupid rounding issues in stupid mobile Safari
     .card-main-wrapper
-      h2.card-title.card-main: a href="#{ url_for(show) }"
+      h2.card-title: a href="#{ url_for(show) }"
         | <span>#{show.name}</span> #{ show.title }
 
       .description.card
