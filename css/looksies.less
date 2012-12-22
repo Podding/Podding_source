@@ -6,6 +6,10 @@ html {
   font-family: @font-stack;
   font-size: @base-size;
   line-height: @line;
+  @media all and (max-width: @break3)   {
+    font-size: 0.9*@base-size;
+    line-height: 0.95*@line;
+  }
 }
 
 body {
