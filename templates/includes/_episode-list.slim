@@ -23,6 +23,6 @@
 		      |  mehr... <i class="icon-circle-arrow-right"></i>
 
 - elsif mode == "short"
-	section.episode-list
+	section.episode-list.episode-list-container
 	  - for episode in episodes
 	    == slim :"includes/_episode", :locals => { :episode => episode, :mode => "short" }

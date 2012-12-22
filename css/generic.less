@@ -335,11 +335,11 @@ podding - stylesheet for generic objects (lol)
         visibility: visible;
         opacity: 1;
         display: inline;
-        
         border: none;
         padding: 0;
         background: transparent;
         color: inherit;
+        font-weight: 500;
         &:before, &:after {
           visibility: hidden;
         }
@@ -379,6 +379,11 @@ podding - stylesheet for generic objects (lol)
       float: left;
       width: 100%;
       margin-bottom: @line;
+    }
+
+    .episode-list { // only episode lists in full mode
+      border-top: 1px solid @sub;
+      padding-top: @line;
     }
   }
 
