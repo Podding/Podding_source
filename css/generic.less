@@ -300,10 +300,15 @@ podding - stylesheet for generic objects (lol)
     width: 40px;
     float: left;
     color: @text;
-    i {vertical-align: middle;}
+    i {
+      vertical-align: middle;
+    }
     @media all and (max-width: @break2)   { 
       .link-text;
       width: 100%;
+      i {
+        margin-top: -0.15em;
+      }
     }
   }
 
