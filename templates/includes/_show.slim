@@ -21,9 +21,9 @@
       == slim :"includes/_episode-list", :locals => { :episodes => show.planned_episodes, :list_icon => "calendar", :mode => "mini-date", :list_label => "Geplante Folgen" }
 
     - if show.live_episodes.length != 0
-      == slim :"includes/_episode-list", :locals => { :episodes => show.planned_episodes, :list_icon => "", :mode => "short", :list_label => "" }
+      == slim :"includes/_episode-list", :locals => { :episodes => show.planned_episodes, :list_icon => "", :mode => "short", :list_label => "", :id => "planned_episodes" }
 
     - if show.published_episodes.length != 0
-      == slim :"includes/_episode-list", :locals => { :episodes => show.planned_episodes, :list_icon => "", :mode => "short", :list_label => "" }
+      == slim :"includes/_episode-list", :locals => { :episodes => show.published_episodes, :list_icon => "", :mode => "short", :list_label => "", :id => "published_episodes" }
           
 

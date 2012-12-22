@@ -1,13 +1,10 @@
-#content.episode-list.index
+#content.episode-list-page.index
   - if @planned_episodes.length != 0
-    #planned-episodes
-      == slim :"includes/_episode-list", :locals => { :episodes => @planned_episodes, :list_icon => "calendar", :mode => "mini-date", :list_label => "Geplante Folgen" }
+    == slim :"includes/_episode-list", :locals => { :episodes => @planned_episodes, :list_icon => "calendar", :mode => "mini-date", :list_label => "Geplante Folgen" }
   - if @live_episodes.length != 0
-    #live-episodes
-     == slim :"includes/_episode-list", :locals => { :episodes => @live_episodes, :list_icon => "", :mode => "short" }
+   == slim :"includes/_episode-list", :locals => { :episodes => @live_episodes, :list_icon => "", :mode => "short", :id => "live_episodes" }
   - if @published_episodes.length != 0
-    #published-episodes
-      == slim :"includes/_episode-list", :locals => { :episodes => @published_episodes, :list_icon => "", :mode => "short" }
+    == slim :"includes/_episode-list", :locals => { :episodes => @published_episodes, :list_icon => "", :mode => "short", :id => "published_episodes" }
     
 
   #paging-links

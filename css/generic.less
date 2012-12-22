@@ -44,71 +44,71 @@ podding - stylesheet for generic objects (lol)
 
   /* Navigation */
 
-  nav {
-    height: 2*@line;
-    background-color: @highlight;
-    .bordered;
-    text-align: center; 
-  }
+    nav {
+      height: 2*@line;
+      background-color: @highlight;
+      .bordered;
+      text-align: center; 
+    }
 
-  nav > ul { // for a reason I don't quite understand I can't use .nav-list here
-    .inline-list;
-    display: block;
-    height: 100%;
-    width: 95%;
-    margin: 0 2.5% 0 2.5%;
-    float: left;
-    padding: 0 0;
-    // this part compresses the menu descriptions according to viewport width
-    @media all and (max-width: @break1)   { 
-      span > span {
-        display: none;
+    nav > ul { // for a reason I don't quite understand I can't use .nav-list here
+      .inline-list;
+      display: block;
+      height: 100%;
+      width: 95%;
+      margin: 0 2.5% 0 2.5%;
+      float: left;
+      padding: 0 0;
+      // this part compresses the menu descriptions according to viewport width
+      @media all and (max-width: @break1)   { 
+        span > span {
+          display: none;
+        }
       }
-    }
-    @media all and (max-width: @break2)   {
-      span {
-        display: none;
-      }
-    }
-  }
-
-  .nav-item {
-    padding: 0.5*@line 0;
-    font-size: 1.2rem;
-    font-weight: 300;
-    line-height: @line;
-    i {
-      font-size: 18px;
-      font-weight: 700;
-    }
-  }
-
-  .nav-link {
-    .link-icon-alt;
-    .spaced;
-    color: @bg;
-    border: none;
-    &:hover {
-      color: @text;
-    }
-  }
-
-  .popover-menu {
-    .popover;
-    .popover-content {
-      top: 49px;
-      left: -14px;
-      width: 150px;
-      height: auto;
-      li {
-        display: block;
-        margin: 0;
-        a {
-          .hide-link-hardcore;
+      @media all and (max-width: @break2)   {
+        span {
+          display: none;
         }
       }
     }
-  }
+
+    .nav-item {
+      padding: 0.5*@line 0;
+      font-size: 1.2rem;
+      font-weight: 300;
+      line-height: @line;
+      i {
+        font-size: 18px;
+        font-weight: 700;
+      }
+    }
+
+    .nav-link {
+      .link-icon-alt;
+      .spaced;
+      color: @bg;
+      border: none;
+      &:hover {
+        color: @text;
+      }
+    }
+
+    .popover-menu {
+      .popover;
+      .popover-content {
+        top: 49px;
+        left: -14px;
+        width: 150px;
+        height: auto;
+        li {
+          display: block;
+          margin: 0;
+          a {
+            .hide-link-hardcore;
+          }
+        }
+      }
+    }
 
 /* Sidebar */
 
@@ -251,6 +251,8 @@ podding - stylesheet for generic objects (lol)
 
 /* Episode lists */
   .episode-list {
+    float: left;
+    margin-top: 1.5*@line;
     .more-link {      
       color: @text-less;
       .hide-link-hardcore;
@@ -268,10 +270,16 @@ podding - stylesheet for generic objects (lol)
     .episode-published {
       border-bottom: 1px solid @sub;
     }
-
-
-
+    @media all and (max-width: @break2)   {
+     border-top: 1px solid @sub;
+     padding-top: @line;
+     &:first-child {
+       border-top: none;
+       padding-top: 0; 
+      }
+    }
   }
+
 
   .episode-list-mini {
     margin: 0;
@@ -326,6 +334,7 @@ podding - stylesheet for generic objects (lol)
       width: 100%;
       float: left;
       margin-bottom: 0.5*@line;
+      text-align: center;
       .popover-content {
         position: static;
         top: 0;
@@ -376,14 +385,7 @@ podding - stylesheet for generic objects (lol)
       }
     
     .episode-list-container {
-      float: left;
       width: 100%;
-      margin-bottom: @line;
-    }
-
-    .episode-list { // only episode lists in full mode
-      border-top: 1px solid @sub;
-      padding-top: @line;
     }
   }
 
