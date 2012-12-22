@@ -13,6 +13,7 @@ podding - stylesheet for generic objects (lol)
   .link-text;
   .inline-icon;
   .link-icon;
+  .sized;
   margin-right: 1em;
   @media all and (max-width: @break3)   {
       float: right;
@@ -219,10 +220,11 @@ podding - stylesheet for generic objects (lol)
     text-align: center;
   }
 
-  .download-link {
+  .download-link { // styling for episode download links, this one is used in short mode
     .link-text;
     .inline-icon;
     .link-icon;
+    .sized;
     margin-right: 1em;
     @media all and (max-width: @break3)   {
         float: left;
@@ -230,17 +232,13 @@ podding - stylesheet for generic objects (lol)
         margin: 0;
         text-align: left;
       }
-    font-size: 1rem;
-    color: @text-even-less;
-    i { font-size: 1.4em; }
-  }
-
-  .download-link-short { // these are displayed in short mode when rendering an episode
-    .download-link;
     
+    color: @text-even-less;
   }
 
-  .download-link-full { // these are for episodes in full mode
+  
+
+  .download-link-full { // extend download link style for for episodes in full mode
     .download-link;
     float: none;
     display: inline;
@@ -291,11 +289,9 @@ podding - stylesheet for generic objects (lol)
     }
     .more-link {
       .inline-icon;
+      .sized;
       color: @text-even-less;
       padding-left: 0.2rem;
-      @media all and (max-width: @break2)   {
-        i {font-size: 1em;}
-      }
     }
   }
 
@@ -377,10 +373,12 @@ podding - stylesheet for generic objects (lol)
     margin-bottom: 2*@line;
     .link-older {
       .inline-icon;
+      .sized;
       float: left;
     }
     .link-newer {
       .inline-icon;
+      .sized;
       float: right;
     }
   }
