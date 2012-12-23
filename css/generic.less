@@ -311,6 +311,10 @@ podding - stylesheet for generic objects (lol)
     }
   }
 
+  .episode-list-container { // the contains the mini episode lists
+      float: left; // if you don't float this, the box model can't properly asses the height of the div and layout breaks in weird ways
+    }
+
   .episode-list-label {
     .sized;
     
@@ -403,7 +407,6 @@ podding - stylesheet for generic objects (lol)
       }
     
     .episode-list-container {
-      float: left;
       width: 100%;
     }
   }
