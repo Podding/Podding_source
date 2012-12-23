@@ -18,12 +18,12 @@
   - if mode == "full"
     .card-secondary
     - if show.planned_episodes.length != 0
-      == slim :"includes/_episode-list", :locals => { :episodes => show.planned_episodes, :list_icon => "calendar", :mode => "mini-date", :list_label => "Geplante Folgen" }
+      == slim :"includes/_episode-list", :locals => { :episodes => show.planned_episodes, :mode => "mini-date", :status => "planned" }
 
     - if show.live_episodes.length != 0
-      == slim :"includes/_episode-list", :locals => { :episodes => show.planned_episodes, :list_icon => "", :mode => "short", :list_label => "", :id => "planned_episodes" }
+      == slim :"includes/_episode-list", :locals => { :episodes => show.planned_episodes, :mode => "short", :status => "live" }
 
     - if show.published_episodes.length != 0
-      == slim :"includes/_episode-list", :locals => { :episodes => show.published_episodes, :list_icon => "", :mode => "short", :list_label => "", :id => "published_episodes" }
+      == slim :"includes/_episode-list", :locals => { :episodes => show.published_episodes, :list_icon => "", :mode => "short", :status => "published" }
           
 

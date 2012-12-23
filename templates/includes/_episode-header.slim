@@ -1,10 +1,10 @@
 .header
-  - if episode.status != "live"
-    a.episode-icon.link-icon
-      i.icon-play
-  - elsif episode.status == "live"
-    a.episode-icon.link-icon
-      i.icon-bullhorn
+  /- if episode.status != "live"
+    /a.episode-icon.link-icon
+      /i.icon-play
+  /- elsif episode.status == "live"
+   / a.episode-icon.link-icon
+    /  i.icon-bullhorn
 
   h2.title: a.title-link href="#{ url_for(episode) }"
     | <span class="title-label">#{ episode.show.title }</span>#{ episode.title }

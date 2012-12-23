@@ -1,28 +1,48 @@
+/ set the correct labels for different lists
+- if status == "planned"
+  - list_icon = "calendar"
+  - list_label = "Geplante Folgen"
+  - id = "planned_episodes"
+- if status == "live"
+  - list_icon = "bullhorn"
+  - list_label = "Live gestreamte Folgen"
+  - id = "live_episodes"
+- if status == "published"
+  - list_icon = "truck"
+  - list_label = "Veröffentlichte Folgen"
+  - id = "published_episodes"
+
+
+
+
 - if mode == "mini-date"
-	section.episode-list-container
-		a.link-icon.popover-episode-list-label.episode-list-mini-label href="" data-tooltip=""
-		  |  <i class="icon-#{ list_icon }"></i>
-		  span.popover-content #{ list_label }
-		ul.episode-list-mini
-		  - for episode in episodes
-		    == slim :"includes/_episode", :locals => { :episode => episode, :mode => "mini-date" }
-		  li.more-link
-		    a.link-icon href="#{  }"
-		      |  mehr... <i class="icon-circle-arrow-right"></i>
+  section.episode-list-container
+    a.link-icon.popover-episode-list-label.episode-list-label href=""
+      |  <i class="icon-#{ list_icon }"></i>
+      span.popover-content #{ list_label }
+    ul.episode-list-mini
+      - for episode in episodes
+        == slim :"includes/_episode", :locals => { :episode => episode, :mode => "mini-date" }
+      li.more-link
+        a.link-icon href="#{  }"
+          |  mehr... <i class="icon-circle-arrow-right"></i>
 
 - elsif mode == "mini-show"
-	section.episode-list-container
-		a.link-icon.popover-episode-list-label.episode-list-mini-label href="" data-tooltip=""
-		  |  <i class="icon-#{ list_icon }"></i>
-		  span.popover-content #{ list_label }
-		ul.episode-list-mini
-		  - for episode in episodes
-		    == slim :"includes/_episode", :locals => { :episode => episode, :mode => "mini-show" }
-		  li.more-link
-		    a.link-icon href="#{  }"
-		      |  mehr... <i class="icon-circle-arrow-right"></i>
+  section.episode-list-container
+    a.link-icon.popover-episode-list-label.episode-list-label href=""
+      |  <i class="icon-#{ list_icon }"></i>
+      span.popover-content #{ list_label }
+    ul.episode-list-mini
+      - for episode in episodes
+        == slim :"includes/_episode", :locals => { :episode => episode, :mode => "mini-show" }
+      li.more-link
+        a.link-icon href="#{  }"
+          |  mehr... <i class="icon-circle-arrow-right"></i>
 
 - elsif mode == "short"
-	section class=["episode-list","episode-list-container","#{ id }"]
-	  - for episode in episodes
-	    == slim :"includes/_episode", :locals => { :episode => episode, :mode => "short" }
+  section class=["episode-list","episode-list-container","#{ id }"]
+    a.link-icon.popover-episode-list-label.episode-list-label href=""
+      |  <i class="icon-#{ list_icon }"></i>
+      span.popover-content #{ list_label }
+    - for episode in episodes
+      == slim :"includes/_episode", :locals => { :episode => episode, :mode => "short" }

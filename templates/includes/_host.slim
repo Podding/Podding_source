@@ -36,6 +36,6 @@
   - if mode == "full"
     - if host.episodes.length != 0
       .card-secondary
-        == slim :"includes/_episode-list", :locals => { :episodes => host.episodes, :list_icon => "folder-close", :mode => "mini-show", :list_label => "Sendungen mit #{ host.full_name }" }
+        == slim :"includes/_episode-list", :locals => { :episodes => host.episodes, :mode => "mini-show", :list_label => "Sendungen mit #{ host.full_name }", :list_icon => "user" }
 
 
