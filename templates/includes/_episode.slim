@@ -1,7 +1,11 @@
 - if mode == "mini-date"
   li class=["episode-mini", "#{ episode.show }", "episode-#{ episode.status }"]
     a.title-link href="#{ url_for(episode) }"
-          | <span class="title-label">#{ episode.date.strftime("%-d. %B %Y") }</span>#{ episode.title }
+      - if episode.title != ""
+        | <span class="title-label"> #{ episode.date.strftime("%-d. %B %Y") }</span>#{ episode.title }
+      - else
+        | <span class="title-label"> #{ episode.date.strftime("%-d. %B %Y") }</span>#{ episode.show.title }
+
 - if mode == "mini-show"
   li class=["episode-mini", "#{ episode.show }", "episode-#{ episode.status }"]
     a.title-link href="#{ url_for(episode) }"
