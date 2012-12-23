@@ -16,7 +16,7 @@
         .teaser.text-content
           == markdown episode.teaser
 
-        - if mode == "short"
+        - if mode == "short" and episode.status != "live"
           a.more-link-text href="#{ url_for(episode) }" title="Link zu den Shownotes zu #{ episode.show.title } - #{ episode.title }"
              | <i class="icon-book"></i>Shownotes
           p.download-links-short
