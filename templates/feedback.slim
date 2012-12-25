@@ -1,23 +1,31 @@
 #content.page-single.page-feedback
   == slim :"includes/_page-title"
 
-  form#feedback-form method="post"
-    ol
-      li
-        label for="name" 
-          | <i class="icon-user"></i> Name
-        <input id="name" placeholder="Donald Draper" required>
-      li
-        label for="email"
-          | <i class="icon-envelope"></i> Mail
-        <input id="mail" type="email" placeholder="don.draper@scpd.com" required>
-      li
-        label for="message" 
-          | <i class="icon-comment"></i> Nachricht
-        <textarea rows="7" id="message" type="text" placeholder="Liebes Retinacast-Team, ich finde eure Sendung voll toll. Bis auf das, was ihr über Homeland gesagt habt. Was für ein Blödisnn! Liebe Grüße, Don" required></textarea>
-      li
-        p.form-note Alle Felder sind Pflichtfelder.
-    
-      li
-        button.button type="submit" name="submit" Abschicken
+  
+
+
+  #column-left
+      == markdown @page.content
+
+  #column-right
+    form#feedback-form method="post"
+      ol
+        li
+          label for="name" 
+            | <i class="icon-user"></i> Name
+          <input id="name" placeholder="Donald Draper" required>
+        li
+          label for="email"
+            | <i class="icon-envelope"></i> Mail
+          <input id="mail" type="email" placeholder="don.draper@scpd.com" required>
+        li
+          label for="message" 
+            | <i class="icon-comment"></i> Nachricht
+          <textarea rows="7" id="message" type="text" placeholder="Liebes Retinacast-Team, ich finde eure Sendung voll toll. Bis auf das, was ihr über Homeland gesagt habt. Was für ein Blödisnn! Liebe Grüße, Don" required></textarea>
+        li
+          p.form-note Alle Felder sind Pflichtfelder.
+      
+        li
+          button.button type="submit" name="submit" Abschicken
+
          

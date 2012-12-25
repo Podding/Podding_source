@@ -476,12 +476,11 @@ podding - stylesheet for generic objects (lol)
   form {
     width: 30rem;
     padding: 0;
-    &:invalid, &:valid {
-      background-color: pink;
-    }
     ol {
       float: left;
       width: 100%;
+      margin: 0;
+      padding: 0;
     }
     li {
       clear: both;
@@ -509,6 +508,23 @@ podding - stylesheet for generic objects (lol)
       }
       &:placeholder {
         color: red;
+      }
+    }
+    @media all and (max-width: @break2)   {
+      width: 100%;
+      float: left;
+      label, input, textarea, button {
+        clear: both;
+        float: left;
+        width: 90%;
+        margin: 0 1%; // leave some space for the padding
+      }
+      label, .form-note {
+        text-align: center;
+      }
+      button {
+        width: 100%;
+        float: left;
       }
     }
   }

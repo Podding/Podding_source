@@ -53,5 +53,29 @@ header, #sidebar {
 	clear: both;
 }
 
+/* A very basic "grid" "system" for pages like the feedback page */
+
+
+
+#column-left {
+	float: left;
+	width: 35%;
+	@media all and (max-width: @break1)   {
+    clear: both;
+    width: 100%;
+  }
+}
+
+#column-right {
+	float: right;
+	width: 60%;
+	@media all and (max-width: @break1)   {
+    clear: both;
+    width: 100%;
+  }
+}
+
+
+
 
 
