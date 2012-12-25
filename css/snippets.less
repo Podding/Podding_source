@@ -23,6 +23,18 @@
     }
   }
 
+  .dotted { // for inline lists that can't be itemized
+    margin: 0 0 0 0.1em;
+    &:after {
+      content: " \00b7"; // add a mid dot after items
+    }
+    &:last-child {
+      &:after {
+        content: "";
+      }
+    }
+  }
+
   .single { // we need this because Safari doesn't support :only-child
     &:before { content: "" !important; }
     &:after { content: "" !important; }
