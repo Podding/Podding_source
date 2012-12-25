@@ -473,42 +473,61 @@ podding - stylesheet for generic objects (lol)
 
 /* Forms */
 
-form {
-  width: 30rem;
-  padding: 0;
-  &:invalid, &:valid {
-    background-color: pink;
-  }
-  li {
-    clear: both;
-    float: left;
-    margin-bottom: @line;
-    list-style: none;
-  }
-  label {
-    float: left;
-    width: 8rem;
-    text-align: left;
-  }
-  input {
-    float: left;
-    width: 17rem;
-    margin-left: 1rem;
-    border: 1px solid transparent;
-    padding: 0 0.5rem 0 0.5rem;
-    &:focus {
-      border: 1px solid @text;
-      .bordered;
-      outline: none;
+  form {
+    width: 30rem;
+    padding: 0;
+    &:invalid, &:valid {
+      background-color: pink;
+    }
+    ol {
+      float: left;
+      width: 100%;
+    }
+    li {
+      clear: both;
+      float: left;
+      width: 100%;
+      margin-bottom: @line;
+      list-style: none;
+    }
+    label {
+      float: left;
+      width: 8rem;
+      text-align: left;
+    }
+    input, textarea {
+      float: left;
+      width: 17rem;
+      margin-left: 1rem;
+      margin-top: -0.5rem; // needed for lining up the fields with their labels
+      border: 1px solid transparent;
+      padding: 0.5rem;
+      &:focus {
+        border: 1px solid @text;
+        .bordered;
+        outline: none;
+      }
+      &:placeholder {
+        color: red;
+      }
     }
   }
-}
+
+  .form-note {
+    width: 100%;
+    color: @text-less;
+    text-align: right;
+    font-style: italic;
+  }
 
 /* Feedback Form */
 
 #feedback-form {
-  margin: 0 auto;
+  float: left;
   #message {
     height: 8*@line;
+  }
+  button {
+    margin: 0 auto;
   }
 }
