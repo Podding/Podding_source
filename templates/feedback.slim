@@ -8,6 +8,7 @@
       == markdown @page.content
 
   #column-right
+    h3.column-heading Feedback-Formular
     form#feedback-form method="post"
       ol
         li
@@ -22,10 +23,12 @@
           label for="message" 
             | <i class="icon-comment"></i> Nachricht
           <textarea rows="7" id="message" type="text" placeholder="Liebes Retinacast-Team, ich finde eure Sendung voll toll. Bis auf das, was ihr über Homeland gesagt habt. Was für ein Blödisnn! Liebe Grüße, Don" required></textarea>
+
         li
-          p.form-note Alle Felder sind Pflichtfelder.
+          p.form-note Alle Felder sind Pflichtfelder. Deine Daten bleiben bei uns, keine Angst. Wir spammen auch nicht.
       
         li
-          button.button type="submit" name="submit" Abschicken
+          button type="submit" name="submit" 
+            | <i class="icon-truck"></i> Abschicken
 
          
