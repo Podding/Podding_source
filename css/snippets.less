@@ -31,9 +31,10 @@
   /* Conventient generic classes */
 
   .candy-trans { // nice subtle fade for ALL THE THINGS
-    -webkit-transition: color 0.5s ease, border-color 0.5s ease;
-    -moz-transition: color 0.5s ease, border-color 0.5s ease;
-    transition: color 0.5s ease, border-color 0.5s ease;
+    -webkit-transition: color 0.5s ease, border-color 0.5s ease, background 0.5s ease;
+    -moz-transition: color 0.5s ease, border-color 0.5s ease, background 0.5s ease;
+    transition: color 0.5s ease, border-color 0.5s ease, background 0.5s ease;
+
   }
 
   .bordered {
@@ -171,22 +172,16 @@
             }
   }
 
-  .button { // mostly deprecated button style
-    width: 200px;
-    border: none;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    padding: 0.25*@line 0;
-    display: block;
-    text-align: center;
-    background-color: @bg2;
+  button, .button { // mostly deprecated button style
+    .bordered;
+    .candy-trans;
+    padding: 0.5rem;
+    border: 0;
     color: @bg;
+    background-color: @highlight;
     &:hover {
-      color: @highlight;
-      background-color: @bg2-less;
+      background-color: @highlight2;
     }
-
   }
 
 /* Popovers! */
