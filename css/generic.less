@@ -491,7 +491,7 @@ podding - stylesheet for generic objects (lol)
     }
     label {
       float: left;
-      height: @line;
+      height: 100%;
       width: 5*@line;
       text-align: left;
     }
@@ -517,7 +517,7 @@ podding - stylesheet for generic objects (lol)
       width: 100%;
       max-width: 25rem;
       float: left;
-      label, input, textarea, button {
+      label, input, textarea, button, .support-text {
         clear: both;
         float: left;
         width: 90%;
@@ -534,11 +534,19 @@ podding - stylesheet for generic objects (lol)
   }
 
   .form-note {
+    margin-top: @line;
     margin-bottom: @line;
     color: @text-less;
     font-size: 0.9rem;
     line-height: @line;
     font-style: italic;
+  }
+
+  .support-text {
+    clear: both;
+    width: 100%;
+    color: @text-less;
+    font-size: 0.8rem;
   }
 
 /* Feedback Form */

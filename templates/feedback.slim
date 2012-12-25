@@ -25,6 +25,13 @@
           <textarea rows="7" id="message" type="text" placeholder="Liebes Retinacast-Team, ich finde eure Sendung voll toll. Bis auf das, was ihr über Homeland gesagt habt. Was für ein Blödisnn! Liebe Grüße, Don" required></textarea>
 
         li
+          label for="add"
+            | <i class="icon-plus-sign"></i> <code>#{ rand(10) }+#{ rand(10) }=?</code>
+          <input id="add" type="number" placeholder="#{ rand(10) }" required>
+          p.support-text Um zu beweisen, dass du kein Roboter, sondern ein Mensch (oder eine gute KI) bist, löse bitte die Rechenaufgabe.
+          
+
+        li
           p.form-note Alle Felder sind Pflichtfelder. Deine Daten bleiben bei uns, keine Angst. Wir spammen auch nicht.
       
         li
