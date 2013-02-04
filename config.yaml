@@ -1,3 +1,7 @@
 author: "Spock"
 title: "Foobar"
 cover_url: "http://www.example.org/cover.jpg"
+auphonic_username: ""
+auphonic_password: ""
+varnish_host: "127.0.0.1"
+varnish_port: 80
