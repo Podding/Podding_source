@@ -36,6 +36,7 @@ header, #sidebar {
 
 
 #content {
+	float: left; // needed for arcane box model reasons
 	width: 98%;
 	padding-bottom: @line;
 	margin: 0 auto;
@@ -47,6 +48,12 @@ header, #sidebar {
     }
 	
 }
+
+
+#sidebar {
+	margin-top: 2*@line;
+}
+
 
 #footer {
 	width: 100%;
