@@ -2,9 +2,9 @@
   - if @planned_episodes.length != 0
     == slim :"includes/_episode-list", :locals => { :episodes => @planned_episodes, :mode => "mini-date", :status => "planned" }
   - if @live_episodes.length != 0
-   == slim :"includes/_episode-list", :locals => { :episodes => @live_episodes, :mode => "short", :id => "live_episodes", :list_icon => "bullhorn", :status => "live" }
+   == slim :"includes/_episode-list", :locals => { :episodes => @live_episodes, :mode => "short", :status => "live" }
   - if @published_episodes.length != 0
-    == slim :"includes/_episode-list", :locals => { :episodes => @published_episodes, :mode => "short", :id => "published_episodes", :status => "published" }
+    == slim :"includes/_episode-list", :locals => { :episodes => @published_episodes, :mode => "short", :status => "published" }
     
 
   /#paging-links // removed until implemented
