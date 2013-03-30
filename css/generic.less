@@ -201,48 +201,54 @@ podding - stylesheet for generic objects (lol)
       
   }
 
-  .download-links-short { // these are displayed in short mode when rendering an episode
-    margin-right: 20%;
-    @media all and (max-width: @break3)   {
-      float: left;
-      width: 50%;
-      margin: 0;
-    }
-  }
+  /* Episode download links */
 
-  .download-links-full {
-    float: left;
-    width: 100%;
-    padding: 0.5*@line 0;
-    text-align: center;
-  }
-
-  .download-link { // styling for episode download links, this one is used in short mode
-    .link-text;
-    .inline-icon;
-    .link-icon;
-    .sized;
-    margin-right: 1em;
-    @media all and (max-width: @break3)   {
+    .download-links-short { // these are displayed in short mode when rendering an episode
+      margin-right: 20%;
+      @media all and (max-width: @break3)   {
         float: left;
         width: 50%;
         margin: 0;
-        text-align: left;
       }
+    }
+
+    .download-links-full {
+      float: left;
+      width: 100%;
+      padding: 0.5*@line 0;
+      text-align: center;
+    }
+
+    .download-link { // styling for episode download links, this one is used in short mode
+      .link-text;
+      .inline-icon;
+      .link-icon;
+      .sized;
+      margin-right: 1em;
+      @media all and (max-width: @break3)   {
+          float: left;
+          width: 50%;
+          margin: 0;
+          text-align: left;
+        }
+      
+      color: @text-even-less;
+    }
+
     
-    color: @text-even-less;
-  }
 
+    .download-link-full { // extend download link style for for episodes in full mode
+      .download-link;
+      float: none;
+      display: inline;
+      color: @text-less;
+    }
   
+  /* Episode player */
 
-  .download-link-full { // extend download link style for for episodes in full mode
-    .download-link;
-    float: none;
-    display: inline;
-    font-size: 1.2rem;
-    color: @text-less;
-  }
-  
+    .episode-player {
+      margin: 0 auto;
+    }  
 
   /* Published episodes */
 
