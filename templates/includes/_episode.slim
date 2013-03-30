@@ -17,7 +17,7 @@
 
     - if mode == "short" or mode == "full"
       .content
-        .teaser.text-content
+        .teaser.text-content.column-left.column-main
           == markdown episode.teaser
 
         - if mode == "short" and episode.status != "live"
@@ -30,14 +30,33 @@
                 span.popover-content Download #{ episode.show.title }: #{ episode.title } in #{ audio_format }
 
         - if mode == "full"
+          .column-right.column-secondary
+            h3.column-heading 
+              | Hosts <span class="quip">wer redete...</span>
+            .hosts-list-full  
+              - for host in episode.hosts
+                .host-container 
+                  a.host-link-image href="#{ url_for(host) }": img src="#{ host.image_url }"
+                  p.host-name 
+                    a.host-link-name href="#{ url_for(host) }" #{ host.full_name }
+
+            .clear
+
+            h3.column-heading 
+              | Download <span class="quip">grab the goods!</span>
+            .download-links-full
+              - for audio_format in episode.audioformats.keys do
+                a.download-link-full.popover href="#{episode.audioformats[audio_format]}" title="Download #{ episode.show.title }: #{ episode.title } in #{ audio_format }"
+                  | <i class="icon-download"></i>#{audio_format}
+                  span.popover-content Download #{ episode.show.title }: #{ episode.title } in #{ audio_format }
+
+
           == slim :"includes/_episode-player", :locals => { :episode => episode}
-          
-          p.download-links-full
-            - for audio_format in episode.audioformats.keys do
-              a.download-link-full.popover href="#{episode.audioformats[audio_format]}" title="Download #{ episode.show.title }: #{ episode.title } in #{ audio_format }"
-                | <i class="icon-download"></i>#{audio_format}
-                span.popover-content Download #{ episode.show.title }: #{ episode.title } in #{ audio_format }
+
+          h3.column-heading.inline-icon 
+            | <i class="icon-book"></i> Shownotes
           .shownotes.text-content
+            
             == markdown episode.content
 
           

@@ -62,20 +62,24 @@ header, #sidebar {
 
 /* A very basic "grid" "system" for pages like the feedback page */
 
+.column-main {
+  width: 60%;
+}
 
+.column-secondary {
+  width: 35%;
+}
 
-#column-left {
+.column-left {
 	float: left;
-	width: 35%;
 	@media all and (max-width: @break1)   {
     clear: both;
     width: 100%;
   }
 }
 
-#column-right {
+.column-right {
 	float: right;
-	width: 60%;
 	@media all and (max-width: @break1)   {
     clear: both;
     width: 100%;
@@ -83,8 +87,10 @@ header, #sidebar {
   }
 }
 
-.column-heading{
+.column-heading {
+  margin: 0;
 	@media all and (max-width: @break1)   {
+    margin-top: @line;
     width: 100%;
     text-align: center;
   }

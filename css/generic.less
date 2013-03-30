@@ -167,7 +167,7 @@ podding - stylesheet for generic objects (lol)
         .date {
           
         }
-        .hosts-list {
+        .hosts-list-mini {
           margin: 0;
           padding: 0;
           display: inline;
@@ -197,8 +197,42 @@ podding - stylesheet for generic objects (lol)
         @media all and (max-width: @break2)   {
           margin-left: 0;
         }
+        .shownotes {
+          margin-top: @line;
+        }
       }
-      
+
+    .hosts-list-full {
+      float: left;
+      width: 100%;
+      .host-container {
+       float: left;
+       margin-right: 0.5*@line;
+       text-align: center;
+      }
+      img {
+        height: 3*@line;
+      }
+      .host-link-image {
+        .hide-link-hardcore;
+      } 
+
+      .host-link-name {
+        .hide-link-less;
+      }
+
+      @media all and (max-width: @break1)   {
+        text-align: center;
+        .host-container {
+          float: none;
+          display: inline-block;
+          margin: 0 0.25*@line;
+        }
+      }
+     
+
+    }
+
   }
 
   /* Episode download links */
@@ -215,8 +249,9 @@ podding - stylesheet for generic objects (lol)
     .download-links-full {
       float: left;
       width: 100%;
-      padding: 0.5*@line 0;
-      text-align: center;
+      @media all and (max-width: @break1)   {
+        text-align: center;
+      }
     }
 
     .download-link { // styling for episode download links, this one is used in short mode
@@ -238,15 +273,23 @@ podding - stylesheet for generic objects (lol)
     
 
     .download-link-full { // extend download link style for for episodes in full mode
-      .download-link;
+      .link-text;
+      .inline-icon;
+      .link-icon;
+      .sized;
+      margin-right: 1em;
       float: none;
       display: inline;
       color: @text-less;
+      @media all and (max-width: @break2)   { 
+        margin: 0 0.25*@line;
+      }
     }
   
   /* Episode player */
 
     .episode-player {
+      clear: both;
       margin: 0 auto;
     }  
 
