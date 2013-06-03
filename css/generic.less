@@ -367,7 +367,6 @@ podding - stylesheet for generic objects (lol)
 
   .episode-list-label {
     .sized;
-    
     position: absolute;
     color: @text;
     i {
@@ -384,9 +383,8 @@ podding - stylesheet for generic objects (lol)
   }
 
   .published_episodes .episode-list-label {
-    visibility: hidden;
-    @media all and (max-width: @break2)   { 
-      visibility: visible;
+    @media all and (min-width: @break2)   { 
+      visibility: hidden;
     }
   }
 
