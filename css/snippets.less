@@ -307,9 +307,11 @@
     float: right;
     width: 75%;
     min-height: 6*@line;
+    padding-bottom: 1*@line;
     @media all and (max-width: @break2)   {
       width: 100%;
       padding: 0;
+      padding-bottom: 2*@line;
       background: @bg;
     }
   }
@@ -327,6 +329,7 @@
   }
 
   .card-secondary {
+    margin-top: @line;
     background: @bg;
     clear: both;
     float: left;
