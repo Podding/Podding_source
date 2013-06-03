@@ -15,7 +15,7 @@
 
     == slim :"includes/_episode-header", :locals => { :episode => episode }
 
-    - if mode == "short" or mode == "full"
+    - if mode == "full"
       .content
         .teaser.text-content.column-left.column-main
           == markdown episode.teaser
@@ -56,8 +56,21 @@
           h3.column-heading.inline-icon 
             | <i class="icon-book"></i> Shownotes
           .shownotes.text-content
-            
             == markdown episode.content
 
           
+    - if mode == "short"
+      .content
+        .teaser.text-content
+          == markdown episode.teaser
+
+        - if episode.status != "live"
+          a.more-link-text href="#{ url_for(episode) }" title="Link zu den Shownotes zu #{ episode.show.title } - #{ episode.title }"
+             | <i class="icon-book"></i>Shownotes
+          p.download-links-short
+            - for audio_format in episode.audioformats.keys do
+              a.download-link.popover href="#{episode.audioformats[audio_format]}"
+                | <i class="icon-download"></i>#{audio_format}
+                span.popover-content Download #{ episode.show.title }: #{ episode.title } in #{ audio_format }
+
           
