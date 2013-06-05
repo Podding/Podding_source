@@ -3,7 +3,7 @@ name: "rtc-s01e02"
 title: "Breaking Bad"
 show: "rtc"
 id: "s01e02"
-date: "21.3.2012"
+date: "2012-08-03"
 
 hosts: foobert
 full_url: "http://www.example.com/"
