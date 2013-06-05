@@ -37,9 +37,15 @@
           a.more-link-text href="#{ url_for(host) }" title="Mehr über #{ host.name } "
                  |  mehr... <i class="icon-circle-arrow-right"></i>
 
-  - if mode == "full"
-    - if host.episodes.length != 0
-      .card-secondary
-        == slim :"includes/_episode-list", :locals => { :episodes => host.episodes, :mode => "mini-show", :list_label => "Sendungen mit #{ host.full_name }", :list_icon => "user" }
 
+  - if mode == "full"
+    .card-secondary
+    - if host.planned_episodes.length != 0
+      == slim :"includes/_episode-list", :locals => { :episodes => show.planned_episodes, :mode => "mini-date", :status => "planned" }
+
+    - if host.live_episodes.length != 0
+      == slim :"includes/_episode-list", :locals => { :episodes => show.planned_episodes, :mode => "short", :status => "live" }
+
+    - if host.published_episodes.length != 0
+      == slim :"includes/_episode-list", :locals => { :episodes => show.published_episodes, :list_icon => "", :mode => "short", :status => "published" }
 
