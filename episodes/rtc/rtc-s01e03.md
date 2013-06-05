@@ -1,6 +1,6 @@
 ---
 name: "rtc-s01e03"
-title: ""
+title: "Würstchen und Sommer"
 show: "rtc"
 date: "1.8.2013"
 
