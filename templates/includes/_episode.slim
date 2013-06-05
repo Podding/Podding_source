@@ -2,7 +2,10 @@
   li class=["episode-mini", "#{ episode.show }", "episode-#{ episode.status }"]
     a.title-link href="#{ url_for(episode) }"
       - if episode.title != ""
-        | <span class="title-label"> #{ episode.date.strftime("%-d. %B %Y") }</span>#{ episode.title }
+        - if episode.live_date and episode.status == "planned"
+          | <span class="title-label"> #{ episode.live_date.strftime("%-d. %B %Y") }</span>#{ episode.title }
+        - else
+          | <span class="title-label"> #{ episode.date.strftime("%-d. %B %Y") }</span>#{ episode.title }
       - else
         | <span class="title-label"> #{ episode.date.strftime("%-d. %B %Y") }</span>#{ episode.show.title }
 
