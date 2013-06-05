@@ -2,8 +2,8 @@
 name: "rtc-s01e03"
 title: ""
 show: "rtc"
-date: "1.1.2013"
-status: "planned"
+date: "1.8.2013"
+
 hosts: foobert
 full_url: "http://www.example.com/"
 audioformats:

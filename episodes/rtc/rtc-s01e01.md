@@ -4,7 +4,7 @@ title: "Doctor House"
 show: "rtc"
 id: "s01e01"
 date: "17.3.2012"
-status: "published"
+
 hosts: [lukas, foobert]
 full_url: "http://www.example.com/"
 audioformats: 
