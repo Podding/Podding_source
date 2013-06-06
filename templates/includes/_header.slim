@@ -6,18 +6,22 @@ header.instapaper_ignore
     ul#nav-list
       li.nav-item: a.nav-link href="/pages/info"
         | <i class="icon-book"></i><span>Info<span>rmationen</span></span>
-      li.nav-item: a.nav-link href="/hosts"
-        | <i class="icon-group"></i><span>Hosts</span>
+      li.nav-item.popover-menu 
+        a.nav-link href="/hosts"
+          | <i class="icon-group"></i><span>Hosts</span>
+        ul.popover-content
+          - for host in all_hosts do
+            li: a.inline-icon href="#{ url_for(host) }" 
+              |  #{ host.full_name } <i class="icon-arrow-right"></i>
+
       li.nav-item.popover-menu
         a.nav-link href="/shows"
           | <i class="icon-star"></i><span>Shows</span>
         ul.popover-content
-            li: a.inline-icon href="/shows/rtn" 
-              |  Retinauten <i class="icon-arrow-right"></i>
-            li: a.inline-icon href="/shows/rtc"
-              |  Retinauten <i class="icon-arrow-right"></i>
-        
-
+          - for show in all_shows do
+            li: a.inline-icon href="#{ url_for(show) }" 
+              |  #{ show.title } <i class="icon-arrow-right"></i>
+            
       li.nav-item: a.nav-link href="/pages/abo"
         | <i class="icon-rss"></i><span>Abo<span>nnieren</span></span>
       li.nav-item: a.nav-link href="/pages/feedback"
