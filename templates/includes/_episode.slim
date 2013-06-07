@@ -21,53 +21,58 @@
     - if mode == "full"
       .content
         .teaser.text-content.column-left.column-main
-          == markdown episode.teaser
+          - if episode.teaser != ""
+            == markdown episode.teaser
+          - elsif episode.status != "published" and episode.live_date
+            == markdown "Diese Episode wird am #{ episode.live_date.strftime("%-d. %B %Y") } live gestreamt. Den Stream findest du [hier]( #{ settings.streaming_url } ) und weitere Informationen auf der [Live-Seite]( /pages/live )."
+          - elsif episode.status == "planned"
+            p Diese Folge ist im Moment nur geplant und hat deshalb noch keine Beschreibung. :/
+          - else
+            p In dieser Folge reden Menschen über Dinge.
 
-        - if mode == "short" and episode.status != "live"
-          a.more-link-text href="#{ url_for(episode) }" title="Link zu den Shownotes zu #{ episode.show.title } - #{ episode.title }"
-             | <i class="icon-book"></i>Shownotes
-          p.download-links-short
+        
+        .column-right.column-secondary
+          h3.column-heading 
+            | Hosts <span class="quip">wer redete...</span>
+          .hosts-list-full  
+            - for host in episode.hosts
+              .host-container 
+                a.host-link-image href="#{ url_for(host) }": img src="#{ host.image_url }"
+                p.host-name 
+                  a.host-link-name href="#{ url_for(host) }" #{ host.full_name }
+
+          h3.column-heading 
+            | Download <span class="quip">grab the goods!</span>
+          .download-links-full
             - for audio_format in episode.audioformats.keys do
-              a.download-link.popover href="#{episode.audioformats[audio_format]}"
+              a.download-link-full.popover href="#{episode.audioformats[audio_format]}" title="Download #{ episode.show.title }: #{ episode.title } in #{ audio_format }"
                 | <i class="icon-download"></i>#{audio_format}
                 span.popover-content Download #{ episode.show.title }: #{ episode.title } in #{ audio_format }
-
-        - if mode == "full"
-          .column-right.column-secondary
-            h3.column-heading 
-              | Hosts <span class="quip">wer redete...</span>
-            .hosts-list-full  
-              - for host in episode.hosts
-                .host-container 
-                  a.host-link-image href="#{ url_for(host) }": img src="#{ host.image_url }"
-                  p.host-name 
-                    a.host-link-name href="#{ url_for(host) }" #{ host.full_name }
-
-            .clear
-
-            h3.column-heading 
-              | Download <span class="quip">grab the goods!</span>
-            .download-links-full
-              - for audio_format in episode.audioformats.keys do
-                a.download-link-full.popover href="#{episode.audioformats[audio_format]}" title="Download #{ episode.show.title }: #{ episode.title } in #{ audio_format }"
-                  | <i class="icon-download"></i>#{audio_format}
-                  span.popover-content Download #{ episode.show.title }: #{ episode.title } in #{ audio_format }
 
 
           == slim :"includes/_episode-player", :locals => { :episode => episode}
 
-          h3.column-heading.inline-icon 
-            | <i class="icon-book"></i> Shownotes
-          .shownotes.text-content
-            == markdown episode.content
+        .clear
+        
+        h3.column-heading.inline-icon 
+          | <i class="icon-book"></i> Shownotes
+        .shownotes.text-content
+          == markdown episode.content
 
           
     - if mode == "short"
       .content
         .teaser.text-content
-          == markdown episode.teaser
+          - if episode.teaser != ""
+            == markdown episode.teaser
+          - elsif episode.status != "published" and episode.live_date
+            == markdown "Diese Episode wird am #{ episode.live_date.strftime("%-d. %B %Y") } live gestreamt. Den Stream findest du [hier]( #{ settings.streaming_url } ) und weitere Informationen auf der [Live-Seite]( /pages/live )."
+          - elsif episode.status == "planned"
+            p Diese Folge ist im Moment nur geplant und hat deshalb noch keine Beschreibung. :/
+          - else
+            p In dieser Folge reden Menschen über Dinge.
 
-        - if episode.status != "live"
+        - if episode.status == "published"
           a.more-link-text href="#{ url_for(episode) }" title="Link zu den Shownotes zu #{ episode.show.title } - #{ episode.title }"
              | <i class="icon-book"></i>Shownotes
           p.download-links-short
