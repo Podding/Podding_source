@@ -1,7 +1,14 @@
-author: "Spock"
+# Required
+
 title: "Retinacast"
+base_url: "http://0.0.0.0:3000"
 cover_url: "/images/cover.png"
-auphonic_username: ""
-auphonic_password: ""
-varnish_host: "127.0.0.1"
-varnish_port: 80
+base_audio_url: "/audio"
+source_repository: "github.com/Podding/Podding_source"
+
+# Optional
+
+flattr_id: "rtc"
+amazon_id: "retinacast04-21"
+streaming_url: "https//streams.xenim.de"
+github_url: "https://github.com/Podding"
