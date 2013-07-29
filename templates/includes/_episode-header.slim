@@ -1,18 +1,18 @@
 .header
   /- if episode.status != "live"
-    /a.episode-icon.link-icon
+    /a.episode-icon.iconLink
       /i.icon-play
   /- elsif episode.status == "live"
-   / a.episode-icon.link-icon
+   / a.episode-icon.iconLink
     /  i.icon-bullhorn
 
   h2.title: a.title-link href="#{ url_for(episode) }"
     | <span class="title-label">#{ episode.show.title }</span>#{ episode.title }
   .meta-info
-    a.id.link-icon.popover href="" title="ID der Sendung #{ episode.show.title }: #{ episode.title }"
+    a.id.iconLink.popover href="" title="ID der Sendung #{ episode.show.title }: #{ episode.title }"
       | <i class="icon-barcode"></i><span class="id-content">#{ episode.name }</span>
       span.popover-content ID der Sendung #{ episode.show.title }: #{ episode.title }
-    a.date.link-icon href=""
+    a.date.iconLink href=""
      | <i class="icon-time"></i>#{ episode.date.strftime("%d.%m.%Y") }
     a.comments href="" title="Kommentare zu #{ episode.title }"
      | <i class="icon-comments"></i>#{ episode.comments }
@@ -20,7 +20,7 @@
     
     ul.hosts-list--mini
       li.hosts-list-label
-        a.link-icon href="": i.icon-group
+        a.iconLink href="": i.icon-group
       - if episode.hosts.length == 1
         - for host in episode.hosts  
           li.single: a.host-link href="/hosts/#{ host.name }" #{ host.name }

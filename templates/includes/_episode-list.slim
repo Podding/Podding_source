@@ -24,7 +24,7 @@
       - for episode in episodes
         == slim :"includes/_episode", :locals => { :episode => episode, :mode => "mini-date" }
       / li.more-link // removed until implemented
-      /  a.link-icon href="#{  }"
+      /  a.iconLink href="#{  }"
           |  mehr... <i class="icon-circle-arrow-right"></i>
 
 - elsif mode == "mini-show"
@@ -36,7 +36,7 @@
       - for episode in episodes
         == slim :"includes/_episode", :locals => { :episode => episode, :mode => "mini-show" }
       / li.more-link // removed until implemented
-      /  a.link-icon href="#{  }"
+      /  a.iconLink href="#{  }"
           |  mehr... <i class="icon-circle-arrow-right"></i>
 
 - elsif mode == "short"
