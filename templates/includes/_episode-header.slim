@@ -1,4 +1,4 @@
-.header
+.episode-header
   /- if episode.status != "live"
     /a.episode-icon.basicLink
       /i.icon-play
@@ -8,7 +8,7 @@
 
   h2.title: a.title-link href="#{ url_for(episode) }"
     | <span class="title-label">#{ episode.show.title }</span>#{ episode.title }
-  .meta-info
+  .episode-metaInfo
     a.episodeId.basicLink.popover href="" title="ID der Sendung #{ episode.show.title }: #{ episode.title }"
       | <i class="icon-barcode"></i><span class="id-content">#{ episode.name }</span>
       span.popover-content ID der Sendung #{ episode.show.title }: #{ episode.title }
@@ -18,8 +18,8 @@
      | <i class="icon-comments"></i>#{ episode.comments }
 
     
-    ul.hostsList--mini
-      li.hostsList-label
+    ul.episode-hostsList--mini
+      li.episode-hostsList-label
         a.basicLink href="": i.icon-group
       - if episode.hosts.length == 1
         - for host in episode.hosts  
