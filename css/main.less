@@ -167,7 +167,7 @@ podding - stylesheet for generic objects (lol)
         .date {
           
         }
-        .hosts-list-mini {
+        .hosts-list--mini {
           margin: 0;
           padding: 0;
           display: inline;
@@ -238,7 +238,7 @@ podding - stylesheet for generic objects (lol)
 
   /* Episode download links */
 
-    .download-links-short { // these are displayed in short mode when rendering an episode
+    .download-links--short { // these are displayed in short mode when rendering an episode
       margin-right: 20%;
       @media all and (max-width: @break3)   {
         float: left;
@@ -297,7 +297,7 @@ podding - stylesheet for generic objects (lol)
   /* Published episodes */
 
 /* Episode lists */
-  .episode-list {
+  .episodeList {
     float: left;
     margin-top: 1.5*@line;
     .more-link {      
@@ -335,7 +335,7 @@ podding - stylesheet for generic objects (lol)
   }
 
 
-  .episode-list-mini {
+  .episodeList--mini {
     margin: 0 0 0 40px;
     @media all and (max-width: @break2)   { 
       margin-left: 0;
@@ -361,36 +361,19 @@ podding - stylesheet for generic objects (lol)
     }
   }
 
-  .episode-list-container { // the contains the mini episode lists
+  .episodeListContainer { // the contains the mini episode lists
       float: left; // if you don't float this, the box model can't properly asses the height of the div and layout breaks in weird ways
     }
 
-  .episode-list-label {
+  .episodeList-label {
+    .link-icon;
     .sized;
+    .popover;
     position: absolute;
     color: @text;
     i {
       vertical-align: middle;
     }
-    @media all and (max-width: @break2)   { 
-      .link-text;
-      width: 100%;
-      max-width: 100%;
-      i {
-        margin-top: -0.15em;
-      }
-    }
-  }
-
-  .published_episodes .episode-list-label {
-    @media all and (min-width: @break2)   { 
-      visibility: hidden;
-    }
-  }
-
-  .popover-episode-list-label { // the popover for labeling lists, like the short episode lists
-    .popover;
-    position: absolute;
     .popover-content {
       top: 30px;
       left: -20px;
@@ -399,11 +382,17 @@ podding - stylesheet for generic objects (lol)
         left: 20px;
       }
     }
-    @media all and (max-width: @break2)   { // display popovers as headings on small screns
-      position: relative;
+
+    @media all and (max-width: @break2)   { 
+      .link-text;
       width: 100%;
+      max-width: 100%;
+      position: relative;
       float: left;
       margin-bottom: 0.5*@line;
+      i {
+        margin-top: -0.15em;
+      }
       text-align: center;
       .popover-content {
         position: static;
@@ -426,7 +415,14 @@ podding - stylesheet for generic objects (lol)
     }
   }
 
-  .episode-mini {
+  .published_episodes .episodeList-label {
+    @media all and (min-width: @break2)   { 
+      visibility: hidden;
+    }
+  }
+
+
+  .episode--mini {
       &:after {
         content: " / ";
         color: @text-less;
@@ -459,7 +455,7 @@ podding - stylesheet for generic objects (lol)
         }
       }
     
-    .episode-list-container {
+    .episodeListContainer {
       width: 100%;
     }
   }

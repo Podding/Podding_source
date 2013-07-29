@@ -1,4 +1,4 @@
-#content.episode-list-page.index
+#content.episodeList-page.index
   - if @planned_episodes.length != 0
     == slim :"includes/_episode-list", :locals => { :episodes => @planned_episodes, :mode => "mini-date", :status => "planned" }
   - if @live_episodes.length != 0

@@ -1,5 +1,5 @@
 - if mode == "mini-date"
-  li class=["episode-mini", "#{ episode.show }", "episode-#{ episode.status }"]
+  li class=["episode--mini", "#{ episode.show }", "episode-#{ episode.status }"]
     a.title-link href="#{ url_for(episode) }"
       - if episode.title != ""
         - if episode.live_date and episode.status == "planned"
@@ -10,7 +10,7 @@
         | <span class="title-label"> #{ episode.date.strftime("%-d. %B %Y") }</span>#{ episode.show.title }
 
 - if mode == "mini-show"
-  li class=["episode-mini", "#{ episode.show }", "episode-#{ episode.status }"]
+  li class=["episode--mini", "#{ episode.show }", "episode-#{ episode.status }"]
     a.title-link href="#{ url_for(episode) }"
           | <span class="title-label">#{ episode.show.title }</span>#{ episode.title }
 - if mode != "mini-date" and mode != "mini-show"
@@ -75,7 +75,7 @@
         - if episode.status == "published"
           a.more-link-text href="#{ url_for(episode) }" title="Link zu den Shownotes zu #{ episode.show.title } - #{ episode.title }"
              | <i class="icon-book"></i>Shownotes
-          p.download-links-short
+          p.download-links--short
             - for audio_format in episode.audioformats.keys do
               a.download-link.popover href="#{episode.audioformats[audio_format]}"
                 | <i class="icon-download"></i>#{audio_format}
