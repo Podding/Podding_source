@@ -7,6 +7,11 @@
   clear: both;
 }
 
+.hidden {
+  visibility: hidden;
+  height: 0px;
+  display: none;
+}
 
 /* Style inline lists and add delimeters */
 
@@ -118,11 +123,10 @@
     }
   }
 
-  .inlineIcon { // for icons that are used in text without sticking out
+  .inlineIcon { // for icons that are used with text behind them (size slightly larger than text)
     .spaced;
-    line-height: @line;
+    .sized;
     i {
-      font-size: 1.6em;
       vertical-align: middle;
     }
 
@@ -134,7 +138,6 @@
     float: right;
     color: @text-less;
     border: none;
-    .spaced;
   }
 
   // Making sure that the Awesome Icons are properly lined up (very much empirical values :D )

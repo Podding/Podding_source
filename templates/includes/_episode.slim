@@ -1,5 +1,5 @@
 - if mode == "mini-date"
-  li class=["episode--mini", "#{ episode.show }", "episode-#{ episode.status }"]
+  li class=["episode--mini", "#{ episode.show }", "episode--#{ episode.status }"]
     a href="#{ url_for(episode) }"
       - if episode.title != ""
         - if episode.live_date and episode.status == "planned"
@@ -10,11 +10,12 @@
         | <span class="title-label"> #{ episode.date.strftime("%-d. %B %Y") }</span>#{ episode.show.title }
 
 - if mode == "mini-show"
-  li class=["episode--mini", "#{ episode.show }", "episode-#{ episode.status }"]
+  li class=["episode--mini", "#{ episode.show }", "episode--#{ episode.status }"]
     a href="#{ url_for(episode) }"
           | <span class="title-label">#{ episode.show.title }</span>#{ episode.title }
+
 - if mode != "mini-date" and mode != "mini-show"
-  div class=["episode", "#{ episode.show }", "episode-#{ episode.status }"]
+  div class=["episode", "#{ episode.show }", "episode--#{ episode.status }"]
 
     == slim :"includes/_episode-header", :locals => { :episode => episode }
 
@@ -43,9 +44,9 @@
 
           h3.column-heading 
             | Download <span class="quip">grab the goods!</span>
-          .download-links--full
+          .episode-downloadLinks--full
             - for audio_format in episode.audioformats.keys do
-              a.download-link--full.popover href="#{episode.audioformats[audio_format]}" title="Download #{ episode.show.title }: #{ episode.title } in #{ audio_format }"
+              a.episode-downloadLink--full.popover href="#{episode.audioformats[audio_format]}" title="Download #{ episode.show.title }: #{ episode.title } in #{ audio_format }"
                 | <i class="icon-download"></i>#{audio_format}
                 span.popover-content Download #{ episode.show.title }: #{ episode.title } in #{ audio_format }
 
@@ -75,9 +76,9 @@
         - if episode.status == "published"
           a.moreLink href="#{ url_for(episode) }" title="Link zu den Shownotes zu #{ episode.show.title } - #{ episode.title }"
              | <i class="icon-book"></i>Shownotes
-          p.download-links--short
+          p.episode-downloadLinks--short
             - for audio_format in episode.audioformats.keys do
-              a.download-link.popover href="#{episode.audioformats[audio_format]}"
+              a.episode-downloadLink.popover href="#{episode.audioformats[audio_format]}"
                 | <i class="icon-download"></i>#{audio_format}
                 span.popover-content Download #{ episode.show.title }: #{ episode.title } in #{ audio_format }
 

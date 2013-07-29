@@ -229,6 +229,7 @@ podding - stylesheet for generic objects (lol)
 
   .episode-content {
     float: left;
+    width: 100%;
     @media all and (max-width: @break2)   {
       margin-left: 0;
     }
@@ -239,7 +240,7 @@ podding - stylesheet for generic objects (lol)
 
   /* Episode download links */
 
-    .download-links--short { // these are displayed in short mode when rendering an episode
+    .episode-downloadLinks--short { // these are displayed in short mode when rendering an episode
       margin-right: 20%;
       @media all and (max-width: @break3)   {
         float: left;
@@ -248,7 +249,7 @@ podding - stylesheet for generic objects (lol)
       }
     }
 
-    .download-links--full {
+    .episode-downloadLinks--full {
       float: left;
       width: 100%;
       @media all and (max-width: @break1)   {
@@ -256,7 +257,7 @@ podding - stylesheet for generic objects (lol)
       }
     }
 
-    .download-link { // styling for episode download links, this one is used in short mode
+    .episode-downloadLink { // styling for episode download links, this one is used in short mode
       .textLink;
       .sized;
       margin-right: 1em;
@@ -270,7 +271,7 @@ podding - stylesheet for generic objects (lol)
       color: @text-even-less;
     }
 
-    .download-link--full { // extend download link style for for episodes in full mode
+    .episode-downloadLink--full { // extend download link style for for episodes in full mode
       .textLink;
       .sized;
       margin-right: 1em;
@@ -290,7 +291,9 @@ podding - stylesheet for generic objects (lol)
     }  
 
 /* Episode lists */
+  
   .episodeList {
+    width: 100%;
     float: left;
     margin-top: 1.5*@line;
     .episodeList-moreLink {      
@@ -314,7 +317,7 @@ podding - stylesheet for generic objects (lol)
         margin-left: 0;
       }
     }
-    .episode-published {
+    .episode--published {
       border-bottom: 1px solid @sub;
     }
     @media all and (max-width: @break2)   {
@@ -328,13 +331,17 @@ podding - stylesheet for generic objects (lol)
   }
 
 
-  .episodeList--mini {
+  .episodeListMini {
+    float: left;
     margin: 0 0 0 40px;
+    
     @media all and (max-width: @break2)   { 
       margin-left: 0;
     }
+
     padding: 0;
     .inline-list;
+
     li {
       float: left;
       margin-right: 0.1em;
@@ -348,19 +355,18 @@ podding - stylesheet for generic objects (lol)
 
     .episodeList-moreLink {
       .inlineIcon;
-      .sized;
       color: @text-even-less;
       padding-left: 0.2rem;
     }
   }
 
-  .episodeListContainer { // the contains the mini episode lists
+  .episodeListContainer { // this contains the mini episode lists
       float: left; // if you don't float this, the box model can't properly asses the height of the div and layout breaks in weird ways
     }
 
   .episodeList-label {
-    .basicLink;
-    .sized;
+    .basicLink; // inherit colours etc
+    .inlineIcon; // make the icon fit in
     .popover;
     position: absolute;
     color: @text;
@@ -407,7 +413,7 @@ podding - stylesheet for generic objects (lol)
     }
   }
 
-  .published_episodes .episodeList-label {
+  .episodeList--published .episodeList-label {
     @media all and (min-width: @break2)   { 
       visibility: hidden;
     }
