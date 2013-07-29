@@ -1,0 +1,140 @@
+/*
+  Stylesheet for generic objects that can be extended where needed
+*/
+
+
+/* Popovers! */
+  // the base class for popovers, this can be used directly or subclassed
+  // current sub-classes: popover-episode-list-label and popover-menu
+  .popover { 
+    position: relative;
+    height: @line;
+    display: inline-block;
+    vertical-align: baseline;
+    zoom: 1;
+    *display: inline;
+    *vertical-align: auto;
+    &:hover ul, &:hover span {
+      visibility: visible;
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .popover-content {
+      position: absolute;
+      width: 100%;
+      min-width: 10em;
+      visibility: hidden; // comment this line for debugging
+      opacity: 0; // comment this line for debugging
+      position: absolute;
+      top: 0.5*@line;
+      left: 0;
+      right: 0;
+      .bordered;
+      border: 1px solid @highlight;
+      padding: 0.25*@line;
+      -webkit-transition-property: opacity, padding, visibility;
+      -moz-transition-property: opacity, padding, visibility;
+      -ms-transition-property: opacity, padding, visibility;
+      -o-transition-property: opacity, padding, visibility;
+      transition-property: opacity, padding, visibility;
+      -webkit-transition: 0.3s ease-out;
+      -moz-transition: 0.3s ease-out;
+      -ms-transition: 0.3s ease-out;
+      -o-transition: 0.3s ease-out;
+      transition: 0.3s ease-out;
+      background-color: @bg;
+      list-style: none;
+      color: @text;
+      text-align: center;
+      a {
+        .hide-link-less;
+      }
+      &:before, &:after {
+        display: block;
+        content: '';
+        width: 0;
+        height: 0;
+        position: absolute;
+        left: 15px;
+        border: 8px outset transparent;
+      }
+      &:before { // white triangle to "cut out" the arrow
+        border-bottom: 8px solid @highlight;
+        top: -15px;
+        left: 15px;
+      }
+      &:after {
+        border-bottom: 8px solid @bg; // creates a red triangle
+        top: -14px;
+        left: 15px;
+      }
+
+    }
+
+    span.popover-content {
+      top: 1.2*@line;
+    }
+  }
+
+  
+  
+/* Cards */
+  // This is the object I don't quite have a name for yet. It is used in hosts and shows.
+  .card {
+    clear: both;
+    float: left;
+    width: 100%;
+    margin-bottom: @line;
+  }
+
+  .card-cover-image {
+    float: left;
+    width: 20%;
+    margin: 0;
+    @media all and (max-width: @break2)   {
+      width: 100%;
+      margin-bottom: -33%;
+      
+    }
+  }
+
+  
+
+  .card-main {
+    float: right;
+    width: 75%;
+    min-height: 6*@line;
+    padding-bottom: 1*@line;
+    @media all and (max-width: @break2)   {
+      width: 100%;
+      padding: 0;
+      padding-bottom: 2*@line;
+      background: @bg;
+    }
+  }
+
+  .card-main-wrapper {
+    @media all and (max-width: @break2)   {
+      width: 100%;
+      padding: 0.5*@line 0 0.5*@line 0;
+      background: @bg;
+    }
+  }
+
+  .card-title {
+
+  }
+
+  .card-secondary {
+    margin-top: @line;
+    background: @bg;
+    clear: both;
+    float: left;
+    width: 100%;
+    @media all and (max-width: @break2)   {
+      width: 90%;
+      padding: 0 5%;
+      
+    }
+  }
