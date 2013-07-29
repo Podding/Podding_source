@@ -6,11 +6,11 @@
    / a.episode-icon.basicLink
     /  i.icon-bullhorn
 
-  h2.title: a.title-link href="#{ url_for(episode) }"
+  h2.title: a href="#{ url_for(episode) }"
     | <span class="title-label">#{ episode.show.title }</span>#{ episode.title }
   .episode-metaInfo
-    a.episodeId.basicLink.popover href="" title="ID der Sendung #{ episode.show.title }: #{ episode.title }"
-      | <i class="icon-barcode"></i><span class="id-content">#{ episode.name }</span>
+    a.episode-id.basicLink.popover href="" title="ID der Sendung #{ episode.show.title }: #{ episode.title }"
+      | <i class="icon-barcode"></i><span class="episode-id-content">#{ episode.name }</span>
       span.popover-content ID der Sendung #{ episode.show.title }: #{ episode.title }
     a.date.basicLink href=""
      | <i class="icon-time"></i>#{ episode.date.strftime("%d.%m.%Y") }

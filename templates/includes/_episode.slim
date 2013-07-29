@@ -1,18 +1,18 @@
 - if mode == "mini-date"
   li class=["episode--mini", "#{ episode.show }", "episode-#{ episode.status }"]
-    a.title-link href="#{ url_for(episode) }"
+    a href="#{ url_for(episode) }"
       - if episode.title != ""
         - if episode.live_date and episode.status == "planned"
-          | <span class="episode-title-label"> #{ episode.live_date.strftime("%-d. %B %Y") }</span>#{ episode.title } (live)
+          | <span class="title-label"> #{ episode.live_date.strftime("%-d. %B %Y") }</span>#{ episode.title } (live)
         - else
-          | <span class="episode-title-label"> #{ episode.date.strftime("%-d. %B %Y") }</span>#{ episode.title }
+          | <span class="title-label"> #{ episode.date.strftime("%-d. %B %Y") }</span>#{ episode.title }
       - else
-        | <span class="episode-title-label"> #{ episode.date.strftime("%-d. %B %Y") }</span>#{ episode.show.title }
+        | <span class="title-label"> #{ episode.date.strftime("%-d. %B %Y") }</span>#{ episode.show.title }
 
 - if mode == "mini-show"
   li class=["episode--mini", "#{ episode.show }", "episode-#{ episode.status }"]
-    a.title-link href="#{ url_for(episode) }"
-          | <span class="episode-title-label">#{ episode.show.title }</span>#{ episode.title }
+    a href="#{ url_for(episode) }"
+          | <span class="title-label">#{ episode.show.title }</span>#{ episode.title }
 - if mode != "mini-date" and mode != "mini-show"
   div class=["episode", "#{ episode.show }", "episode-#{ episode.status }"]
 
@@ -57,7 +57,7 @@
         h3.column-heading.inlineIcon 
           | <i class="icon-book"></i> Shownotes
         .shownotes.text-content
-          == markdown episode.episode-content
+          == markdown episode.content
 
           
     - if mode == "short"

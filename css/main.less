@@ -3,23 +3,24 @@ podding - stylesheet for generic objects (lol)
 */
 
 .title {
-    a {
-      .hide-link;
-      color: @highlight;
-    }
+  a {
+    .hide-link;
+    color: @highlight;
   }
+}
 
 .moreLink {
   .textLink;
   .sized;
   margin-right: 1em;
+
   @media all and (max-width: @break3)   {
       float: right;
       width: 50%;
       margin: 0;
       text-align: right;
-    }
   }
+}
 
 /* Header */
   /* Site Header */
@@ -113,9 +114,11 @@ podding - stylesheet for generic objects (lol)
   #sidebar {
     border-top: 1px solid @sub;
     padding-top: @line;
+    
     @media all and (min-width: @break1) {
       border: none;
       padding-top: 0;
+    
     }
   }
 
@@ -126,7 +129,12 @@ podding - stylesheet for generic objects (lol)
     padding-bottom: @line;
     font-size: 0.8rem;
     color: @text-less;
-    a { .hide-link; border-bottom: 1px solid; }
+    
+    a { 
+      .hide-link; 
+      border-bottom: 
+      1px solid; 
+    }
   }
 
 /* Episodes */
@@ -138,6 +146,7 @@ podding - stylesheet for generic objects (lol)
 
   .episode-header {
     margin-bottom: @line;
+
     .episode-icon, .icon {
       float: left;
       width: 40px;
@@ -147,34 +156,36 @@ podding - stylesheet for generic objects (lol)
       .basicLink;
     }
 
-    .episode-title-label {
-      color: @text;
-    }
-
     .episode-metaInfo {
       color: @text-less;
+      
       @media all and (max-width: @break2)   {
         margin-left: 0;
       }
+
       a {
         .hide-link;
         .spaced;
         margin-right: 0.7em;
         }
-      .episodeId-content { 
+
+      .episode-id-content { 
         text-transform: uppercase; // CHOCKLOCK ENGAGE
       }
+
       .episode-hostsList--mini {
         margin: 0;
         padding: 0;
         display: inline;
         .inline-list;
+        
         a {
           text-decoration: none;
           color: @sub;
           margin: 0;
           .hide-link;
         }
+
         .episode-hostsList-label {
           margin: 0.1em;
         }
