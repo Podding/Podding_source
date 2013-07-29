@@ -9,10 +9,8 @@ podding - stylesheet for generic objects (lol)
     }
   }
 
-.more-link-text {
-  .link-text;
-  .inline-icon;
-  .iconLink;
+.moreLink {
+  .textLink;
   .sized;
   margin-right: 1em;
   @media all and (max-width: @break3)   {
@@ -84,7 +82,7 @@ podding - stylesheet for generic objects (lol)
     }
 
     .nav-link {
-      .iconLink-alt;
+      .basicLink-alt;
       .spaced;
       color: @bg;
       border: none;
@@ -144,7 +142,7 @@ podding - stylesheet for generic objects (lol)
         height: @line;
         font-size: 24px;
         vertical-align: middle;
-        .iconLink;
+        .basicLink;
       }
 
       .title-label {
@@ -161,13 +159,13 @@ podding - stylesheet for generic objects (lol)
           .spaced;
           margin-right: 0.7em;
           }
-        .id-content { 
+        .episodeId-content { 
           text-transform: uppercase; // CHOCKLOCK ENGAGE
         }
         .date {
           
         }
-        .hosts-list--mini {
+        .hostsList--mini {
           margin: 0;
           padding: 0;
           display: inline;
@@ -178,11 +176,11 @@ podding - stylesheet for generic objects (lol)
             margin: 0;
             .hide-link;
           }
-          .hosts-list-label {
+          .hostsList-label {
             margin: 0.1em;
           }
 
-          li:not(.hosts-list-label) { // :not prevents the icon from being itemized
+          li:not(.hostsList-label) { // :not prevents the icon from being itemized
             .itemized;
           }
 
@@ -202,7 +200,7 @@ podding - stylesheet for generic objects (lol)
         }
       }
 
-    .hosts-list-full {
+    .hostsList--full {
       float: left;
       width: 100%;
       margin-bottom: @line;
@@ -247,7 +245,7 @@ podding - stylesheet for generic objects (lol)
       }
     }
 
-    .download-links-full {
+    .download-links--full {
       float: left;
       width: 100%;
       @media all and (max-width: @break1)   {
@@ -256,9 +254,7 @@ podding - stylesheet for generic objects (lol)
     }
 
     .download-link { // styling for episode download links, this one is used in short mode
-      .link-text;
-      .inline-icon;
-      .iconLink;
+      .textLink;
       .sized;
       margin-right: 1em;
       @media all and (max-width: @break3)   {
@@ -271,12 +267,8 @@ podding - stylesheet for generic objects (lol)
       color: @text-even-less;
     }
 
-    
-
-    .download-link-full { // extend download link style for for episodes in full mode
-      .link-text;
-      .inline-icon;
-      .iconLink;
+    .download-link--full { // extend download link style for for episodes in full mode
+      .textLink;
       .sized;
       margin-right: 1em;
       float: none;
@@ -300,7 +292,7 @@ podding - stylesheet for generic objects (lol)
   .episodeList {
     float: left;
     margin-top: 1.5*@line;
-    .more-link {      
+    .episodeList-moreLink {      
       color: @text-less;
       .hide-link-hardcore;
       img {
@@ -353,8 +345,8 @@ podding - stylesheet for generic objects (lol)
       }
     }
 
-    .more-link {
-      .inline-icon;
+    .episodeList-moreLink {
+      .inlineIcon;
       .sized;
       color: @text-even-less;
       padding-left: 0.2rem;
@@ -366,7 +358,7 @@ podding - stylesheet for generic objects (lol)
     }
 
   .episodeList-label {
-    .iconLink;
+    .basicLink;
     .sized;
     .popover;
     position: absolute;
@@ -384,7 +376,6 @@ podding - stylesheet for generic objects (lol)
     }
 
     @media all and (max-width: @break2)   { 
-      .link-text;
       width: 100%;
       max-width: 100%;
       position: relative;
@@ -491,12 +482,12 @@ podding - stylesheet for generic objects (lol)
     color: @text-less;
     margin-bottom: 2*@line;
     .link-older {
-      .inline-icon;
+      .inlineIcon;
       .sized;
       float: left;
     }
     .link-newer {
-      .inline-icon;
+      .inlineIcon;
       .sized;
       float: right;
     }

@@ -82,7 +82,7 @@
   }
 
 
-/* Icon Styles */
+/* Icon Styles (these are applied to the parent element of the icon) */
   
   .spaced { // used for keeping a certain distance between icon and corresponding text
     i {
@@ -101,7 +101,7 @@
     }
   }
 
-  .iconLink { // basic color styling for icons in links
+  .basicLink { // basic color styling for links (often with icons)
     color: inherit;
     text-decoration: none;
     border: none;
@@ -111,14 +111,14 @@
     }
   }
 
-  .iconLink-alt { // an alternative styling for link icons on coloured bg (like buttons)
-    .iconLink;
+  .basicLink-alt { // an alternative styling for links on coloured bg (like buttons)
+    .basicLink;
     &:hover {
       color: @text;
     }
   }
 
-  .inline-icon { // you see this in the shownotes link etc.
+  .inlineIcon { // for icons that are used in text without sticking out
     .spaced;
     line-height: @line;
     i {
@@ -128,16 +128,16 @@
 
   }
 
-  .link-text {
-    .inline-icon;
-    .iconLink;
+  .textLink { // for links with icons that are used in areas that also contain text
+    .inlineIcon;
+    .basicLink;
     float: right;
     color: @text-less;
     border: none;
     .spaced;
   }
 
-  // Making sure that the Awesome Icons are properly lined up
+  // Making sure that the Awesome Icons are properly lined up (very much empirical values :D )
     .icon-bullhorn {
       margin-top: 5px;
     }
@@ -166,6 +166,10 @@
 
 /* Utility classes for punctuation & titles */
 
+  .em-dashed { // Add a space, an em-dash, another space before
+      &:before{content: " \2014\2002 ";} // black unicode magic that annoys me deeply
+    }
+
   .quip { // use this in a span in headers etc.
     .em-dashed;
     font-style: italic;
@@ -175,10 +179,6 @@
   .title-label { // this as well
     &:after{ content: ": "}
   }
-
-  .em-dashed { // Add a space, an em-dash, another space before
-      &:before{content: " \2014\2002 ";} // black unicode magic that annoys me deeply
-    }
 
 /* Button Styles */
   .buttonized {

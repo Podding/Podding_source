@@ -34,7 +34,7 @@
         .column-right.column-secondary
           h3.column-heading 
             | Hosts <span class="quip">wer redete...</span>
-          .hosts-list-full  
+          .hostsList--full  
             - for host in episode.hosts
               .host-container 
                 a.host-link-image href="#{ url_for(host) }": img src="#{ host.image_url }"
@@ -43,9 +43,9 @@
 
           h3.column-heading 
             | Download <span class="quip">grab the goods!</span>
-          .download-links-full
+          .download-links--full
             - for audio_format in episode.audioformats.keys do
-              a.download-link-full.popover href="#{episode.audioformats[audio_format]}" title="Download #{ episode.show.title }: #{ episode.title } in #{ audio_format }"
+              a.download-link--full.popover href="#{episode.audioformats[audio_format]}" title="Download #{ episode.show.title }: #{ episode.title } in #{ audio_format }"
                 | <i class="icon-download"></i>#{audio_format}
                 span.popover-content Download #{ episode.show.title }: #{ episode.title } in #{ audio_format }
 
@@ -54,7 +54,7 @@
 
         .clear
         
-        h3.column-heading.inline-icon 
+        h3.column-heading.inlineIcon 
           | <i class="icon-book"></i> Shownotes
         .shownotes.text-content
           == markdown episode.content
@@ -73,7 +73,7 @@
             p In dieser Folge reden Menschen über Dinge.
 
         - if episode.status == "published"
-          a.more-link-text href="#{ url_for(episode) }" title="Link zu den Shownotes zu #{ episode.show.title } - #{ episode.title }"
+          a.moreLink href="#{ url_for(episode) }" title="Link zu den Shownotes zu #{ episode.show.title } - #{ episode.title }"
              | <i class="icon-book"></i>Shownotes
           p.download-links--short
             - for audio_format in episode.audioformats.keys do

@@ -11,7 +11,7 @@ header.instapaper_ignore
           | <i class="icon-group"></i><span>Hosts</span>
         ul.popover-content
           - for host in all_hosts do
-            li: a.inline-icon href="#{ url_for(host) }" 
+            li: a.inlineIcon href="#{ url_for(host) }" 
               |  #{ host.full_name } <i class="icon-arrow-right"></i>
 
       li.nav-item.popover-menu
@@ -19,7 +19,7 @@ header.instapaper_ignore
           | <i class="icon-star"></i><span>Shows</span>
         ul.popover-content
           - for show in all_shows do
-            li: a.inline-icon href="#{ url_for(show) }" 
+            li: a.inlineIcon href="#{ url_for(show) }" 
               |  #{ show.title } <i class="icon-arrow-right"></i>
             
       li.nav-item: a.nav-link href="/pages/abo"
