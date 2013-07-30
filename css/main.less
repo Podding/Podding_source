@@ -161,6 +161,10 @@ podding - stylesheet for generic objects (lol)
     margin-bottom: @line;
   }
 
+  .fullEpisode { // single episode on a page
+    margin-top: @line;
+  }
+
   .episode--mini {
     font-family: @supportFonts;
   }
@@ -174,6 +178,18 @@ podding - stylesheet for generic objects (lol)
     .episode-header-spacer {
       .spacer;
       font-weight: 400;
+    }
+
+    .fullEpisode .episode-heading {
+      font-size: 2rem;
+
+      @media all and (max-width: @break2)   {
+        font-size: 1.5rem;
+      }
+
+      @media all and (max-width: @break3)   {
+        font-size: 1.2rem;
+      }
     }
 
     .episode-episodeNumber {
@@ -210,34 +226,8 @@ podding - stylesheet for generic objects (lol)
       }
     }
 
-  .episode-hostsList--full {
-    float: left;
-    width: 100%;
-    margin-bottom: @line;
-    .host-container {
-     float: left;
-     margin-right: 0.5*@line;
-     text-align: center;
-    }
-    img {
-      height: 3*@line;
-    }
-    .host-link-image {
-      .hide-link-hardcore;
-    } 
-
-    .host-link-name {
-      .hide-link-less;
-    }
-
-    @media all and (max-width: @break1)   {
-      text-align: center;
-      .host-container {
-        float: none;
-        display: inline-block;
-        margin: 0 0.25*@line;
-      }
-    }
+  .fullEpisode .episode-teaser {
+    font-weight: 600;
   }
 
   .episode-content {

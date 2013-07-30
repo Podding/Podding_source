@@ -1,3 +1,33 @@
-#content.single-episode
+#content
+  .fullEpisode
+    == slim :"includes/_episode-header", :locals => { :episode => @episode }
 
-	== slim :"includes/_episode", :locals => { :episode => @episode, :mode => "full" }
+    .episode-content
+      .episode-teaser.text-content.column-left.column-main
+        - if @episode.teaser != ""
+          == markdown @episode.teaser
+        - elsif @episode.status != "published" and episode.live_date
+          == markdown "Diese Episode wird am #{ @episode.live_date.strftime("%-d. %B %Y") } live gestreamt. Den Stream findest du [hier]( #{ settings.streaming_url } ) und weitere Informationen auf der [Live-Seite]( /pages/live )."
+        - elsif @episode.status == "planned"
+          p Diese Folge ist im Moment nur geplant und hat deshalb noch keine Beschreibung. :/
+        - else
+          p In dieser Folge reden Menschen über Dinge.
+
+      
+      .column-right.column-secondary
+        
+        h3.column-heading 
+          | Download
+        .episode-downloadLinks--full
+          - for audio_format in @episode.audioformats.keys do
+            a.episode-downloadLink--full.popover href="#{ @episode.audioformats[audio_format]}" title="Download #{ @episode.show.title }: #{ @episode.title } in #{ audio_format }"
+              | <i class="icon-download"></i>#{audio_format}
+              span.popover-content Download #{ @episode.show.title }: #{ @episode.title } in #{ audio_format }
+        == slim :"includes/_episode-player", :locals => { :episode => @episode}
+
+      .clear
+      
+      h2.column-heading.inlineIcon 
+        | Shownotes
+      .shownotes.text-content
+        == markdown @episode.content
