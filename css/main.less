@@ -2,6 +2,8 @@
 podding - stylesheet for generic objects (lol)
 */
 
+/* General Styles */
+
 .title {
   a {
     .hide-link;
@@ -9,10 +11,24 @@ podding - stylesheet for generic objects (lol)
   }
 }
 
+/* Some more title details */
+
+  .quip { // use this in a span in headers etc.
+    .em-dashed;
+    font-style: italic;
+    color: @text-less;
+  }
+
+  .title-label { // this as well
+    font-weight: 500;
+    .with-colon;
+  }
+
 .moreLink {
   .textLink;
   .sized;
   margin-right: 1em;
+  font-family: @supportFonts;
 
   @media all and (max-width: @break3)   {
       float: right;
@@ -47,6 +63,7 @@ podding - stylesheet for generic objects (lol)
       height: 2*@line;
       background-color: @highlight;
       .bordered;
+      font-family: @supportFonts;
       text-align: center; 
     }
 
@@ -144,58 +161,54 @@ podding - stylesheet for generic objects (lol)
     margin-bottom: @line;
   }
 
-  .episode-header {
-    margin-bottom: @line;
+  .episode--mini {
+    font-family: @supportFonts;
+  }
 
-    .episode-icon, .icon {
-      float: left;
-      width: 40px;
-      height: @line;
-      font-size: 24px;
-      vertical-align: middle;
-      .basicLink;
+  /* Episode Header */
+
+    .episode-header {
+      margin-bottom: 0.5*@line;
+    }
+
+    .episode-header-spacer {
+      .spacer;
+      font-weight: 400;
+    }
+
+    .episode-episodeNumber {
+      margin-right: 0.5em;
+      .hide-link;
+      font-weight: 300;
+
+      span {
+        margin-left: 0.2em;
+        font-weight: 600;
+        font-size: 0.75em; // because Helvetica doesn't have lining figures
+        text-transform: uppercase;
+      }
+    }
+
+    .episode-episodeNumber--mini {
+      .title-label;
     }
 
     .episode-metaInfo {
-      color: @text-less;
-      
-      @media all and (max-width: @break2)   {
-        margin-left: 0;
-      }
-
-      a {
-        .hide-link;
-        .spaced;
-        margin-right: 0.7em;
-        }
-
-      .episode-id-content { 
-        text-transform: uppercase; // CHOCKLOCK ENGAGE
-      }
+      margin-top: 0.5*@line;
+      font-family: @supportFonts;
+      font-size: 1rem;
+      font-weight: 500;
 
       .episode-hostsList--mini {
-        margin: 0;
-        padding: 0;
-        display: inline;
-        .inline-list;
-        
         a {
           text-decoration: none;
           color: @sub;
           margin: 0;
           .hide-link;
-        }
-
-        .episode-hostsList-label {
-          margin: 0.1em;
-        }
-
-        li:not(.episode-hostsList-label) { // :not prevents the icon from being itemized
           .itemized;
         }
       }
     }
-  }
 
   .episode-hostsList--full {
     float: left;
@@ -261,6 +274,7 @@ podding - stylesheet for generic objects (lol)
       .textLink;
       .sized;
       margin-right: 1em;
+      font-family: @supportFonts;
       @media all and (max-width: @break3)   {
           float: left;
           width: 50%;

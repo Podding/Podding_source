@@ -3,7 +3,7 @@ podding - stylesheet for basics
 */
 
 html {
-  font-family: @text-font-stack;
+  font-family: @textFonts;
   font-size: @base-size;
   line-height: @line;
   @media all and (max-width: @break3)   {
@@ -48,34 +48,34 @@ img {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: @headline-font-stack;
+  font-family: @displayFonts;
 }
 
 h1 {
   margin: 0;
-  font-size: 3rem;
+  font-size: 5rem;
   line-height: 3*@line;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 h2 {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   line-height: 1.5*@line;
-  font-weight: bold;
+  font-weight: 800;
 }
 
 h3 {
   margin: 0;
   font-size: 1.1rem;
   line-height: @line;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 h4,h5,h6 {
   font-size: 1rem;
   line-height: @line;
-  font-weight: normal;
+  font-weight: 500;
 }
 
 .text-content h3, .text-content-long h3 {

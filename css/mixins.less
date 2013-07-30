@@ -13,6 +13,14 @@
   display: none;
 }
 
+.spacer {
+  margin: 0 0.3em 0 0.3em;
+  font-style: italic;
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
 /* Style inline lists and add delimeters */
 
   .inline-list { // Generic styling for lists that are displayed inline (like navigation, episode tags etc.)
@@ -173,13 +181,7 @@
       &:before{content: " \2014\2002 ";} // black unicode magic that annoys me deeply
     }
 
-  .quip { // use this in a span in headers etc.
-    .em-dashed;
-    font-style: italic;
-    color: @text-less;
-  }
-
-  .title-label { // this as well
+  .with-colon { // this as well
     &:after{ content: ": "}
   }
 
