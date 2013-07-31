@@ -1,31 +1,40 @@
 header.instapaper_ignore
   h1#site-title: a href="/"
-    | #{ settings.title }
+    |#{ settings.title }
   p#tagline
   nav
     ul#nav-list
       li.nav-item: a.nav-link href="/pages/info"
-        | <i class="icon-book"></i><span>Info<span class="hide-at-break1">rmationen</span></span>
-      li.nav-item.popover-menu 
+        | <i class="icon-book hide-at-break2"></i><span>Info<span class="hide-at-break1">rmationen</span></span>
+      li.spacer.show-at-break4 ∙
+      li.nav-item.popover-menu.hide-at-break4 
         a.nav-link href="/hosts"
-          | <i class="icon-group"></i><span>Hosts</span>
+          | <i class="icon-group hide-at-break2"></i><span>Hosts</span>
         ul.popover-content
           - for host in all_hosts do
             li: a.inlineIcon href="#{ url_for(host) }" 
               |  #{ host.full_name } <i class="icon-arrow-right"></i>
 
-      li.nav-item.popover-menu
+      li.nav-item.popover-menu.hide-at-break4
         a.nav-link href="/shows"
-          | <i class="icon-star"></i><span>Shows</span>
+          | <i class="icon-star hide-at-break2"></i><span>Shows</span>
         ul.popover-content
           - for show in all_shows do
             li: a.inlineIcon href="#{ url_for(show) }" 
               |  #{ show.title } <i class="icon-arrow-right"></i>
             
       li.nav-item: a.nav-link href="/pages/abo"
-        | <i class="icon-rss"></i><span>Abo<span class="hide-at-break1">nnieren</span></span>
+        | <i class="icon-rss hide-at-break2"></i><span>Abo<span class="hide-at-break1">nnieren</span></span>
+
+      li.spacer.show-at-break4 ∙
+
       li.nav-item: a.nav-link href="/pages/feedback"
-        | <i class="icon-comments-alt"></i><span>Feedback</span>
+        | <i class="icon-comments-alt hide-at-break2"></i><span>Feedback</span>
+
+      li.spacer.show-at-break4 ∙
+
       li.nav-item: a.nav-link href="/pages/archive"
-        | <i class="icon-list"></i><span>Archiv</span>
+        | <i class="icon-list hide-at-break2"></i><span>Archiv</span>
+
+
 

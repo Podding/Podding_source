@@ -12,6 +12,8 @@
   height: 0;
   width: 0 !important;
   display: none;
+  margin: 0;
+  padding: 0;
 }
 
 .spacer {
@@ -59,6 +61,10 @@
     .hide-breakpoint( @break3 );
   }
 
+  .hide-at-break4 {
+    .hide-breakpoint( @break4 );
+  }
+
   .show-at-break1 { // show if width > break 1
     .show-breakpoint( @break1 );
   }
@@ -69,6 +75,10 @@
 
   .show-at-break3 {
     .show-breakpoint( @break3 );
+  }
+
+  .show-at-break4 {
+    .show-breakpoint( @break4 );
   }
 
 /* Style inline lists and add delimeters */

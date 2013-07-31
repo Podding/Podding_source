@@ -42,6 +42,7 @@ podding - stylesheet for generic objects (lol)
   /* Site Header */
 
   #site-title {
+    text-align: center;
     a {
       color: @text;
       .hide-link;
@@ -60,28 +61,43 @@ podding - stylesheet for generic objects (lol)
   /* Navigation */
 
     nav {
-      height: 2*@line;
+      width: 95%;
+      height: 100%;
+      float: left;
+      margin: @line 2.5%;
       background-color: @highlight;
       
       font-family: @supportFonts;
       text-align: center; 
 
+      @media (max-width: @break2){
+        width: 100%;
+        margin: @line 0;
+      }
+
       @media (min-width: @break2) {
         .starkBoxShadow;
+      }
+
+      @media (max-width: @break4) {
+        background: transparent;
+        border-bottom: 6px solid @highlight;
+        padding-bottom: 0.5*@line;
       }
     }
 
     nav > ul { // for a reason I don't quite understand I can't use .nav-list here
       .inline-list;
       display: block;
-      height: 100%;
+      
       width: 95%;
-      margin: 0 2.5% 0 2.5%;
+      margin: 0 2.5%;
       float: left;
       padding: 0 0;
-      
-      i {
-        .hide-at-break2;
+ 
+
+      @media (max-width: @break4) {
+
       }
 
     }
@@ -95,6 +111,11 @@ podding - stylesheet for generic objects (lol)
         font-size: 18px;
         font-weight: 700;
       }
+      @media (max-width: @break4) {
+        margin: 0;
+        padding: 0;
+      }
+
     }
 
     .nav-link {
@@ -105,6 +126,12 @@ podding - stylesheet for generic objects (lol)
       &:hover {
         color: @text;
       }
+
+      @media (max-width: @break4) {
+        color: @text;
+        font-style: italic;
+      }
+
     }
 
     .popover-menu {
@@ -169,6 +196,17 @@ podding - stylesheet for generic objects (lol)
       margin-bottom: 0.5*@line;
     }
 
+    .episode-heading {
+      @media all and (max-width: @break2)   {
+      line-height: @line;
+      font-size: 1.4rem;
+    }
+
+    @media all and (max-width: @break3)   {
+      font-size: 1.1rem;
+    }
+    }
+
     .episode-header-spacer {
       .spacer;
       font-weight: 400;
@@ -179,11 +217,15 @@ podding - stylesheet for generic objects (lol)
       .hide-link;
       font-weight: 300;
 
-      span {
+      span.episodeNumber-number { // lol
         margin-left: 0.2em;
         font-weight: 600;
         font-size: 0.75em; // because Helvetica doesn't have lining figures
         text-transform: uppercase;
+      }
+
+      .episodeNumber-showName {
+        font-size: 0.75em;
       }
     }
 
@@ -197,13 +239,18 @@ podding - stylesheet for generic objects (lol)
       font-size: 1rem;
       font-weight: 500;
 
-      .episode-hostsList--mini {
+      @media all and (max-width: @break3)   {
+        margin-top: 0;
+      }
+
+      .episode-hostsList {
         a {
-          text-decoration: none;
-          color: @sub;
           margin: 0;
-          .hide-link;
-          .itemized;
+          .itemized;    
+          &:before, &:after {
+            color: @text;
+            border-bottom: 1px solid @bg;
+          }
         }
       }
 

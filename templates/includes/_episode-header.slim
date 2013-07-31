@@ -9,14 +9,14 @@
   
   h2.episode-heading 
     a.episode-episodeNumber href="#{ url_for(episode) }"
-      | #{ episode.show.title }<span>#{ episode.number }</span>
+      | <span class="hide-at-break2">#{ episode.show.title }</span><span class="show-at-break2 episodeNumber-showName">#{ episode.show.name.upcase }</span><span class="episodeNumber-number">#{ episode.number }</span>
     a.episode-title href="#{ url_for(episode) }"
       | #{ episode.title }
   .episode-metaInfo
     
     span.episode-header-spacer mit
 
-    span.episode-hostsList--mini
+    span.episode-hostsList
       - if episode.hosts.length == 1
         - for host in episode.hosts  
           a.single.host-link href="/hosts/#{ host.name }" #{ host.name }
