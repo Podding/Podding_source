@@ -9,7 +9,8 @@
 
 .hidden {
   visibility: hidden;
-  height: 0px;
+  height: 0;
+  width: 0 !important;
   display: none;
 }
 
@@ -21,11 +22,54 @@
   }
 }
 
-.starkShadow {
-  -moz-box-shadow:4px 4px 0 @text;
-  -webkit-box-shadow:4px 4px 0 @text;
-  box-shadow:4px 4px 0 @text;
+.starkBoxShadow(@colour: @text) {
+  -moz-box-shadow:4px 4px 0 @colour;
+  -webkit-box-shadow:4px 4px 0 @colour;
+  box-shadow:4px 4px 0 @colour;
 }
+
+/* Hide Things on certain breakpoints */
+
+  // hide is: hide if width < break
+  // show is: hide if width > break
+
+  .hide-breakpoint(@break: @break2) {
+    @media all and (max-width: @break)   {
+     .hidden;
+    }
+  }
+
+  .show-breakpoint(@break: @break2) {
+    @media all and (min-width: @break)   {
+     .hidden;
+    }
+  }
+
+  // those are for use in the templates directly
+
+  .hide-at-break1 {
+    .hide-breakpoint( @break1 );
+  }
+
+  .hide-at-break2 {
+    .hide-breakpoint( @break2 );
+  }
+
+  .hide-at-break3 {
+    .hide-breakpoint( @break3 );
+  }
+
+  .show-at-break1 { // show if width > break 1
+    .show-breakpoint( @break1 );
+  }
+
+  .show-at-break2 {
+    .show-breakpoint( @break2 );
+  }
+
+  .show-at-break3 {
+    .show-breakpoint( @break3 );
+  }
 
 /* Style inline lists and add delimeters */
 
@@ -159,15 +203,6 @@
       margin-top: 5px;
     }
 
-    .icon-play {
-      margin-top: 0.3em;
-      margin-left: 0px;
-    }
-
-    .icon-calendar {
-      
-
-    }
 
     .icon-download {
       

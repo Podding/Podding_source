@@ -62,9 +62,13 @@ podding - stylesheet for generic objects (lol)
     nav {
       height: 2*@line;
       background-color: @highlight;
-      .starkShadow;
+      
       font-family: @supportFonts;
       text-align: center; 
+
+      @media (min-width: @break2) {
+        .starkBoxShadow;
+      }
     }
 
     nav > ul { // for a reason I don't quite understand I can't use .nav-list here
@@ -75,17 +79,11 @@ podding - stylesheet for generic objects (lol)
       margin: 0 2.5% 0 2.5%;
       float: left;
       padding: 0 0;
-      // this part compresses the menu descriptions according to viewport width
-      @media all and (max-width: @break1)   { 
-        span > span {
-          display: none;
-        }
+      
+      i {
+        .hide-at-break2;
       }
-      @media all and (max-width: @break2)   {
-        span {
-          display: none;
-        }
-      }
+
     }
 
     .nav-item {
@@ -154,15 +152,11 @@ podding - stylesheet for generic objects (lol)
     }
   }
 
-/* Episodes */
+/* Basic / Short / Mini Episodes */
   
   .episode {
     padding-bottom: @line;
     margin-bottom: @line;
-  }
-
-  .fullEpisode { // single episode on a page
-    margin-top: @line;
   }
 
   .episode--mini {
@@ -178,18 +172,6 @@ podding - stylesheet for generic objects (lol)
     .episode-header-spacer {
       .spacer;
       font-weight: 400;
-    }
-
-    .fullEpisode .episode-heading {
-      font-size: 2rem;
-
-      @media all and (max-width: @break2)   {
-        font-size: 1.5rem;
-      }
-
-      @media all and (max-width: @break3)   {
-        font-size: 1.2rem;
-      }
     }
 
     .episode-episodeNumber {
@@ -224,11 +206,23 @@ podding - stylesheet for generic objects (lol)
           .itemized;
         }
       }
+
+      .comments-number {
+        @media (max-width: @break2) {
+          span {
+            .hidden;
+          }
+        }
+
+        @media (min-width: @break2) {
+          i {
+            .hidden;
+          }
+        }
+      }
     }
 
-  .fullEpisode .episode-teaser {
-    font-weight: 600;
-  }
+
 
   .episode-content {
     float: left;
@@ -252,14 +246,6 @@ podding - stylesheet for generic objects (lol)
       }
     }
 
-    .episode-downloadLinks--full {
-      float: left;
-      width: 100%;
-      @media all and (max-width: @break1)   {
-        text-align: center;
-      }
-    }
-
     .episode-downloadLink { // styling for episode download links, this one is used in short mode
       .textLink;
       .sized;
@@ -275,17 +261,7 @@ podding - stylesheet for generic objects (lol)
       color: @text-even-less;
     }
 
-    .episode-downloadLink--full { // extend download link style for for episodes in full mode
-      .textLink;
-      .sized;
-      margin-right: 1em;
-      float: none;
-      display: inline;
-      color: @text-less;
-      @media all and (max-width: @break2)   { 
-        margin: 0 0.25*@line;
-      }
-    }
+    
   
   /* Episode player */
 
@@ -293,6 +269,92 @@ podding - stylesheet for generic objects (lol)
       clear: both;
       margin: 0 auto;
     }  
+
+/* Full Episode */
+
+  .fullEpisode { // single episode on a page
+    margin-top: @line;
+  }
+
+  .fullEpisode .episode-header {
+    margin-bottom: @line;
+  }
+
+  .fullEpisode .episode-heading {
+    font-size: 2rem;
+
+    @media all and (max-width: @break2)   {
+      font-size: 1.5rem;
+    }
+
+    @media all and (max-width: @break3)   {
+      font-size: 1.2rem;
+    }
+  }
+
+  .fullEpisode-teaser {
+    width: 80%;
+    float: left;
+    font-weight: 600;
+    @media (max-width: @break2) {
+      clear: both;
+      width: 100%;
+    }
+  }
+
+  .fullEpisode-secondary {
+    width: 15%;
+    margin-left: @line;
+    float: left;
+
+    @media (max-width: @break1) {
+      font-size: 0.8rem;
+    }
+
+    @media (max-width: @break2) {
+      width: 100%;
+      margin: 0;
+      font-size: 1rem;
+    }
+
+    h3 {
+      margin: 0;
+      @media (max-width: @break2) {
+      .hidden;
+    }
+    }
+
+  }
+
+  .fullEpisode-downloadLinks {
+      width: 100%;
+      float: left;
+      padding: 0;
+      font-family: @supportFonts;
+      list-style: none;
+      
+      @media (max-width: @break2) {
+        text-align: center;
+        .inline-list;
+      }
+
+    }
+
+  .fullEpisode-downloadLink { // extend download link style for for episodes in full mode
+      .textLink;
+      margin-left: -0.3em;
+      float: none;
+      color: @text-less;
+      text-transform: uppercase;
+      
+      @media (max-width: @break2) {
+        margin-left: 0.2em;
+
+        i {
+          margin-right: 0;
+        }
+      }
+    }
 
 /* Episode lists */
   

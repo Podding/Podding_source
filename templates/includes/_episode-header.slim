@@ -30,8 +30,8 @@
      | <span>#{ episode.date.strftime("%d.%m.%Y") }</span>
 
     span.episode-header-spacer ∙
-    a.comments href="" title="Kommentare zu #{ episode.title }"
-     | <span>#{ episode.comments }</span> Kommentare
+    a.comments-number href="" title="Kommentare zu #{ episode.title }"
+     | #{ episode.comments } <span>Kommentare</span><i class="icon-comments"></i>
 
     
     

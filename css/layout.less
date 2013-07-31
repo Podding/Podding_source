@@ -9,8 +9,14 @@ html, body {
 #wrapper {
 	height: 100%;
 	width: 90%;
-	max-width: 816px;
+	max-width: 960px;
 	margin: @line auto;
+
+  @media all and (max-width: @break2)   {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+    }
 }
 
 header, #sidebar {
@@ -35,21 +41,21 @@ header, #sidebar {
 
 
 
-#content {
+#content, #secondary {
 	float: left; // needed for arcane box model reasons
 	width: 95%;
 	padding-bottom: @line;
 	margin: 0 2.5%;
-	#page-content.text-content-long {
-		margin: 0 auto;
-	}
 	@media all and (max-width: @break2)   {
-      width: 100%;
-      padding: 0 2.5%;
+      width: 96%;
+      margin: 0;
+      padding: 0 2%;
     }
-	
 }
 
+#page-content.text-content-long {
+    margin: 0 auto;
+  }
 
 #secondary {
 	margin-top: 2*@line;
