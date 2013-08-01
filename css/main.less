@@ -24,6 +24,16 @@ podding - stylesheet for generic objects (lol)
     .with-colon;
   }
 
+  .sectionHeading {
+    margin: 2*@line auto @line auto;
+    text-align: center;
+    border-bottom: 1px solid @sub;
+    font-size: 1.5rem;
+    line-height: 2*@line;
+    font-weight: 600;
+  }
+
+
 .moreLink {
   .textLink;
   .sized;
@@ -43,6 +53,7 @@ podding - stylesheet for generic objects (lol)
 
   #site-title {
     text-align: center;
+    margin-top: @line;
     a {
       color: @text;
       .hide-link;
@@ -71,6 +82,7 @@ podding - stylesheet for generic objects (lol)
       text-align: center; 
 
       @media (max-width: @break2){
+        font-size: 0.9*@base-size;
         width: 100%;
         margin: @line 0;
       }
@@ -104,13 +116,21 @@ podding - stylesheet for generic objects (lol)
 
     .nav-item {
       padding: 0.5*@line 0;
-      font-size: 1.2rem;
       font-weight: 300;
       line-height: @line;
       i {
         font-size: 18px;
         font-weight: 700;
       }
+
+      @media (min-width: @break2) {
+        font-size: 1.1rem;
+      }
+
+      @media (min-width: @break1) {
+        font-size: 1.1rem;
+      }
+
       @media (max-width: @break4) {
         margin: 0;
         padding: 0;
@@ -156,12 +176,6 @@ podding - stylesheet for generic objects (lol)
   #sidebar {
     border-top: 1px solid @sub;
     padding-top: @line;
-    
-    @media all and (min-width: @break1) {
-      border: none;
-      padding-top: 0;
-    
-    }
   }
 
 /* Footer */
@@ -197,6 +211,9 @@ podding - stylesheet for generic objects (lol)
     }
 
     .episode-heading {
+      font-size: 1.6rem;
+      line-height: 1.5*@line;
+      font-weight: 800;
       @media all and (max-width: @break2)   {
       line-height: @line;
       font-size: 1.4rem;
@@ -400,6 +417,34 @@ podding - stylesheet for generic objects (lol)
         i {
           margin-right: 0;
         }
+      }
+    }
+
+    .shownotes {
+      ul {
+        padding-left: 1em;
+        list-style: none;
+      }
+
+      li > ul {
+        padding: 0;
+      }
+
+      li {
+        margin: 0;
+        padding: 0;
+
+        li {
+          padding-left: 1em;
+        }
+      }
+
+      li:before {
+        content: "– ";
+      }
+
+      li li:before {
+        content: "∙ ";
       }
     }
 
@@ -634,7 +679,7 @@ podding - stylesheet for generic objects (lol)
 /* Forms */
 
   form {
-    width: 20*@line;
+    width: 100%;
     padding: 0;
     margin-top: @line;
     ol {
@@ -652,13 +697,13 @@ podding - stylesheet for generic objects (lol)
     label {
       float: left;
       height: 100%;
-      width: 5*@line;
+      width: 30%;
       text-align: left;
     }
     input, textarea {
-      float: left;
-      width: 12*@line;
-      margin-left: 1rem;
+      float: right;
+      width: 60%;
+      
       margin-top: -0.25*@line; // needed for lining up the fields with their labels
       margin-bottom: 0.75*@line;
       border: 1px solid transparent;
@@ -675,13 +720,12 @@ podding - stylesheet for generic objects (lol)
     }
     @media all and (max-width: @break2)   {
       width: 100%;
-      max-width: 25rem;
       float: left;
       label, input, textarea, button, .support-text {
         clear: both;
         float: left;
-        width: 90%;
-        margin: 0 1%; // leave some space for the padding
+        width: 98%;
+        margin: 0; // leave some space for the padding
       }
       label, .form-note {
         text-align: center;
@@ -690,6 +734,11 @@ podding - stylesheet for generic objects (lol)
         width: 100%;
         float: left;
       }
+    }
+
+    @media all and (max-width: @break1)   {
+      
+
     }
   }
 
