@@ -72,10 +72,10 @@ podding - stylesheet for generic objects (lol)
   /* Navigation */
 
     nav {
-      width: 95%;
+      width: 100%;
       height: 100%;
       float: left;
-      margin: @line 2.5%;
+      margin: @line 0;
       background-color: @highlight;
       
       font-family: @supportFonts;
@@ -196,6 +196,7 @@ podding - stylesheet for generic objects (lol)
 /* Basic / Short / Mini Episodes */
   
   .episode {
+    width: 100%;
     padding-bottom: @line;
     margin-bottom: @line;
   }
@@ -470,7 +471,6 @@ podding - stylesheet for generic objects (lol)
     }
     .episode {
       float: left;
-      margin-left: 40px;
       @media all and (max-width: @break2)   { 
         margin-left: 0;
       }
