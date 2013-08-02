@@ -186,34 +186,51 @@ podding - stylesheet for generic objects (lol)
   /* Secondary Navigation */
 
     #secondary {
-      clear: both;
-      width: 100%;
-      overflow: hidden;
+      padding-top: @line;
+      border-top: 6px solid @highlight;
     }
 
-    .secondary-column {
+    .secondary-about {
+      overflow: hidden;
+      width: 47.5%;
+      float: right;
+
+      @media (max-width: @break2) {
+        width: 100%;
+      }
+    }
+
+    .secondary-nav {
+      overflow: hidden;
+      width: 47.5%;
       float: left;
-      width: 19.75%;
-      margin-right: 7%;
+      font-family: @supportFonts;
+
+      @media (max-width: @break2) {
+        width: 100%;
+        margin-bottom: @line;
+      }
+    }
+
+    .secondary-navList {
+      float: left;
+      width: 42.5%;
+      margin-right: 15%;
 
       &:last-child {
         margin-right: 0;
       }
+
     }
 
     .secondary-navList, .secondary-navList ul {
-      list-style: none;
-      
-    }
-
-    .secondary-navItem {
-
+      list-style: none; 
     }
 
     .secondary-navLink {
-      color: @text;
       .spaced;
       .hide-link;
+      color: @text-less;
     }
 
     .secondary-subList {
@@ -525,7 +542,12 @@ podding - stylesheet for generic objects (lol)
     }
     .episode--published {
       border-bottom: 1px solid @sub;
+
+      &:last-of-type {
+        border: none;
+      }
     }
+
     @media all and (max-width: @break2)   {
      border-top: 1px solid @sub;
      padding-top: @line;
