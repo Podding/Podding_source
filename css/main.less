@@ -71,7 +71,7 @@ podding - stylesheet for generic objects (lol)
 
   /* Navigation */
 
-    nav {
+    #mainNav {
       width: 100%;
       height: 100%;
       float: left;
@@ -98,26 +98,36 @@ podding - stylesheet for generic objects (lol)
       }
     }
 
-    nav > ul { // for a reason I don't quite understand I can't use .nav-list here
-      .inline-list;
+    #mainNav-navList {
+      list-style: none;
+      height: @line;
       display: block;
-      
       width: 95%;
       margin: 0 2.5%;
       float: left;
-      padding: 0 0;
- 
-
-      @media (max-width: @break4) {
-
-      }
-
+      padding: 0.5*@line 0;
     }
 
+    #mainNav-navList .spacer { // this makes sure that the hidden spacers don't do weird things
+      @media (max-width: @break4) {
+        display: inline;
+      }
+    }
+
+    // nav > ul {.inline-list;
+    //   display: block;
+    //   background-color: black !important;
+    //   width: 95%;
+    //   margin: 0 2.5%;
+    //   float: left;
+    //   padding: 0 0;}
+
     .nav-item {
-      padding: 0.5*@line 0;
+      padding: 0 0;
       font-weight: 300;
       line-height: @line;
+      display: inline;
+      margin-right: 0.5em;
       i {
         font-size: 18px;
         font-weight: 700;
@@ -530,7 +540,7 @@ podding - stylesheet for generic objects (lol)
     color: @text;
 
     font-family: @supportFonts;
-    
+
     i {
       vertical-align: middle;
     }
