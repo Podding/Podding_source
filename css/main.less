@@ -69,7 +69,7 @@ podding - stylesheet for generic objects (lol)
     }
   }
 
-  /* Navigation */
+  /* Main Navigation */
 
     #mainNav {
       width: 100%;
@@ -148,7 +148,7 @@ podding - stylesheet for generic objects (lol)
 
     }
 
-    .nav-link {
+    .mainNav-navLink {
       .basicLink-alt;
       .spaced;
       color: @bg;
@@ -181,12 +181,51 @@ podding - stylesheet for generic objects (lol)
       }
     }
 
-/* Secondary ("sidebar") */
+/* Secondary */
 
-  #sidebar {
-    border-top: 1px solid @sub;
-    padding-top: @line;
-  }
+  /* Secondary Navigation */
+
+    #secondaryNav {
+      clear: both;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .secondaryNav-left {
+      width: 50%;
+      float: left;
+    }
+
+    .secondaryNav-right {
+      width: 50%;
+      float: right;
+    }
+
+    .secondaryNav-navList, .secondaryNav-navList ul {
+      list-style: none;
+      
+    }
+
+    .secondaryNav-navItem {
+
+    }
+
+    .secondaryNav-navLink {
+      color: @text;
+      .spaced;
+      .hide-link;
+    }
+
+    .secondaryNav-subList {
+      padding-left: 0.5em;
+    }
+
+    .secondaryNav-subList > li {
+      &:before {
+        content: "– ";
+      }
+    }
+
 
 /* Footer */
   #footer {
@@ -395,10 +434,9 @@ podding - stylesheet for generic objects (lol)
     h3 {
       margin: 0;
       @media (max-width: @break2) {
-      .hidden;
+        .hidden;
+      }
     }
-    }
-
   }
 
   .fullEpisode-downloadLinks {

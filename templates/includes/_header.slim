@@ -4,11 +4,11 @@ header.instapaper_ignore
   p#tagline
   nav#mainNav
     ul#mainNav-navList
-      li.mainNav-navItem: a.nav-link href="/pages/info"
+      li.mainNav-navItem: a.mainNav-navLink href="/pages/info"
         | <i class="icon-book hide-at-break2"></i><span>Info<span class="hide-at-break1">rmationen</span></span>
       li.spacer.show-at-break4 ∙
       li.mainNav-navItem.popover-menu.hide-at-break4 
-        a.nav-link href="/hosts"
+        a.mainNav-navLink href="/hosts"
           | <i class="icon-group hide-at-break2"></i><span>Hosts</span>
         ul.popover-content
           - for host in all_hosts do
@@ -16,25 +16,22 @@ header.instapaper_ignore
               |  #{ host.full_name } <i class="icon-arrow-right"></i>
 
       li.mainNav-navItem.popover-menu.hide-at-break4
-        a.nav-link href="/shows"
+        a.mainNav-navLink href="/shows"
           | <i class="icon-star hide-at-break2"></i><span>Shows</span>
         ul.popover-content
           - for show in all_shows do
             li: a.inlineIcon href="#{ url_for(show) }" 
               |  #{ show.title } <i class="icon-arrow-right"></i>
             
-      li.mainNav-navItem: a.nav-link href="/pages/abo"
+      li.mainNav-navItem: a.mainNav-navLink href="/pages/abo"
         | <i class="icon-rss hide-at-break2"></i><span>Abo<span class="hide-at-break1">nnieren</span></span>
 
       li.spacer.show-at-break4 ∙
 
-      li.mainNav-navItem: a.nav-link href="/pages/feedback"
+      li.mainNav-navItem: a.mainNav-navLink href="/pages/feedback"
         | <i class="icon-comments-alt hide-at-break2"></i><span>Feedback</span>
 
       li.spacer.show-at-break4 ∙
 
-      li.mainNav-navItem: a.nav-link href="/pages/archive"
+      li.mainNav-navItem: a.mainNav-navLink href="/pages/archive"
         | <i class="icon-list hide-at-break2"></i><span>Archiv</span>
-
-
-

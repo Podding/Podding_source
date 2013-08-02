@@ -1,4 +1,35 @@
 #secondary
+  nav#secondaryNav
+    ul.secondaryNav-navList.secondaryNav-left
+      li.secondaryNav-navItem: a.secondaryNav-navLink href="/pages/info"
+        | <i class="icon-book"></i><span>Info</span>
+      
+      li.secondaryNav-navItem
+        a.secondaryNav-navLink href="/hosts"
+          | <i class="icon-group"></i><span>Hosts</span>
+        ul.secondaryNav-subList
+          - for host in all_hosts do
+            li: a.secondaryNav-navLink href="#{ url_for(host) }" 
+              |  #{ host.full_name }
+
+    ul.secondaryNav-navList.secondaryNav-right
+      li.secondaryNav-navItem
+        a.secondaryNav-navLink href="/shows"
+          | <i class="icon-star"></i><span>Shows</span>
+        ul.secondaryNav-subList
+          - for show in all_shows do
+            li: a.secondaryNav-navLink href="#{ url_for(show) }" 
+              |  #{ show.title }
+            
+      li.secondaryNav-navItem: a.secondaryNav-navLink href="/pages/abo"
+        | <i class="icon-rss"></i><span>Abonnieren</span>
+
+      li.secondaryNav-navItem: a.secondaryNav-navLink href="/pages/feedback"
+        | <i class="icon-comments-alt"></i><span>Feedback</span>
+
+      li.secondaryNav-navItem: a.secondaryNav-navLink href="/pages/archive"
+        | <i class="icon-list"></i><span>Archiv</span>
+  
   #secondary-content.text-content
     p Hier könne auch Sidebar-ähnlicher Content stehen.
 
