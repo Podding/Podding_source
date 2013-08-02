@@ -185,42 +185,42 @@ podding - stylesheet for generic objects (lol)
 
   /* Secondary Navigation */
 
-    #secondaryNav {
+    #secondary {
       clear: both;
       width: 100%;
       overflow: hidden;
     }
 
-    .secondaryNav-left {
-      width: 50%;
+    .secondary-column {
       float: left;
+      width: 19.75%;
+      margin-right: 7%;
+
+      &:last-child {
+        margin-right: 0;
+      }
     }
 
-    .secondaryNav-right {
-      width: 50%;
-      float: right;
-    }
-
-    .secondaryNav-navList, .secondaryNav-navList ul {
+    .secondary-navList, .secondary-navList ul {
       list-style: none;
       
     }
 
-    .secondaryNav-navItem {
+    .secondary-navItem {
 
     }
 
-    .secondaryNav-navLink {
+    .secondary-navLink {
       color: @text;
       .spaced;
       .hide-link;
     }
 
-    .secondaryNav-subList {
+    .secondary-subList {
       padding-left: 0.5em;
     }
 
-    .secondaryNav-subList > li {
+    .secondary-subList > li {
       &:before {
         content: "– ";
       }

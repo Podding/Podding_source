@@ -1,36 +1,49 @@
 #secondary
-  nav#secondaryNav
-    ul.secondaryNav-navList.secondaryNav-left
-      li.secondaryNav-navItem: a.secondaryNav-navLink href="/pages/info"
-        | <i class="icon-book"></i><span>Info</span>
-      
-      li.secondaryNav-navItem
-        a.secondaryNav-navLink href="/hosts"
-          | <i class="icon-group"></i><span>Hosts</span>
-        ul.secondaryNav-subList
-          - for host in all_hosts do
-            li: a.secondaryNav-navLink href="#{ url_for(host) }" 
-              |  #{ host.full_name }
+  .secondary-column
+    h3 Über uns
+    p Hurr de durr durr de hurrr
 
-    ul.secondaryNav-navList.secondaryNav-right
-      li.secondaryNav-navItem
-        a.secondaryNav-navLink href="/shows"
-          | <i class="icon-star"></i><span>Shows</span>
-        ul.secondaryNav-subList
-          - for show in all_shows do
-            li: a.secondaryNav-navLink href="#{ url_for(show) }" 
-              |  #{ show.title }
-            
-      li.secondaryNav-navItem: a.secondaryNav-navLink href="/pages/abo"
-        | <i class="icon-rss"></i><span>Abonnieren</span>
+  .secondary-column
+    h3 Unterstützen
+    p Flattr, Bitcoin, Trololo   
 
-      li.secondaryNav-navItem: a.secondaryNav-navLink href="/pages/feedback"
-        | <i class="icon-comments-alt"></i><span>Feedback</span>
+  ul.secondary-navList.secondary-column
+    li.secondary-navItem: a.secondary-navLink href="/pages/info"
+      | <i class="icon-book"></i><span>Info</span>
 
-      li.secondaryNav-navItem: a.secondaryNav-navLink href="/pages/archive"
-        | <i class="icon-list"></i><span>Archiv</span>
+    li.secondary-navItem: a.secondary-navLink href="/pages/abo"
+      | <i class="icon-rss"></i><span>Abonnieren</span>
+
+    li.secondary-navItem: a.secondary-navLink href="/pages/feedback"
+      | <i class="icon-comments-alt"></i><span>Feedback</span>
+
+    li.secondary-navItem: a.secondary-navLink href="/pages/archive"
+      | <i class="icon-archive"></i><span>Archiv</span>
+
+    li.secondary-navItem: a.secondary-navLink href="/pages/impressum"
+      | <i class="icon-umbrella"></i><span>Impressum</span>
+    
+    
+
+  ul.secondary-navList.secondary-column
+    li.secondary-navItem
+      a.secondary-navLink href="/hosts"
+        | <i class="icon-group"></i><span>Hosts</span>
+      ul.secondary-subList
+        - for host in all_hosts do
+          li: a.secondary-navLink href="#{ url_for(host) }" 
+            |  #{ host.full_name }
+
+    li.secondary-navItem
+      a.secondary-navLink href="/shows"
+        | <i class="icon-star"></i><span>Shows</span>
+      ul.secondary-subList
+        - for show in all_shows do
+          li: a.secondary-navLink href="#{ url_for(show) }" 
+            |  #{ show.title }
+          
+ 
   
-  #secondary-content.text-content
-    p Hier könne auch Sidebar-ähnlicher Content stehen.
+  
 
-  == slim :"includes/_footer"
+== slim :"includes/_footer"
