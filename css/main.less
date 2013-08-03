@@ -186,6 +186,23 @@ podding - stylesheet for generic objects (lol)
 
 /* Secondary */
 
+  /* Search */
+
+  #search {
+    width: 100%;
+    margin-bottom: @line;
+    font-family: @supportFonts;
+    input {
+      width: 96%;
+    }
+
+    fieldset {
+      border: 0;
+      padding: 0;
+      margin: 0;
+    }
+  }
+
   /* Secondary Navigation */
 
     #secondary {
@@ -729,7 +746,17 @@ podding - stylesheet for generic objects (lol)
 
 /* Forms */
 
-  form {
+  input, textarea {
+    border: 1px solid @sub;
+    padding: 0.25*@line 2%;
+    line-height: @line;
+    &:focus {
+      border: 1px solid @text;
+      outline: none;
+    }
+  }
+
+  form.multiple { // style forms with labels and multiple fields & stuff
     width: 100%;
     padding: 0;
     margin-top: @line;
@@ -754,20 +781,9 @@ podding - stylesheet for generic objects (lol)
     input, textarea {
       float: right;
       width: 60%;
-      
       margin-top: -0.25*@line; // needed for lining up the fields with their labels
       margin-bottom: 0.75*@line;
-      border: 1px solid transparent;
-      padding: 0.25*@line;
-      line-height: @line;
-      &:focus {
-        border: 1px solid @text;
-        .bordered;
-        outline: none;
-      }
-      &:placeholder {
-        color: red;
-      }
+      
     }
     @media all and (max-width: @break2)   {
       width: 100%;
@@ -775,9 +791,17 @@ podding - stylesheet for generic objects (lol)
       label, input, textarea, button, .support-text {
         clear: both;
         float: left;
-        width: 98%;
-        margin: 0; // leave some space for the padding
+        width: 96%;
       }
+
+      button, label, support-text {
+
+      }
+
+      input, textarea {
+        margin: 0.5*@line auto @line auto; // leave some space for the padding
+      }
+
       label, .form-note {
         text-align: center;
       }
@@ -785,11 +809,6 @@ podding - stylesheet for generic objects (lol)
         width: 100%;
         float: left;
       }
-    }
-
-    @media all and (max-width: @break1)   {
-      
-
     }
   }
 
