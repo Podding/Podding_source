@@ -2,9 +2,9 @@
 name: "lukas"
 full_name: "Lukas"
 twitter_name: "blubser"
-wishlist_url: "http://derp.com"
-image_url: "/images/foobert.png"
-quip: "one bad mofo"
+image_url: "/images/blubser.jpg"
+blog_url: "http://blubser.de"
+
 ---
 
-This is a another (!) host.
+Studiert was mit Computern, [Shackspace]( http://shackspace.de )-Mitgründer, hängt bei diesem Piratendings mit drin.
