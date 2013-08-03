@@ -190,10 +190,14 @@ podding - stylesheet for generic objects (lol)
 
   #search {
     width: 100%;
-    margin-bottom: @line;
+    margin-bottom: 2*@line;
     font-family: @supportFonts;
     input {
-      width: 96%;
+      width: 92.9%; // compensate for the border, it sucks
+
+      @media (max-width: @break2) {
+        width: 89.8%; // compensate for the border, it sucks
+      }
     }
 
     fieldset {
@@ -753,6 +757,20 @@ podding - stylesheet for generic objects (lol)
     &:focus {
       border: 1px solid @text;
       outline: none;
+    }
+  }
+
+  .input-icon {
+    position: relative;
+    left: 2%;
+    top: 1.25*@line;
+  }
+
+  .input-icon + textarea, .input-icon + input {
+    padding-left: 5%;
+
+    @media (max-width: @break2) {
+      padding-left: 8%;
     }
   }
 
