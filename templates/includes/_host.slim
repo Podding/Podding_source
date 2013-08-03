@@ -40,12 +40,7 @@
 
   - if mode == "full"
     .card-secondary
-    - if host.planned_episodes.length != 0
-      == slim :"includes/_episode-list", :locals => { :episodes => show.planned_episodes, :mode => "mini-date", :status => "planned" }
-
-    - if host.live_episodes.length != 0
-      == slim :"includes/_episode-list", :locals => { :episodes => show.planned_episodes, :mode => "short", :status => "live" }
-
-    - if host.published_episodes.length != 0
-      == slim :"includes/_episode-list", :locals => { :episodes => show.published_episodes, :list_icon => "", :mode => "short", :status => "published" }
+  
+    / - if host.published_episodes.length != 0
+    /   == slim :"includes/_episode-list", :locals => { :episodes => show.published_episodes, :list_icon => "", :mode => "short", :status => "published" }
 
