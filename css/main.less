@@ -91,7 +91,7 @@ podding - stylesheet for generic objects (lol)
         .starkBoxShadow;
       }
 
-      @media (max-width: @break4) {
+      @media (max-width: @break2) {
         background: transparent;
         border-bottom: 6px solid @highlight;
         padding-bottom: 0.5*@line;
@@ -119,25 +119,21 @@ podding - stylesheet for generic objects (lol)
       font-weight: 300;
       line-height: @line;
       display: inline;
-      margin-right: 0.5em;
+      margin-right: 0.6em;
 
       &:last-child {
         margin-right: 0;
       }
 
-      i {
-        font-size: 18px;
-        font-weight: 700;
-      }
-
-
       @media (min-width: @break2) {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
       }
 
       @media (max-width: @break2) {
         font-size: 1rem;
-        
+        .dotted;
+        margin: 0;
+        padding: 0;
       }
 
       @media (max-width: @break3) {
@@ -145,8 +141,7 @@ podding - stylesheet for generic objects (lol)
       }
 
       @media (max-width: @break4) {
-        margin: 0;
-        padding: 0;
+        
       }
 
     }
@@ -160,7 +155,7 @@ podding - stylesheet for generic objects (lol)
         color: @text;
       }
 
-      @media (max-width: @break4) {
+      @media (max-width: @break2) {
         color: @text;
         font-style: italic;
       }
