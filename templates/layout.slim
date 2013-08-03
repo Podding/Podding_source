@@ -2,6 +2,8 @@ doctype html
 html
   - if defined? @page.title
     == slim :"includes/_head", :locals => { :title => @page.title }
+  - if defined? @pagetitle
+    == slim :"includes/_head", :locals => { :title => @pagetitle }  
   - else 
     == slim :"includes/_head", :locals => { :title => "" }
 
