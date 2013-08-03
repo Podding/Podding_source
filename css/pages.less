@@ -2,58 +2,37 @@
 podding - stylesheet for specific pages
 */
 
-
-/* Index */
-
-
-/* Single Episode */
-
-.single-episode {
-  
-  .episode {
-    border-bottom: none;
-  }
-}
-
-/* Crew Page */
-
-
-
 /* Abo page */
 
-.page-abo {
-  .button {
-    margin-bottom: 0.5*@line;
-  }
-}
-
-
-.feedtable {
-  width: 100%;
-  td {
-    padding: 3px @base-size;
-    a {
-      .hide-link;
-    }
-  }
-  tr {
-    &:nth-child(2n) {
-      background-color: @bg-less;
+  .page-abo {
+    .button {
+      margin-bottom: 0.5*@line;
     }
   }
 
-}
+  .feedtable {
+    width: 100%;
+    td {
+      padding: 3px @base-size;
+      a {
+        .hide-link;
+      }
+    }
+    tr {
+      &:nth-child(2n) {
+        background-color: @bg-less;
+      }
+    }
+  }
 
 /* Feedback */
 
   /* Feedback Form */
 
-  #feedback-form {
-    float: left;
-    #message {
-      height: 8*@line;
+    #feedback-form {
+      float: left;
+
+      #message {
+        height: 8*@line;
+      }
     }
-    button {
-      
-    }
-  }

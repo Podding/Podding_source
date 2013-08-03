@@ -76,9 +76,9 @@
         - if episode.status == "published"
           a.moreLink href="#{ url_for(episode) }" title="Link zu den Shownotes zu #{ episode.show.title } - #{ episode.title }"
              | <i class="icon-book"></i>Shownotes
-          p.episode-downloadLinks--short
+          p.shortEpisode-downloadLinks--short
             - for audio_format in episode.audioformats.keys do
-              a.episode-downloadLink.popover href="#{episode.audioformats[audio_format]}"
+              a.shortEpisode-downloadLink.popover href="#{episode.audioformats[audio_format]}"
                 | <i class="icon-download"></i>#{audio_format}
                 span.popover-content Download #{ episode.show.title }: #{ episode.title } in #{ audio_format }
 

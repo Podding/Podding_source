@@ -9,11 +9,11 @@ html, body {
 
 #wrapper {
 	height: 100%;
-	width: 95%;
-	max-width: 960px;
+	width: 95%; // give some nice breathing room
+	max-width: 960px; // we don't have a large-screen layout yet. not sure if needed.
 	margin: @line auto;
 
-  @media all and (max-width: @break2)   {
+  @media all and (max-width: @break2)   { // on small screen, we become very much fullscreen
       width: 100%;
       margin: 0;
       padding: 0;
@@ -26,38 +26,20 @@ header {
 	margin: 0 auto;
 }
 
-
-
-	header {
-		text-align: center;
-	}
-
-	nav {
-		clear: both;
-		margin: @line 0;
-}
-
-
-
 #content, #secondary {
-	float: left; // needed for arcane box model reasons
-	width: 95%;
+	float: left; // needed to asses width properly (the box model is creaky)
+	width: 95%; // this allows the navigation to "stick out"
 	padding-bottom: @line;
 	margin: 0 2.5%;
 }
 
-#page-content.text-content-long {
-    margin: 0 auto;
-  }
-
-
 #footer {
   width: 95%;
 	clear: both;
-  padding: @line 2.5%;
+  padding: @line 2.5%; // that way the border on small screens reaches to the edge
 }
 
-/* A very basic "grid" "system" for pages like the feedback page */
+/* A very basic "grid" "system" for pages like the feedback page (they stack on small screens) */
 
 .column-main {
   width: 65%;
@@ -69,6 +51,7 @@ header {
 
 .column-left {
 	float: left;
+
 	@media all and (max-width: @break2)   {
     clear: both;
     width: 100%;
@@ -77,6 +60,7 @@ header {
 
 .column-right {
 	float: right;
+
 	@media all and (max-width: @break2)   {
     clear: both;
     width: 100%;
@@ -86,6 +70,7 @@ header {
 
 .column-heading {
   margin: 0;
+
 	@media all and (max-width: @break2)   {
     margin-top: @line;
     width: 100%;

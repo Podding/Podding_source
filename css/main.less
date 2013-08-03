@@ -4,49 +4,49 @@ podding - stylesheet for generic objects (lol)
 
 /* General Styles */
 
-.title {
-  a {
-    .hide-link;
-    color: @highlight;
-  }
-}
-
-/* Some more title details */
-
-  .quip { // use this in a span in headers etc.
-    .em-dashed;
-    font-style: italic;
-    color: @text-less;
+  .title {
+    a {
+      .hide-link;
+      color: @highlight;
+    }
   }
 
-  .title-label { // this as well
-    font-weight: 500;
-    .with-colon;
+  /* Different kinds of titles */
+
+    .quip { // use this in a span in headers etc.
+      .em-dashed;
+      font-style: italic;
+      color: @text-less;
+    }
+
+    .title-label { // this as well
+      font-weight: 500;
+      .with-colon;
+    }
+
+    .sectionHeading {
+      margin: 2*@line auto @line auto;
+      text-align: center;
+      border-bottom: 1px solid @sub;
+      font-size: 1.5*@base-size;
+      line-height: 2*@line;
+      font-weight: 600;
+    }
+
+
+  .moreLink {
+    .textLink;
+    .sized;
+    margin-right: 1em;
+    font-family: @supportFonts;
+
+    @media all and (max-width: @break3)   {
+        float: right;
+        width: 50%;
+        margin: 0;
+        text-align: right;
+    }
   }
-
-  .sectionHeading {
-    margin: 2*@line auto @line auto;
-    text-align: center;
-    border-bottom: 1px solid @sub;
-    font-size: 1.5*@base-size;
-    line-height: 2*@line;
-    font-weight: 600;
-  }
-
-
-.moreLink {
-  .textLink;
-  .sized;
-  margin-right: 1em;
-  font-family: @supportFonts;
-
-  @media all and (max-width: @break3)   {
-      float: right;
-      width: 50%;
-      margin: 0;
-      text-align: right;
-  }
-}
 
 /* Header */
   /* Site Header */
@@ -64,9 +64,6 @@ podding - stylesheet for generic objects (lol)
       font-size: 1.3*@base-size;
       line-height: 2*@line;
       font-style: italic;
-      @media all and (min-width: @break1)   {
-        
-      }
     }
 
   /* Main Navigation */
@@ -74,7 +71,7 @@ podding - stylesheet for generic objects (lol)
     #mainNav {
       width: 100%;
       height: 100%;
-      float: left;
+      float: left; // needed for box model
       margin: @line 0;
       background-color: @highlight;
       font-family: @supportFonts;
@@ -98,27 +95,21 @@ podding - stylesheet for generic objects (lol)
     }
 
     #mainNav-navList {
-      list-style: none;
-      height: @line;
       display: block;
-      width: 95%;
-      margin: 0 2.5%;
       float: left;
+      width: 95%;
+      height: @line;
+      margin: 0 2.5%;
       padding: 0.5*@line 0;
+      list-style: none;
     }
 
-    #mainNav-navList .spacer { // this makes sure that the hidden spacers don't do weird things
-      @media (max-width: @break4) {
-        display: inline;
-      }
-    }
-
-    .mainNav-navItem {
-      padding: 0;
-      font-weight: 300;
-      line-height: @line;
+    .mainNav-navItem { // these are the <li>s that contain navigation items
       display: inline;
       margin-right: 0.6em;
+      padding: 0;
+      font-weight: 300;
+      line-height: @line; 
 
       &:last-child {
         margin-right: 0;
@@ -129,27 +120,19 @@ podding - stylesheet for generic objects (lol)
       }
 
       @media (max-width: @break2) {
-        font-size: 1*@base-size;
-        .dotted;
         margin: 0;
         padding: 0;
+        font-size: 1*@base-size;
+        .dotted; // this adds the spacer dots
       }
-
-      @media (max-width: @break3) {
-        
-      }
-
-      @media (max-width: @break4) {
-        
-      }
-
     }
 
     .mainNav-navLink {
       .basicLink-alt;
       .spaced;
-      color: @bg;
       border: none;
+      color: @bg;
+
       &:hover {
         color: @text;
       }
@@ -193,31 +176,31 @@ podding - stylesheet for generic objects (lol)
     margin-bottom: 2*@line;
     font-family: @supportFonts;
     input {
-      width: 92.9%; // compensate for the border, it sucks
+      width: 92.9%; // this has to be carefully chosen to compensate for border and padding
 
       @media (max-width: @break2) {
-        width: 89.8%; // compensate for the border, it sucks
+        width: 89.8%; // this has to be carefully chosen to compensate for border and padding
       }
     }
 
-    fieldset {
+    fieldset { // reset stupid defaults
+      margin: 0;
       border: 0;
       padding: 0;
-      margin: 0;
     }
   }
 
   /* Secondary Navigation */
 
     #secondary {
-      padding-top: @line;
       border-top: 6px solid @highlight;
+      padding-top: @line;
     }
 
     .secondary-about {
       overflow: hidden;
-      width: 47.5%;
       float: right;
+      width: 47.5%;
 
       @media (max-width: @break2) {
         width: 100%;
@@ -226,8 +209,8 @@ podding - stylesheet for generic objects (lol)
 
     .secondary-nav {
       overflow: hidden;
-      width: 47.5%;
       float: left;
+      width: 47.5%;
       font-family: @supportFonts;
 
       @media (max-width: @break2) {
@@ -261,13 +244,14 @@ podding - stylesheet for generic objects (lol)
       padding-left: 0.5em;
     }
 
-    .secondary-subList > li {
+    .secondary-subList > li { // style for the second list level
       &:before {
         content: "– ";
       }
     }
 
 /* Footer */
+
   #footer {
     margin-top: @line;
     border-top: 6px solid @highlight;
@@ -292,7 +276,7 @@ podding - stylesheet for generic objects (lol)
     margin-bottom: @line;
   }
 
-  .episode--mini {
+  .episode--mini { // used in planned episodes for example
     font-family: @supportFonts;
   }
 
@@ -302,18 +286,19 @@ podding - stylesheet for generic objects (lol)
       margin-bottom: 0.5*@line;
     }
 
-    .episode-heading {
+    .episode-heading { // episode number & title
       font-size: 1.6*@base-size;
       line-height: 1.5*@line;
       font-weight: 800;
-      @media all and (max-width: @break2)   {
-      line-height: @line;
-      font-size: 1.4*@base-size;
-    }
 
-    @media all and (max-width: @break3)   {
-      font-size: 1.1*@base-size;
-    }
+      @media all and (max-width: @break2)   {
+        line-height: @line;
+        font-size: 1.4*@base-size;
+      }
+
+      @media all and (max-width: @break3)   {
+        font-size: 1.1*@base-size;
+      }
     }
 
     .episode-header-spacer {
@@ -326,7 +311,7 @@ podding - stylesheet for generic objects (lol)
       .hide-link;
       font-weight: 300;
 
-      span.episodeNumber-number { // lol
+      .episodeNumber-number { // lol NUMBER NUMBER WHAT WHAT
         margin-left: 0.2em;
         font-weight: 600;
         font-size: 0.75em; // because Helvetica doesn't have lining figures
@@ -355,24 +340,11 @@ podding - stylesheet for generic objects (lol)
       .episode-hostsList {
         a {
           margin: 0;
-          .itemized;    
-          &:before, &:after {
+          .itemized;
+
+          &:before, &:after { // style & and , as text, not as link (which it is technically part of)
             color: @text;
             border-bottom: 1px solid @bg;
-          }
-        }
-      }
-
-      .comments-number {
-        @media (max-width: @break2) {
-          span {
-            .hidden;
-          }
-        }
-
-        @media (min-width: @break2) {
-          i {
-            .hidden;
           }
         }
       }
@@ -383,18 +355,13 @@ podding - stylesheet for generic objects (lol)
   .episode-content {
     float: left;
     width: 100%;
-    @media all and (max-width: @break2)   {
-      margin-left: 0;
-    }
-    .shownotes {
-      margin-top: @line;
-    }
   }
 
   /* Episode download links */
 
-    .episode-downloadLinks--short { // these are displayed in short mode when rendering an episode
+    .shortEpisode-downloadLinks { // these are displayed in short mode when rendering an episode
       margin-right: 20%;
+      
       @media all and (max-width: @break3)   {
         float: left;
         width: 50%;
@@ -402,19 +369,19 @@ podding - stylesheet for generic objects (lol)
       }
     }
 
-    .episode-downloadLink { // styling for episode download links, this one is used in short mode
+    .shortEpisode-downloadLink {
       .textLink;
       .sized;
       margin-right: 1em;
       font-family: @supportFonts;
+      color: @text-even-less;
+
       @media all and (max-width: @break3)   {
           float: left;
           width: 50%;
           margin: 0;
           text-align: left;
         }
-      
-      color: @text-even-less;
     }
 
     
@@ -436,7 +403,7 @@ podding - stylesheet for generic objects (lol)
     margin-bottom: @line;
   }
 
-  .fullEpisode .episode-heading {
+  .fullEpisode .episode-heading { // it seems not necessary to make this a different class at this point
     font-size: 2*@base-size;
 
     @media all and (max-width: @break2)   {
@@ -482,8 +449,8 @@ podding - stylesheet for generic objects (lol)
   }
 
   .fullEpisode-downloadLinks {
-      width: 100%;
       float: left;
+      width: 100%;
       padding: 0;
       font-family: @supportFonts;
       list-style: none;
@@ -507,109 +474,37 @@ podding - stylesheet for generic objects (lol)
       }
     }
 
-    .shownotes {
-      ul {
-        padding-left: 1em;
-        list-style: none;
-      }
+  .shownotes {
+    margin-top: @line;
 
-      li > ul {
-        padding: 0;
-      }
-
-      li {
-        margin: 0;
-        padding: 0;
-
-        li {
-          padding-left: 1em;
-        }
-      }
-
-      li:before {
-        content: "– ";
-      }
-
-      li li:before {
-        content: "∙ ";
-      }
+    ul {
+      padding-left: 1em;
+      list-style: none;
     }
 
-/* Episode lists */
-  
-  .episodeList {
-    width: 100%;
-    float: left;
-    margin-top: 1.5*@line;
-    .episodeList-moreLink {      
-      color: @text-less;
-      .hide-link-hardcore;
-      img {
-        float: left;
-      }
-      span {
-        margin-left: 24px;
-        color: @text-less;
-        &:hover {
-              color: @highlight2;
-            }
-      }
+    li > ul {
+      padding: 0;
     }
-    .episode {
-      float: left;
-      @media all and (max-width: @break2)   { 
-        margin-left: 0;
-      }
-    }
-    .episode--published {
-      border-bottom: 1px solid @sub;
-
-      &:last-of-type {
-        border: none;
-      }
-    }
-
-    @media all and (max-width: @break2)   {
-     border-top: 1px solid @sub;
-     padding-top: @line;
-     &:first-child {
-       border-top: none;
-       padding-top: 0; 
-      }
-    }
-  }
-
-
-  .episodeListMini {
-    float: left;
-    @media all and (max-width: @break2)   { 
-      margin-left: 0;
-    }
-
-    padding: 0;
-    .inline-list;
 
     li {
-      float: left;
-      margin-right: 0.1em;
-      font-size: 1.1*@base-size;
-      font-weight: 500;
-      @media all and (max-width: @break2)   {
-        font-size: 1*@base-size;
-        font: 300;
+      margin: 0;
+      padding: 0;
+
+      li {
+        padding-left: 1em;
       }
     }
 
-    .episodeList-moreLink {
-      .inlineIcon;
-      color: @text-even-less;
-      padding-left: 0.2*@base-size;
+    li:before {
+      content: "– ";
+    }
+
+    li li:before {
+      content: "∙ ";
     }
   }
 
-  .episodeListContainer { // this contains the mini episode lists
-      float: left; // if you don't float this, the box model can't properly asses the height of the div and layout breaks in weird ways
-    }
+/* Episode lists */
 
   .episodeList-heading {
     float: left;
@@ -646,14 +541,80 @@ podding - stylesheet for generic objects (lol)
       .hidden;
     }
   }
+  
+  .episodeList {
+    width: 100%;
+    float: left;
+    margin-top: 1.5*@line;
 
+    .episodeList-moreLink {      
+      color: @text-less;
+      .hide-link-hardcore;
+    }
+
+    .episode {
+      float: left; // mostly for box model reasons
+    }
+
+    .episode--published {
+      border-bottom: 1px solid @sub;
+
+      &:last-of-type {
+        border: none;
+      }
+    }
+
+    @media all and (max-width: @break2)   {
+     border-top: 1px solid @sub;
+     padding-top: @line;
+
+     &:first-child {
+       border-top: none;
+       padding-top: 0; 
+      }
+    }
+  }
+
+
+  .episodeListMini { // used for planned episodes for example
+    float: left;
+    padding: 0;
+    .inline-list;
+
+    @media all and (max-width: @break2)   { 
+      margin-left: 0;
+    }
+
+    li {
+      float: left;
+      margin-right: 0.1em;
+      font-size: 1.1*@base-size;
+      font-weight: 500;
+      @media all and (max-width: @break2)   {
+        font-size: @base-size;
+        font-weight: 300;
+      }
+    }
+
+    .episodeList-moreLink {
+      .inlineIcon;
+      color: @text-even-less;
+      padding-left: 0.2*@base-size;
+    }
+  }
+
+  .episodeListContainer { // this contains the mini episode lists, mostly needed for somewhat arcane box model reasons
+    float: left; // if you don't float this, the box model can't properly asses the height of the div and layout breaks in weird ways
+  }
 
   .episode--mini {
+
       &:after {
         content: " / ";
         color: @text-less;
         font-weight: 800;
       }
+
       a { 
         color: @highlight-less;
         span { color: @text-less;}
@@ -661,10 +622,11 @@ podding - stylesheet for generic objects (lol)
           color: @highlight2;
         }
       }
+
       &:last-child {
         &:after {
-        content: "";
-      }
+          content: "";
+        }
       }
     }
 
@@ -721,13 +683,15 @@ podding - stylesheet for generic objects (lol)
 /* Content area decoration */
 
   #paging-links {
-    color: @text-less;
     margin-bottom: 2*@line;
+    color: @text-less;
+    
     .link-older {
       .inlineIcon;
       .sized;
       float: left;
     }
+
     .link-newer {
       .inlineIcon;
       .sized;
@@ -745,9 +709,11 @@ podding - stylesheet for generic objects (lol)
     width: 100%;
     text-align: center;
     margin-bottom: 1.5*@line;
+
     a {
       .hide-link;
     }
+
     span.quip {
       font-size: 1.2*@base-size;
     }
@@ -755,7 +721,7 @@ podding - stylesheet for generic objects (lol)
 
 /* Forms */
 
-  input, textarea {
+  input, textarea { // establish some baseline
     border: 1px solid @sub;
     padding: 0.25*@line 2%;
     line-height: @line;
@@ -771,7 +737,7 @@ podding - stylesheet for generic objects (lol)
     top: 1.25*@line;
   }
 
-  .input-icon + textarea, .input-icon + input {
+  .input-icon + textarea, .input-icon + input { // if an input is width-sensitive, you have to compensate for this padding
     padding-left: 5%;
 
     @media (max-width: @break2) {
@@ -779,28 +745,33 @@ podding - stylesheet for generic objects (lol)
     }
   }
 
-  form.multiple { // style forms with labels and multiple fields & stuff
+  form.multiple { // style forms with labels and multiple fields & stuff (feedback form!)
+    float: left;
     width: 100%;
-    padding: 0;
     margin-top: @line;
-    ol {
+    padding: 0;
+
+    ol { // input elements are placed in an ol because it makes sense semantically
       float: left;
       width: 100%;
       margin: 0;
       padding: 0;
     }
-    li {
+
+    li { // contains label & input
       clear: both;
       float: left;
       width: 100%;
       list-style: none;
     }
-    label {
+
+    label { // icon + short description
       float: left;
       height: 100%;
       width: 30%;
       text-align: left;
     }
+
     input, textarea {
       float: right;
       width: 60%;
@@ -808,17 +779,13 @@ podding - stylesheet for generic objects (lol)
       margin-bottom: 0.75*@line;
       
     }
-    @media all and (max-width: @break2)   {
-      width: 100%;
-      float: left;
+
+    @media all and (max-width: @break2)   { // on small screens, labels and inputs stack
+  
       label, input, textarea, button, .support-text {
         clear: both;
         float: left;
         width: 96%;
-      }
-
-      button, label, support-text {
-
       }
 
       input, textarea {
@@ -828,14 +795,23 @@ podding - stylesheet for generic objects (lol)
       label, .form-note {
         text-align: center;
       }
+
       button {
         width: 100%;
         float: left;
+        margin-bottom: @line;
       }
     }
   }
 
-  .form-note {
+  .support-text { // short text if a field need further instructions
+    clear: both;
+    width: 100%;
+    color: @text-less;
+    font-size: 0.8*@base-size;
+  }
+
+  .form-note { // explains which fields are required etc.
     margin-top: @line;
     margin-bottom: @line;
     color: @text-less;
@@ -844,11 +820,6 @@ podding - stylesheet for generic objects (lol)
     font-style: italic;
   }
 
-  .support-text {
-    clear: both;
-    width: 100%;
-    color: @text-less;
-    font-size: 0.8*@base-size;
-  }
+  
 
 

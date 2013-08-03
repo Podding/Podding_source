@@ -5,7 +5,8 @@
 
 /* Popovers! */
   // the base class for popovers, this can be used directly or subclassed
-  // current sub-classes: popover-episode-list-label and popover-menu
+  // current sub-classes: popover-menu
+  // this is a bit of black magic, I know, I don't enjoy looking at it
   .popover { 
     position: relative;
     height: @line;
@@ -79,6 +80,7 @@
   
 /* Cards */
   // This is the object I don't quite have a name for yet. It is used in hosts and shows.
+  
   .card {
     clear: both;
     float: left;
@@ -88,7 +90,7 @@
 
   .card-cover-image {
     float: left;
-    width: 20%;
+    width: 25%;
     margin: 0;
     
     @media all and (max-width: @break2)   {
@@ -102,14 +104,13 @@
 
   .card-main {
     float: right;
-    width: 75%;
-    min-height: 6*@line;
-    padding-bottom: 1*@line;
+    width: 70%;
+    padding-bottom: @line;
+
     @media all and (max-width: @break2)   {
       width: 100%;
       padding: 0;
       padding-bottom: 2*@line;
-      background: @bg;
     }
   }
 
@@ -119,10 +120,6 @@
       padding: 0.5*@line 0 0.5*@line 0;
       background: @bg;
     }
-  }
-
-  .card-title {
-
   }
 
   .card-secondary {
@@ -137,8 +134,9 @@
 
   button, .button {
     .candy-trans;
-    padding: 0.5*@line 2*@base-size;
+  
     border: 0;
+    padding: 0.5*@line 2*@base-size;
     color: @bg;
     background-color: @highlight;
     font-family: @supportFonts;
@@ -147,7 +145,7 @@
       background-color: @highlight2;
     }
 
-    &:active {
+    &:active { // simulate pressing the button. kind of.
       @media (min-width: @break2) {
         position: relative;
         top: 3px;
