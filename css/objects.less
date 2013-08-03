@@ -76,8 +76,6 @@
       top: 1.2*@line;
     }
   }
-
-  
   
 /* Cards */
   // This is the object I don't quite have a name for yet. It is used in hosts and shows.
@@ -92,10 +90,14 @@
     float: left;
     width: 20%;
     margin: 0;
+    
     @media all and (max-width: @break2)   {
       width: 100%;
-      margin-bottom: -33%;
-      
+      margin-bottom: -33%;    
+    }
+
+    @media (min-width: @break2) {
+      .starkBoxShadow;
     }
   }
 
@@ -133,5 +135,31 @@
     @media all and (max-width: @break2)   {
       width: 90%;
       padding: 0 5%;   
+    }
+  }
+
+/* Buttons */
+
+  button, .button {
+    .candy-trans;
+    padding: 0.5*@line 2*@base-size;
+    border: 0;
+    color: @bg;
+    background-color: @highlight;
+    font-family: @supportFonts;
+
+    &:hover {
+      background-color: @highlight2;
+    }
+
+    &:active {
+      position: relative;
+      top: 3px;
+      left: 3px;
+      .noBoxShadow;
+    }
+
+    @media (min-width: @break2) {
+      .starkBoxShadow;
     }
   }

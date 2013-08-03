@@ -30,6 +30,12 @@
   box-shadow:4px 4px 0 @colour;
 }
 
+.noBoxShadow {
+  -moz-box-shadow:none;
+  -webkit-box-shadow:none;
+  box-shadow:none;
+}
+
 .starkTextShadow(@colour: @text-less) {
   -moz-text-shadow:4px 4px 0 @colour;
   -webkit-text-shadow:4px 4px 0 @colour;
@@ -93,7 +99,6 @@
     list-style: none;
     li {
       display: inline;
-      margin-right: 0.5em;
     }
   }
 
@@ -243,30 +248,5 @@
 
   .with-colon { // this as well
     &:after{ content: ": "}
-  }
-
-/* Button Styles */
-  .buttonized {
-    border: none;
-    padding: 0.25rem 1em;
-            text-decoration: none;
-            color: @bg;
-            background-color: @text;
-            border-radius: 0.75rem;
-            &:hover {
-
-            }
-  }
-
-  button, .button { // mostly deprecated button style
-    .bordered;
-    .candy-trans;
-    padding: 0.5rem;
-    border: 0;
-    color: @bg;
-    background-color: @highlight;
-    &:hover {
-      background-color: @highlight2;
-    }
   }
 
