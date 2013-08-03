@@ -1,4 +1,0 @@
----
-name: "crew"
-template: "crew"
----
