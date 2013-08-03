@@ -28,7 +28,7 @@ podding - stylesheet for generic objects (lol)
     margin: 2*@line auto @line auto;
     text-align: center;
     border-bottom: 1px solid @sub;
-    font-size: 1.5rem;
+    font-size: 1.5*@base-size;
     line-height: 2*@line;
     font-weight: 600;
   }
@@ -61,7 +61,7 @@ podding - stylesheet for generic objects (lol)
     }
 
     #tagline {
-      font-size: 1.3rem;
+      font-size: 1.3*@base-size;
       line-height: 2*@line;
       font-style: italic;
       @media all and (min-width: @break1)   {
@@ -125,11 +125,11 @@ podding - stylesheet for generic objects (lol)
       }
 
       @media (min-width: @break2) {
-        font-size: 1.1rem;
+        font-size: 1.1*@base-size;
       }
 
       @media (max-width: @break2) {
-        font-size: 1rem;
+        font-size: 1*@base-size;
         .dotted;
         margin: 0;
         padding: 0;
@@ -272,7 +272,7 @@ podding - stylesheet for generic objects (lol)
     margin-top: @line;
     border-top: 6px solid @highlight;
     padding-bottom: @line;
-    font-size: 0.8rem;
+    font-size: 0.8*@base-size;
     color: @text-less;
 
     @media (min-width: @break2) {
@@ -303,16 +303,16 @@ podding - stylesheet for generic objects (lol)
     }
 
     .episode-heading {
-      font-size: 1.6rem;
+      font-size: 1.6*@base-size;
       line-height: 1.5*@line;
       font-weight: 800;
       @media all and (max-width: @break2)   {
       line-height: @line;
-      font-size: 1.4rem;
+      font-size: 1.4*@base-size;
     }
 
     @media all and (max-width: @break3)   {
-      font-size: 1.1rem;
+      font-size: 1.1*@base-size;
     }
     }
 
@@ -345,7 +345,7 @@ podding - stylesheet for generic objects (lol)
     .episode-metaInfo {
       margin-top: 0.5*@line;
       font-family: @supportFonts;
-      font-size: 1rem;
+      font-size: 1*@base-size;
       font-weight: 500;
 
       @media all and (max-width: @break3)   {
@@ -437,14 +437,14 @@ podding - stylesheet for generic objects (lol)
   }
 
   .fullEpisode .episode-heading {
-    font-size: 2rem;
+    font-size: 2*@base-size;
 
     @media all and (max-width: @break2)   {
-      font-size: 1.5rem;
+      font-size: 1.5*@base-size;
     }
 
     @media all and (max-width: @break3)   {
-      font-size: 1.2rem;
+      font-size: 1.2*@base-size;
     }
   }
 
@@ -464,13 +464,13 @@ podding - stylesheet for generic objects (lol)
     float: left;
 
     @media (max-width: @break1) {
-      font-size: 0.8rem;
+      font-size: 0.8*@base-size;
     }
 
     @media (max-width: @break2) {
       width: 100%;
       margin: 0;
-      font-size: 1rem;
+      font-size: 1*@base-size;
     }
 
     h3 {
@@ -592,10 +592,10 @@ podding - stylesheet for generic objects (lol)
     li {
       float: left;
       margin-right: 0.1em;
-      font-size: 1.1rem;
+      font-size: 1.1*@base-size;
       font-weight: 500;
       @media all and (max-width: @break2)   {
-        font-size: 1rem;
+        font-size: 1*@base-size;
         font: 300;
       }
     }
@@ -603,7 +603,7 @@ podding - stylesheet for generic objects (lol)
     .episodeList-moreLink {
       .inlineIcon;
       color: @text-even-less;
-      padding-left: 0.2rem;
+      padding-left: 0.2*@base-size;
     }
   }
 
@@ -749,7 +749,7 @@ podding - stylesheet for generic objects (lol)
       .hide-link;
     }
     span.quip {
-      font-size: 1.2rem;
+      font-size: 1.2*@base-size;
     }
   }
 
@@ -839,7 +839,7 @@ podding - stylesheet for generic objects (lol)
     margin-top: @line;
     margin-bottom: @line;
     color: @text-less;
-    font-size: 0.9rem;
+    font-size: 0.9*@base-size;
     line-height: @line;
     font-style: italic;
   }
@@ -848,7 +848,7 @@ podding - stylesheet for generic objects (lol)
     clear: both;
     width: 100%;
     color: @text-less;
-    font-size: 0.8rem;
+    font-size: 0.8*@base-size;
   }
 
 
