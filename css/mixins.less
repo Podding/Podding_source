@@ -2,47 +2,94 @@
   Snippets Stylesheet for reusable stylings
 */
 
-.clear {
-  width: 100%;
-  clear: both;
-}
+/* Often used classes that are just plain useful */
 
-.hidden {
-  visibility: hidden;
-  height: 0;
-  width: 0 !important;
-  display: none;
-  margin: 0;
-  padding: 0;
-}
-
-.spacer {
-  margin: 0 0.3em 0 0.3em;
-  font-style: italic;
-  &:first-child {
-    margin-left: 0;
+  .clear {
+    width: 100%;
+    clear: both;
   }
-}
 
-.starkBoxShadow(@colour: @text) {
-  -moz-box-shadow:4px 4px 0 @colour;
-  -webkit-box-shadow:4px 4px 0 @colour;
-  box-shadow:4px 4px 0 @colour;
-}
+  .spacer {
+    margin: 0 0.3em 0 0.3em;
+    font-style: italic;
+    &:first-child {
+      margin-left: 0;
+    }
+  }
 
-.noBoxShadow {
-  -moz-box-shadow: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
+  .starkBoxShadow(@colour: @text) {
+    -moz-box-shadow:4px 4px 0 @colour;
+    -webkit-box-shadow:4px 4px 0 @colour;
+    box-shadow:4px 4px 0 @colour;
+  }
 
-.starkTextShadow(@colour: @text-less) {
-  -moz-text-shadow:4px 4px 0 @colour;
-  -webkit-text-shadow:4px 4px 0 @colour;
-  text-shadow:4px 4px 0 @colour;
-}
+  .noBoxShadow {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .starkTextShadow(@colour: @text-less) {
+    -moz-text-shadow:4px 4px 0 @colour;
+    -webkit-text-shadow:4px 4px 0 @colour;
+    text-shadow:4px 4px 0 @colour;
+  }
+
+  .candy-trans { // nice subtle fade for ALL THE THINGS
+    -webkit-transition: color 0.5s ease, border-color 0.5s ease, background 0.5s ease;
+    -moz-transition: color 0.5s ease, border-color 0.5s ease, background 0.5s ease;
+    transition: color 0.5s ease, border-color 0.5s ease, background 0.5s ease;
+
+  }
+
+  .bordered {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+  }
+
+
+  .hide-link-less { // use this for links that don't need extra color
+    color: inherit;
+    text-decoration: none;
+    &:hover {
+      color: @highlight2;
+      border-bottom: 1px solid @sub;
+      .candy-trans;
+    }
+  }
+
+  .hide-link { // use this for the ones that can't even have a border
+    border: none; // importing the mixin *after* preserves the border on hover
+    .hide-link-less;
+  }
+
+  .hide-link-hardcore { // and this if you're slightly ashamed they even exist
+    .hide-link;
+    border: none !important;
+  }
+
+
+/* Utility classes for punctuation & titles */
+
+  .em-dashed { // Add a space, an em-dash, another space before
+      &:before{content: " \2014\2002 ";} // black unicode magic that annoys me deeply
+    }
+
+  .with-colon { // this as well
+    &:after{ content: ": "}
+  }
 
 /* Hide Things on certain breakpoints */
+
+  .hidden {
+    visibility: hidden;
+    height: 0;
+    width: 0 !important;
+    display: none;
+    margin: 0;
+    padding: 0;
+  }
 
   // hide is: hide if width < break
   // show is: hide if width > break
@@ -104,22 +151,35 @@
 
   .itemized { // make inline lists look like this: Herp, Derp & Durr
     margin: 0;
-    &:after {content: ", "}
-    &:nth-last-child(2) { &:after { content:"";}}
+
+    &:after {
+      content: ", "
+    }
+
+    &:nth-last-child(2) { 
+      &:after { 
+        content:"";
+      }
+    }
     &:last-child {
-      &:before { content: " & "; }
-      &:after { content: ""; }
+      &:before { 
+        content: " & "; 
+      }
+      &:after { 
+        content: ""; 
+      }
     }
   }
 
-  .dotted { // for inline lists that can't be itemized
-    
+  .dotted { // add mid-dots between elements (nav, episode headings)
+  
     &:after {
       margin: 0 0.35em;
       content: "∙"; // add a mid dot after items
       font-family: @displayFonts;
       font-weight: bold;
     }
+
     &:last-child {
       &:after {
         content: "";
@@ -127,45 +187,29 @@
     }
   }
 
-  .single { // we need this because Safari doesn't support :only-child
+  .single { // we need this because Safari doesn't support :only-child *rolleyes*
     &:before { content: "" !important; }
     &:after { content: "" !important; }
   }
 
-  /* Conventient generic classes */
 
-  .candy-trans { // nice subtle fade for ALL THE THINGS
-    -webkit-transition: color 0.5s ease, border-color 0.5s ease, background 0.5s ease;
-    -moz-transition: color 0.5s ease, border-color 0.5s ease, background 0.5s ease;
-    transition: color 0.5s ease, border-color 0.5s ease, background 0.5s ease;
+/* Link Styles */
 
-  }
-
-  .bordered {
-    -webkit-border-radius: 3px;
-    -moz-border-radius: 3px;
-    border-radius: 3px;
-  }
-
-
-  .hide-link-less { // use this for links that don't need extra color
+.basicLink { // basic color styling for links (often with icons)
     color: inherit;
     text-decoration: none;
+    border: none;
     &:hover {
-      color: @highlight2;
-      border-bottom: 1px solid @sub;
+      color: @highlight;
       .candy-trans;
     }
   }
 
-  .hide-link { // use this for the ones that can't even have a border
-    border: none; // importing the mixin *after* preserves the border on hover
-    .hide-link-less;
-  }
-
-  .hide-link-hardcore { // and this if you're slightly ashamed they even exist
-    .hide-link;
-    border: none !important;
+  .basicLink-alt { // an alternative styling for links on coloured bg (like buttons)
+    .basicLink;
+    &:hover {
+      color: @text;
+    }
   }
 
 
@@ -188,23 +232,6 @@
     }
   }
 
-  .basicLink { // basic color styling for links (often with icons)
-    color: inherit;
-    text-decoration: none;
-    border: none;
-    &:hover {
-      color: @highlight;
-      .candy-trans;
-    }
-  }
-
-  .basicLink-alt { // an alternative styling for links on coloured bg (like buttons)
-    .basicLink;
-    &:hover {
-      color: @text;
-    }
-  }
-
   .inlineIcon { // for icons that are used with text behind them (size slightly larger than text)
     .spaced;
     .sized;
@@ -222,30 +249,4 @@
     border: none;
   }
 
-  // Making sure that the Awesome Icons are properly lined up (very much empirical values :D )
-    .icon-bullhorn {
-      margin-top: 5px;
-    }
-
-    .icon-calendar, .icon-truck {
-      margin-top: -0.2em;
-    }
-
-    .icon-book {
-      margin-top: -0.1em;
-    }
-
-    .icon-circle-arrow-left, .icon-circle-arrow-right {
-      margin-top: -0.1em;
-    }
-
-/* Utility classes for punctuation & titles */
-
-  .em-dashed { // Add a space, an em-dash, another space before
-      &:before{content: " \2014\2002 ";} // black unicode magic that annoys me deeply
-    }
-
-  .with-colon { // this as well
-    &:after{ content: ": "}
-  }
 
