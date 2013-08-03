@@ -564,8 +564,6 @@ podding - stylesheet for generic objects (lol)
 
   .episodeListMini {
     float: left;
-    margin: 0 0 0 40px;
-    
     @media all and (max-width: @break2)   { 
       margin-left: 0;
     }
@@ -595,61 +593,38 @@ podding - stylesheet for generic objects (lol)
       float: left; // if you don't float this, the box model can't properly asses the height of the div and layout breaks in weird ways
     }
 
-  .episodeList-label {
-    .basicLink; // inherit colours etc
-    .inlineIcon; // make the icon fit in
-    .popover;
-    position: absolute;
-    color: @text;
-
+  .episodeList-heading {
+    float: left;
+    margin-right: 1em;
     font-family: @supportFonts;
-
-    i {
-      vertical-align: middle;
-    }
-    .popover-content {
-      top: 30px;
-      left: -20px;
-      width: 200px;
-      &:before, &:after {
-        left: 20px;
-      }
-    }
-
+    font-size: @base-size;
+    line-height: @line;
+    font-weight: normal;
     @media all and (max-width: @break2)   { 
       width: 100%;
-      max-width: 100%;
-      position: relative;
-      float: left;
-      margin-bottom: 0.5*@line;
-      i {
-        margin-top: -0.15em;
-      }
       text-align: center;
-      .popover-content {
-        position: static;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        visibility: visible;
-        opacity: 1;
-        display: inline;
-        border: none;
-        padding: 0;
-        background: transparent;
-        color: inherit;
-        font-weight: 500;
-        &:before, &:after {
-          visibility: hidden;
-        }
-      }
+      margin-right: 0;
     }
   }
 
-  .episodeList--published .episodeList-label {
+  .episodeList-heading-text {
+    @media (min-width: @break2) {
+     .hidden; 
+    }
+  }
+
+  .episodeList-heading-icon {
+    font-size: 1.25*@base-size;
+    margin-right: 0.3em;
+    position: relative;
+    @media (min-width: @break2) {
+      top: -0.1em;
+    }
+  }
+
+  .episodeList--published .episodeList-heading {
     @media all and (min-width: @break2)   { 
-      visibility: hidden;
+      .hidden;
     }
   }
 
