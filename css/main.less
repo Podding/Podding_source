@@ -51,23 +51,23 @@ podding - stylesheet for generic objects (lol)
 /* Header */
   /* Site Header */
 
-  #site-title {
-    text-align: center;
-    margin-top: @line;
-    a {
-      color: @text;
-      .hide-link;
-    } 
-  }
-
-  #tagline {
-    font-size: 1.3rem;
-    line-height: 2*@line;
-    font-style: italic;
-    @media all and (min-width: @break1)   {
-      
+    #site-title {
+      text-align: center;
+      margin-top: @line;
+      a {
+        color: @text;
+        .hide-link;
+      } 
     }
-  }
+
+    #tagline {
+      font-size: 1.3rem;
+      line-height: 2*@line;
+      font-style: italic;
+      @media all and (min-width: @break1)   {
+        
+      }
+    }
 
   /* Main Navigation */
 
@@ -77,7 +77,6 @@ podding - stylesheet for generic objects (lol)
       float: left;
       margin: @line 0;
       background-color: @highlight;
-      
       font-family: @supportFonts;
       text-align: center; 
 
@@ -271,15 +270,17 @@ podding - stylesheet for generic objects (lol)
 /* Footer */
   #footer {
     margin-top: @line;
-    border-top: 1px solid @sub;
+    border-top: 6px solid @highlight;
     padding-bottom: @line;
     font-size: 0.8rem;
     color: @text-less;
+
+    @media (min-width: @break2) {
+      border: 0;
+    }
     
     a { 
-      .hide-link; 
-      border-bottom: 
-      1px solid; 
+      
     }
   }
 
