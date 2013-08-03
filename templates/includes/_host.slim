@@ -15,7 +15,7 @@
 
         - if host.twitter_name
           li: a href="#{ twitter_url(host) }"
-            | <i class="icon-twitter"></i> Twitter
+            | @#{ host.twitter_name }
 
         - if host.flattr_name
           li: a href="#{ flattr_url(host) }"
