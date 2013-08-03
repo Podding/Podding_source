@@ -15,13 +15,13 @@
     
     .fullEpisode-secondary
       h3
-        | Listen
+        | Zuhören
       ul.fullEpisode-downloadLinks
         - for audio_format in @episode.audioformats.keys do
           li: a.fullEpisode-downloadLink href="#{ @episode.audioformats[audio_format]}" title="Download #{ @episode.show.title }: #{ @episode.title } in #{ audio_format }"
             | <i class="icon-download"></i>#{audio_format}
         li: a.fullEpisode-downloadLink href="" title="Play #{ @episode.show.title }: #{ @episode.title } "
-            | <i class="icon-play"></i> Play
+            | <i class="icon-play"></i>Play
             
 
       //== slim :"includes/_episode-player", :locals => { :episode => @episode}

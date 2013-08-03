@@ -497,17 +497,13 @@ podding - stylesheet for generic objects (lol)
 
   .fullEpisode-downloadLink { // extend download link style for for episodes in full mode
       .textLink;
-      margin-left: -0.3em;
+      .spaced;
       float: none;
       color: @text-less;
       text-transform: uppercase;
       
       @media (max-width: @break2) {
-        margin-left: 0.2em;
-
-        i {
-          margin-right: 0;
-        }
+        margin-left: 1em;
       }
     }
 
