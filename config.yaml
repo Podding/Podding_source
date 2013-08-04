@@ -5,6 +5,7 @@ base_url: "http://0.0.0.0:3000"
 cover_url: "/images/cover.png"
 base_audio_url: "/audio"
 source_repository: "github.com/Podding/Podding_source"
+episodes_per_page: 10
 
 # Optional
 

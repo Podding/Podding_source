@@ -682,22 +682,31 @@ podding - stylesheet for generic objects (lol)
 
 /* Content area decoration */
 
-  #paging-links {
+  #pagination-links {
+    height: @line;
     margin-bottom: 2*@line;
     color: @text-less;
-    
-    .link-older {
+    font-family: @supportFonts;
+  }
+
+  .pagination-linkOlder {
       .inlineIcon;
       .sized;
+      .basicLink;
+
+      width: 47.5%;
       float: left;
     }
 
-    .link-newer {
+    .pagination-linkNewer {
       .inlineIcon;
       .sized;
+      .basicLink;
+
+      width: 47.5%;
       float: right;
+      text-align: right;
     }
-  }
 
 /* Styling for .pages */
 
@@ -820,6 +829,15 @@ podding - stylesheet for generic objects (lol)
     font-style: italic;
   }
 
-  
+/* Icons */
+
+// Correct the alignment of some icons (it's driving me nuts)  
+
+a {
+  .icon-long-arrow-right, .icon-long-arrow-left {
+    position: relative;
+    top: -0.1em;
+  }
+}
 
 
