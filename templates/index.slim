@@ -1,10 +1,10 @@
 #content.episodeList-page.index
   - if @planned_episodes.length != 0
-    == slim :"includes/_episode-list", :locals => { :episodes => @planned_episodes, :mode => "mini-date", :status => "planned", :more_link => "/info" }
+    == slim :"includes/_episode-list", :locals => { :episodes => @planned_episodes, :mode => "mini-date", :list_status => "planned", :more_link => "/info" }
   - if @live_episodes.length != 0
-   == slim :"includes/_episode-list", :locals => { :episodes => @live_episodes, :mode => "short", :status => "live" }
+   == slim :"includes/_episode-list", :locals => { :episodes => @live_episodes, :mode => "short", :list_status => "live" }
   - if @published_episodes.length != 0
-    == slim :"includes/_episode-list", :locals => { :episodes => @published_episodes, :mode => "short", :status => "published" }
+    == slim :"includes/_episode-list", :locals => { :episodes => @published_episodes, :mode => "short", :list_status => "published" }
     
 
   - if @paginated

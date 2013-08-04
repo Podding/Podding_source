@@ -1,51 +1,71 @@
 / set the correct labels for different lists
-- if status == "planned"
-  - list_icon = "calendar"
-  - list_label = "Geplante Folgen"
-  - id = "planned_episodes"
-- if status == "live"
-  - list_icon = "bullhorn"
-  - list_label = "Live gestreamte Folgen"
-  - id = "live_episodes"
-- if status == "published"
-  - list_icon = "archive"
-  - list_label = "Veröffentlichte Folgen"
-  - id = "published_episodes"
+
+
+ruby:
+  # deal with optional locals and sane defaults
+
+  unless locals.has_key?( :list_icon )
+    list_icon = "list"
+  end
+
+  if locals.has_key?( :list_status )
+    if list_status == "planned"
+      list_icon = "calendar"
+      list_label = "Geplante Folgen"
+      id = "planned_episodes"
+    elsif list_status == "live"
+      list_icon = "bullhorn"
+      list_label = "Live gestreamte Folgen"
+      id = "live_episodes"
+    elsif list_status == "published"
+      list_icon = "archive"
+      list_label = "Veröffentlichte Folgen"
+      id = "published_episodes"
+    end
+  else 
+    list_status = "nostatus"
+  end
+
+
 
 
 
 
 - if mode == "mini-date"
-  section class=["episodeListContainer","episodeListContainer--#{ status }"]
-    h3.episodeList-heading
-      i.episodeList-heading-icon class="icon-#{ list_icon }"
-      span.episodeList-heading-text #{ list_label }
+  section class=["episodeListContainer","episodeListContainer--#{ list_status }"]
+    - if locals.has_key?( :list_label )
+      h3.episodeList-heading
+        i.episodeList-heading-icon class="icon-#{ list_icon }"
+        span.episodeList-heading-text #{ list_label }
     ul.episodeListMini
       - for episode in episodes
         == slim :"includes/_episode", :locals => { :episode => episode, :mode => "mini-date" }
 
-        - if more_link # you can pass an optional more-link to this partial
+        - if locals.has_key?( :more_link ) # you can pass an optional more-link to this partial
          li.episodeListMini-moreLink 
           a.basicLink href="#{ more_link }"
             |  mehr... <i class="icon-circle-arrow-right"></i>
 
 - elsif mode == "mini-show"
-  section class=["episodeList","episodeList--#{ status }"]
-    h3.episodeList-heading
-      i.episodeList-heading-icon class="icon-#{ list_icon }"
-      span.episodeList-heading-text #{ list_label }
+  section class=["episodeList","episodeList--#{ list_status }"]
+    - if locals.has_key?( :list_label )
+      h3.episodeList-heading
+        i.episodeList-heading-icon class="icon-#{ list_icon }"
+        span.episodeList-heading-text #{ list_label }
     ul.episodeListMini
       - for episode in episodes
         == slim :"includes/_episode", :locals => { :episode => episode, :mode => "mini-show" }
-        - if more_link # you can pass an optional more-link to this partial
+        - if more_link.defined? # you can pass an optional more-link to this partial
          li.episodeListMini-moreLink 
           a.basicLink href="#{ more_link }"
             |  mehr... <i class="icon-circle-arrow-right"></i>
 
 - elsif mode == "short"
-  section class=["episodeList","episodeList--#{ status }"]
-    h3.episodeList-heading
-      i.episodeList-heading-icon class="icon-#{ list_icon }"
-      span.episodeList-heading-text #{ list_label }
+  section class=["episodeList","episodeList--#{ list_status }"]
+    - if locals.has_key?( :list_label )
+      h3.episodeList-heading
+        i.episodeList-heading-icon class="icon-#{ list_icon }"
+        span.episodeList-heading-text #{ list_label }
+
     - for episode in episodes
       == slim :"includes/_episode", :locals => { :episode => episode, :mode => "short" }
