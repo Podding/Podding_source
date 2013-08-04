@@ -1,85 +1,61 @@
 - if mode == "mini-date"
-  li class=["episode--mini", "#{ episode.show }", "episode--#{ episode.status }"]
+  li class=["episodeMini", "#{ episode.show }", "episode--#{ episode.status }"]
     a href="#{ url_for(episode) }"
       - if episode.title != ""
         - if episode.live_date and episode.status == "planned"
-          | <span class="episode-episodeNumber--mini"> #{ episode.live_date.strftime("%-d. %B %Y") }</span>#{ episode.title } (live)
+          | <span class="episodeMini-episodeNumber"> #{ episode.live_date.strftime("%-d. %B %Y") }</span>#{ episode.title } (live)
         - else
-          | <span class="episode-episodeNumber--mini"> #{ episode.date.strftime("%-d. %B %Y") }</span>#{ episode.title }
+          | <span class="episodeMini-episodeNumber"> #{ episode.date.strftime("%-d. %B %Y") }</span>#{ episode.title }
       - else
-        | <span class="episode-episodeNumber--mini"> #{ episode.date.strftime("%-d. %B %Y") }</span>#{ episode.show.title }
+        | <span class="episodeMini-episodeNumber"> #{ episode.date.strftime("%-d. %B %Y") }</span>#{ episode.show.title }
 
-- if mode == "mini-show"
-  li class=["episode--mini", "#{ episode.show }", "episode--#{ episode.status }"]
+- elsif mode == "mini-show"
+  li class=["episodeMini", "#{ episode.show }", "episode--#{ episode.status }"]
     a href="#{ url_for(episode) }"
-          | <span class="episode-episodeNumber--mini">#{ episode.show.title }</span>#{ episode.title }
+          | <span class="episodeMini-episodeNumber">#{ episode.show.title }</span>#{ episode.title }
 
-- if mode != "mini-date" and mode != "mini-show"
+- elsif mode == "archive"
+  .episodeArchive
+    span.episodeArchive-date #{ episode.date.strftime("%d.%m.%Y") }
+    span.episodeArchive-heading
+      a.episodeArchive-episodeNumber href="#{ url_for(episode) }"
+        | <span class="hide-at-break2">#{ episode.show.title }</span><span class="show-at-break2 episodeNumber-showName">#{ episode.show.name.upcase }</span><span class="episodeNumber-number">#{ episode.number }</span>
+      a.episodeArchive-title href="#{ url_for(episode) }"
+        | #{ episode.title }
+    
+    span.episodeArchive-hosts
+      span.episodeArchive-spacer mit
+      - if episode.hosts.length == 1
+        - for host in episode.hosts  
+          a.single.host-link href="/hosts/#{ host.name }" #{ host.name }
+      
+      - elsif episode.hosts.length != 1
+        - for host in episode.hosts
+          a.host-link href="/hosts/#{ host.name }" #{ host.name }
+
+- else
   div class=["episode", "#{ episode.show }", "episode--#{ episode.status }"]
 
     == slim :"includes/_episode-header", :locals => { :episode => episode }
+    
+    .episode-content
+      .episode-teaser.text-content
+        - if episode.teaser != ""
+          == markdown episode.teaser
+        - elsif episode.status != "published" and episode.live_date
+          == markdown "Diese Episode wird am #{ episode.live_date.strftime("%-d. %B %Y") } live gestreamt. Den Stream findest du [hier]( #{ settings.streaming_url } ) und weitere Informationen auf der [Live-Seite]( /pages/live )."
+        - elsif episode.status == "planned"
+          p Diese Folge ist im Moment nur geplant und hat deshalb noch keine Beschreibung. :/
+        - else
+          p In dieser Folge reden Menschen über Dinge.
 
-    - if mode == "full"
-      .episode-content
-        .episode-teaser.text-content.column-left.column-main
-          - if episode.teaser != ""
-            == markdown episode.teaser
-          - elsif episode.status != "published" and episode.live_date
-            == markdown "Diese Episode wird am #{ episode.live_date.strftime("%-d. %B %Y") } live gestreamt. Den Stream findest du [hier]( #{ settings.streaming_url } ) und weitere Informationen auf der [Live-Seite]( /pages/live )."
-          - elsif episode.status == "planned"
-            p Diese Folge ist im Moment nur geplant und hat deshalb noch keine Beschreibung. :/
-          - else
-            p In dieser Folge reden Menschen über Dinge.
-
-        
-        .column-right.column-secondary
-          h3.column-heading 
-            | Hosts <span class="quip">wer redete...</span>
-          .episode-hostsList--full  
-            - for host in episode.hosts
-              .host-container 
-                a.host-link-image href="#{ url_for(host) }": img src="#{ host.image_url }"
-                p.host-name 
-                  a.host-link-name href="#{ url_for(host) }" #{ host.full_name }
-
-          h3.column-heading 
-            | Download <span class="quip">grab the goods!</span>
-          .episode-downloadLinks--full
-            - for audio_format in episode.audioformats.keys do
-              a.episode-downloadLink--full.popover href="#{episode.audioformats[audio_format]}" title="Download #{ episode.show.title }: #{ episode.title } in #{ audio_format }"
-                | <i class="icon-download"></i>#{audio_format}
-                span.popover-content Download #{ episode.show.title }: #{ episode.title } in #{ audio_format }
-
-
-          == slim :"includes/_episode-player", :locals => { :episode => episode}
-
-        .clear
-        
-        h3.column-heading.inlineIcon 
-          | <i class="icon-book"></i> Shownotes
-        .shownotes.text-content
-          == markdown episode.content
-
-          
-    - if mode == "short"
-      .episode-content
-        .episode-teaser.text-content
-          - if episode.teaser != ""
-            == markdown episode.teaser
-          - elsif episode.status != "published" and episode.live_date
-            == markdown "Diese Episode wird am #{ episode.live_date.strftime("%-d. %B %Y") } live gestreamt. Den Stream findest du [hier]( #{ settings.streaming_url } ) und weitere Informationen auf der [Live-Seite]( /pages/live )."
-          - elsif episode.status == "planned"
-            p Diese Folge ist im Moment nur geplant und hat deshalb noch keine Beschreibung. :/
-          - else
-            p In dieser Folge reden Menschen über Dinge.
-
-        - if episode.status == "published"
-          a.moreLink href="#{ url_for(episode) }" title="Link zu den Shownotes zu #{ episode.show.title } - #{ episode.title }"
-             | <i class="icon-book"></i>Shownotes
-          p.shortEpisode-downloadLinks--short
-            - for audio_format in episode.audioformats.keys do
-              a.shortEpisode-downloadLink.popover href="#{episode.audioformats[audio_format]}"
-                | <i class="icon-download"></i>#{audio_format}
-                span.popover-content Download #{ episode.show.title }: #{ episode.title } in #{ audio_format }
+      - if episode.status == "published"
+        a.moreLink href="#{ url_for(episode) }" title="Link zu den Shownotes zu #{ episode.show.title } - #{ episode.title }"
+           | <i class="icon-book"></i>Shownotes
+        p.shortEpisode-downloadLinks
+          - for audio_format in episode.audioformats.keys do
+            a.shortEpisode-downloadLink.popover href="#{episode.audioformats[audio_format]}"
+              | <i class="icon-download"></i>#{audio_format}
+              span.popover-content Download #{ episode.show.title }: #{ episode.title } in #{ audio_format }
 
           

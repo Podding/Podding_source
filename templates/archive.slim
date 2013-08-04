@@ -1,13 +1,5 @@
-#content.episodeList.archive
-  == slim :"includes/_page-title", :locals => { :page_title => "Things", :page_title_label => "Archiv",  :page_url => "http://foo.bar", :page_icon => "archive"}
-  
+#content.episodeList-page.archive
+  == slim :"includes/_page-title"
 
-  #published-episodes
-
-    - for episode in @episodes do
-      == slim :episode, :locals => { :episode => episode, :mode => "short" }
-
-  #paging-links
-    a.basicLink.link-older href=""
-      |  <i class="icon-circle-arrow-left"></i> Ältere Folgen
-
+  - for year in @episodes.keys do
+    == slim :"includes/_episode-list", :locals => { :episodes => @episodes[year], :mode => "archive", :list_label => year}

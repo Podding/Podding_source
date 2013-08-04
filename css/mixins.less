@@ -171,6 +171,13 @@
     }
   }
 
+  .hide-spacers(@text-color: @text; @bg-color: @bg) {
+    &:before, &:after { // style & and , as text, not as link (which it is technically part of)
+      color: @text-color;
+      border-bottom: 1px solid @bg-color;
+    }
+  }
+
   .dotted { // add mid-dots between elements (nav, episode headings)
   
     &:after {
