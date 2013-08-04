@@ -595,12 +595,15 @@ podding - stylesheet for generic objects (lol)
         font-weight: 300;
       }
     }
+  }
 
-    .episodeList-moreLink {
-      .inlineIcon;
-      color: @text-even-less;
-      padding-left: 0.2*@base-size;
-    }
+  .episodeListMini-moreLink {
+    .inlineIcon;
+    
+    padding-left: 0.2*@base-size;
+    color: @text-even-less;
+    font-family: @supportFonts;
+    
   }
 
   .episodeListContainer { // this contains the mini episode lists, mostly needed for somewhat arcane box model reasons
