@@ -24,11 +24,12 @@
       - elsif episode.hosts.length != 1
         - for host in episode.hosts
           a.host-link href="/hosts/#{ host.name }" #{ host.name }
-
+    
     span.episode-header-spacer ∙
     span.date
      | <span>#{ episode.date.strftime("%d.%m.%Y") }</span>
 
+  
     span.episode-header-spacer ∙
     a.comments-number href="" title="Kommentare zu #{ episode.title }"
      | #{ episode.comments } <span class="hide-at-break2">Kommentare</span><i class="icon-comments show-at-break2"></i>

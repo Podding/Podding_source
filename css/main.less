@@ -269,7 +269,6 @@ podding - stylesheet for generic objects (lol)
   }
 
 /* Episodes */
-
   
   /* Episode player */
 
@@ -336,11 +335,12 @@ podding - stylesheet for generic objects (lol)
       .episode-metaInfo {
         margin-top: 0.5*@line;
         font-family: @supportFonts;
-        font-size: 1*@base-size;
+        font-size: @base-size;
         font-weight: 500;
 
         @media all and (max-width: @break3)   {
           margin-top: 0;
+          font-size: @base-size;
         }
 
         .episode-hostsList {
@@ -350,8 +350,11 @@ podding - stylesheet for generic objects (lol)
             .hide-spacers;
           }
         }
-      }
 
+        .comments-number {
+          white-space: nowrap;
+        }
+      }
 
   /* Full Episode (as in single page full-on awesome) */
 
