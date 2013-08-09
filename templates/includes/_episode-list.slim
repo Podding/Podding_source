@@ -8,22 +8,24 @@ ruby:
     list_icon = "list"
   end
 
-  if locals.has_key?( :list_status ) # set icons for the three known statuses as well as set a default status
-    if list_status == "planned"
-      list_icon = "calendar"
-      list_label = "Geplante Folgen"
-      id = "planned_episodes"
-    elsif list_status == "live"
-      list_icon = "bullhorn"
-      list_label = "Live gestreamte Folgen"
-      id = "live_episodes"
-    elsif list_status == "published"
-      list_icon = "archive"
-      list_label = "Veröffentlichte Folgen"
-      id = "published_episodes"
+  unless locals.has_key?( :list_label ) && locals.has_key?( :list_icon )
+    if locals.has_key?( :list_status ) # set icons for the three known statuses as well as set a default status
+      if list_status == "planned"
+        list_icon = "calendar"
+        list_label = "Geplante Folgen"
+        id = "planned_episodes"
+      elsif list_status == "live"
+        list_icon = "bullhorn"
+        list_label = "Live gestreamte Folgen"
+        id = "live_episodes"
+      elsif list_status == "published"
+        list_icon = "archive"
+        list_label = "Veröffentlichte Folgen"
+        id = "published_episodes"
+      end
+    else 
+      list_status = "nostatus"
     end
-  else 
-    list_status = "nostatus"
   end
 
 

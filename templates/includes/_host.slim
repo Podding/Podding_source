@@ -1,3 +1,8 @@
+ruby:
+  unless locals.has_key?( :mode ) 
+    mode = "full"
+  end
+
 .hostCard
 
   - if host.image_url
@@ -36,11 +41,4 @@
         - if mode == "short"
           a.moreLink href="#{ url_for(host) }" title="Mehr über #{ host.name } "
                  |  mehr... <i class="icon-circle-arrow-right"></i>
-
-
-  - if mode == "full"
-    .card-secondary
-  
-    / - if host.published_episodes.length != 0
-    /   == slim :"includes/_episode-list", :locals => { :episodes => show.published_episodes, :list_icon => "", :mode => "short", :status => "published" }
 
