@@ -5,7 +5,7 @@ ruby:
     @display_published_label = true
   end
 
-#content.episodeList-page.index
+#content.episodeListPage
   - if @planned_episodes.length != 0
     == slim :"includes/_episode-list", :locals => { :episodes => @planned_episodes, :mode => "mini-date", :list_status => "planned", :more_link => "/info", :list_label => "Geplante Folgen" }
   - if @live_episodes.length != 0

@@ -569,143 +569,146 @@ podding - stylesheet for generic objects (lol)
       .title-label;
     }
 
-  /* Episode lists */
+/* Episode lists */
+  .episodeListPage .episodeList {
+    margin-top: @line;
+  }
 
-    /* Episode List Short (as used on index) */
-      .episodeList-heading {
-        float: left;
-        margin-right: 1em;
-        font-family: @supportFonts;
-        font-size: @base-size;
-        line-height: @line;
-        font-weight: normal;
-        @media all and (max-width: @break2)   { 
-          width: 100%;
-          text-align: center;
-          margin-right: 0;
-          margin-bottom: @line;
-        }
-      }
-
-      .episodeList-heading-text {
-        @media (min-width: @break2) {
-         .hidden; 
-        }
-      }
-
-      .episodeList-heading-icon {
-        font-size: 1.25*@base-size;
-        margin-right: 0.3em;
-        position: relative;
-        @media (min-width: @break2) {
-          top: -0.1em;
-        }
-      }
-      
-      .episodeList {
+  /* Episode List Short (as used on index) */
+    .episodeList-heading {
+      float: left;
+      margin-right: 1em;
+      font-family: @supportFonts;
+      font-size: @base-size;
+      line-height: @line;
+      font-weight: normal;
+      @media all and (max-width: @break2)   { 
         width: 100%;
-        float: left;
+        text-align: center;
+        margin-right: 0;
+        margin-bottom: @line;
+      }
+    }
 
-        .episodeList-moreLink {      
-          color: @text-less;
-          .hide-link-hardcore;
-        }
+    .episodeListShort .episodeList-heading {
+      @media (min-width: @break2) {
+       .hidden; 
+      }
+    }
 
-        .episode {
-          float: left; // mostly for box model reasons
-        }
+    .episodeList-heading-icon {
+      font-size: 1.25*@base-size;
+      margin-right: 0.3em;
+      position: relative;
+      @media (min-width: @break2) {
+        top: -0.1em;
+      }
+    }
+    
+    .episodeList {
+      width: 100%;
+      float: left;
 
-        .episode--published {
-          border-bottom: 1px solid @sub;
+      .episodeList-moreLink {      
+        color: @text-less;
+        .hide-link-hardcore;
+      }
 
-          &:last-of-type {
-            border: none;
-          }
-        }
+      .episode {
+        float: left; // mostly for box model reasons
+      }
 
-        @media all and (max-width: @break2)   {
-         padding-top: @line;
+      .episode--published {
+        border-bottom: 1px solid @sub;
 
-         &:first-child {
-           border-top: none;
-           padding-top: 0; 
-          }
+        &:last-of-type {
+          border: none;
         }
       }
 
-    /* Episode List Archive */
+      @media all and (max-width: @break2)   {
+       padding-top: @line;
 
-      .episodeListArchive {
+       &:first-child {
+         border-top: none;
+         padding-top: 0; 
+        }
+      }
+    }
+
+  /* Episode List Archive */
+
+    .episodeListArchive {
+      margin-top: 0;
+      padding: 0;
+    }
+
+    .episodeListArchive-heading {
+      .sectionHeading;
+      margin-top: @line;
+
+      @media (max-width: @break2) {
         margin-top: 0;
-        padding: 0;
+      }
+    }
+
+  /* Episode List Mini */
+    .episodeListMini { // used for planned episodes for example
+      float: left;
+      padding: 0;
+      .inline-list;
+
+      @media all and (max-width: @break2)   { 
+        margin-left: 0;
       }
 
-      .episodeListArchive-heading {
-        .sectionHeading;
-        margin-top: @line;
-
-        @media (max-width: @break2) {
-          margin-top: 0;
-        }
-      }
-
-    /* Episode List Mini */
-      .episodeListMini { // used for planned episodes for example
+      li {
         float: left;
-        padding: 0;
-        .inline-list;
+        margin-right: 0.1em;
+        font-size: 1.1*@base-size;
+        font-weight: 500;
+        @media all and (max-width: @break2)   {
+          font-size: @base-size;
+          font-weight: 300;
+        }
+      }
+    }
 
-        @media all and (max-width: @break2)   { 
-          margin-left: 0;
+    .episodeListMini-moreLink {
+      .inlineIcon;
+      
+      padding-left: 0.2*@base-size;
+      color: @text-even-less;
+      font-family: @supportFonts;
+      
+    }
+
+    .episodeListContainer { // this contains the mini episode lists, mostly needed for somewhat arcane box model reasons
+      float: left; // if you don't float this, the box model can't properly asses the height of the div and layout breaks in weird ways
+    }
+
+    .episodeMini {
+
+        &:after {
+          content: " / ";
+          color: @text-less;
+          font-weight: 800;
         }
 
-        li {
-          float: left;
-          margin-right: 0.1em;
-          font-size: 1.1*@base-size;
-          font-weight: 500;
-          @media all and (max-width: @break2)   {
-            font-size: @base-size;
-            font-weight: 300;
+        a { 
+          color: @highlight-less;
+          span { color: @text-less;}
+          &:hover {
+            color: @highlight2;
           }
         }
-      }
 
-      .episodeListMini-moreLink {
-        .inlineIcon;
-        
-        padding-left: 0.2*@base-size;
-        color: @text-even-less;
-        font-family: @supportFonts;
-        
-      }
-
-      .episodeListContainer { // this contains the mini episode lists, mostly needed for somewhat arcane box model reasons
-        float: left; // if you don't float this, the box model can't properly asses the height of the div and layout breaks in weird ways
-      }
-
-      .episodeMini {
-
+        &:last-child {
           &:after {
-            content: " / ";
-            color: @text-less;
-            font-weight: 800;
-          }
-
-          a { 
-            color: @highlight-less;
-            span { color: @text-less;}
-            &:hover {
-              color: @highlight2;
-            }
-          }
-
-          &:last-child {
-            &:after {
-              content: "";
-            }
+            content: "";
           }
         }
+      }
 
 /* Shows */
 
