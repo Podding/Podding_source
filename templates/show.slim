@@ -1,2 +1,3 @@
 #content.show-single.page-single
   == slim :"includes/_show", :locals => { :show => @show, :mode => "full" }
+  == slim :"includes/_episode-list", :locals => { :list_status => "published", :list_label => "#{ @show.title } – Alle Folgen", :mode => "archive", :episodes => @show.episodes }
