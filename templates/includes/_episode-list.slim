@@ -28,9 +28,13 @@ ruby:
     end
   end
 
+  unless locals.has_key?( :display_list_label )
+    display_list_label = true
+  end
+
 - if mode == "mini-date"
   section class=["episodeListContainer","episodeListContainer--#{ list_status }"]
-    - if locals.has_key?( :list_label )
+    - if locals.has_key?( :list_label ) && display_list_label
       h3.episodeList-heading
         i.episodeList-heading-icon class="icon-#{ list_icon }"
         span.episodeList-heading-text #{ list_label }
@@ -45,7 +49,7 @@ ruby:
 
 - elsif mode == "archive"
   section class=["episodeList","episodeListArchive"]
-    - if locals.has_key?( :list_label )
+    - if locals.has_key?( :list_label ) && display_list_label
       h3.episodeListArchive-heading #{ list_label }
 
     - for episode in episodes
@@ -53,7 +57,7 @@ ruby:
 
 - elsif mode == "short"
   section class=["episodeList","episodeList--#{ list_status }","episodeListShort"]
-    - if locals.has_key?( :list_label )
+    - if locals.has_key?( :list_label ) && display_list_label
       h3.episodeList-heading
         i.episodeList-heading-icon class="icon-#{ list_icon }"
         span.episodeList-heading-text #{ list_label }
