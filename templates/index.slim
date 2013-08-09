@@ -1,17 +1,5 @@
-ruby:
-  if @planned_episodes.length == 0 && @live_episodes.length == 0
-    @display_published_label = false
-  else
-    @display_published_label = true
-  end
-
 #content.episodeListPage
-  - if @planned_episodes.length != 0
-    == slim :"includes/_episode-list", :locals => { :episodes => @planned_episodes, :mode => "mini-date", :list_status => "planned", :more_link => "/info", :list_label => "Geplante Folgen" }
-  - if @live_episodes.length != 0
-   == slim :"includes/_episode-list", :locals => { :episodes => @live_episodes, :mode => "short", :list_status => "live", :list_label => "Live" }
-  - if @published_episodes.length != 0
-    == slim :"includes/_episode-list", :locals => { :episodes => @published_episodes, :mode => "short", :list_status => "published", :list_label => "Veröffentlichte Folgen", :display_list_label => @display_published_label }
+  == slim :"includes/_episode-lists", :locals => { :planned_episodes => @planned_episodes, :live_episodes => @live_episodes, :published_episodes => @published_episodes }  
     
 
   - if @paginated

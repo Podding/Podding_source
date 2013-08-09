@@ -32,7 +32,7 @@ ruby:
 - if mode == "mini-date"
   section class=["episodeListContainer","episodeListContainer--#{ list_status }"]
     - if locals.has_key?( :list_label ) && display_list_label
-      h3.episodeList-heading
+      h3.episodeListMini-heading
         i.episodeList-heading-icon class="icon-#{ list_icon }"
         span.episodeList-heading-text #{ list_label }
     ul.episodeListMini
