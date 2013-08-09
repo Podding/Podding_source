@@ -1,11 +1,7 @@
 ruby:
   # deal with optional locals and sane defaults
 
-  unless locals.has_key?( :list_icon ) # default to list icon
-    list_icon = "list"
-  end
-
-  unless locals.has_key?( :list_label ) && locals.has_key?( :list_icon )
+  unless locals.has_key?( :list_label ) || locals.has_key?( :list_icon ) # true if both are not set
     if locals.has_key?( :list_status ) # set icons for the three known statuses as well as set a default status
       if list_status == "planned"
         list_icon = "calendar"
@@ -23,6 +19,15 @@ ruby:
     else 
       list_status = "nostatus"
     end
+
+  else
+    unless locals.has_key?( :list_label )
+      list_label = "Folgen"
+    end
+
+    unless locals.has_key?( :list_icon )
+      list_icon = "list"
+    end
   end
 
   unless locals.has_key?( :display_list_label )
@@ -31,7 +36,7 @@ ruby:
 
 - if mode == "mini-date"
   section class=["episodeListMini-wrapper","episodeList"]
-    - if locals.has_key?( :list_label ) && display_list_label
+    - if display_list_label
       h3.episodeListMini-heading
         i.episodeListMini-heading-icon class="icon-#{ list_icon }"
         span.episodeListMini-heading-text #{ list_label }
@@ -46,7 +51,7 @@ ruby:
 
 - elsif mode == "archive"
   section class=["episodeListArchive","episodeList"]
-    - if locals.has_key?( :list_label ) && display_list_label
+    - if display_list_label
       h3.episodeListArchive-heading #{ list_label }
 
     - for episode in episodes
@@ -54,7 +59,7 @@ ruby:
 
 - elsif mode == "short"
   section class=["episodeListShort","episodeList"]
-    - if locals.has_key?( :list_label ) && display_list_label
+    - if display_list_label
       h3.episodeListShort-heading
         i.episodeListShort-heading-icon class="icon-#{ list_icon }"
         span.episodeListShort-heading-text #{ list_label }

@@ -16,8 +16,8 @@ ruby:
   end
 
 - if planned_episodes.length != 0
-  == slim :"includes/_episode-list", :locals => { :episodes => planned_episodes, :mode => "mini-date", :list_status => "planned", :more_link => "/info", :list_label => "Geplante Folgen" }
+  == slim :"includes/_episode-list", :locals => { :episodes => planned_episodes, :mode => "mini-date", :list_status => "planned", :more_link => "/info" }
 - if live_episodes.length != 0
- == slim :"includes/_episode-list", :locals => { :episodes => live_episodes, :mode => "short", :list_status => "live", :list_label => "Live" }
+ == slim :"includes/_episode-list", :locals => { :episodes => live_episodes, :mode => "short", :list_status => "live"}
 - if published_episodes.length != 0
-  == slim :"includes/_episode-list", :locals => { :episodes => published_episodes, :mode => "short", :list_status => "published", :list_label => "Veröffentlichte Folgen", :display_list_label => @display_published_label }
+  == slim :"includes/_episode-list", :locals => { :episodes => published_episodes, :mode => "short", :list_status => "published", :display_list_label => @display_published_label }
