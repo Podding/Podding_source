@@ -9,11 +9,6 @@
       - else
         | <span class="episodeMini-episodeNumber"> #{ episode.date.strftime("%-d. %B %Y") }</span>#{ episode.show.title }
 
-- elsif mode == "mini-show"
-  li class=["episodeMini", "#{ episode.show }", "episode--#{ episode.status }"]
-    a href="#{ url_for(episode) }"
-          | <span class="episodeMini-episodeNumber">#{ episode.show.title }</span>#{ episode.title }
-
 - elsif mode == "archive"
   .episodeArchive
     span.episodeArchive-date #{ episode.date.strftime("%d.%m.%Y") }
