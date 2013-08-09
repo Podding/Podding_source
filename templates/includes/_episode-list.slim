@@ -30,11 +30,11 @@ ruby:
   end
 
 - if mode == "mini-date"
-  section class=["episodeListContainer","episodeListContainer--#{ list_status }"]
+  section class=["episodeListMini-wrapper","episodeList"]
     - if locals.has_key?( :list_label ) && display_list_label
       h3.episodeListMini-heading
-        i.episodeList-heading-icon class="icon-#{ list_icon }"
-        span.episodeList-heading-text #{ list_label }
+        i.episodeListMini-heading-icon class="icon-#{ list_icon }"
+        span.episodeListMini-heading-text #{ list_label }
     ul.episodeListMini
       - for episode in episodes
         == slim :"includes/_episode", :locals => { :episode => episode, :mode => "mini-date" }
@@ -45,7 +45,7 @@ ruby:
             |  mehr... <i class="icon-circle-arrow-right"></i>
 
 - elsif mode == "archive"
-  section class=["episodeList","episodeListArchive"]
+  section class=["episodeListArchive","episodeList"]
     - if locals.has_key?( :list_label ) && display_list_label
       h3.episodeListArchive-heading #{ list_label }
 
@@ -53,11 +53,11 @@ ruby:
       == slim :"includes/_episode", :locals => { :episode => episode, :mode => "archive" }
 
 - elsif mode == "short"
-  section class=["episodeList","episodeList--#{ list_status }","episodeListShort"]
+  section class=["episodeListShort","episodeList"]
     - if locals.has_key?( :list_label ) && display_list_label
-      h3.episodeList-heading
-        i.episodeList-heading-icon class="icon-#{ list_icon }"
-        span.episodeList-heading-text #{ list_label }
+      h3.episodeListShort-heading
+        i.episodeListShort-heading-icon class="icon-#{ list_icon }"
+        span.episodeListShort-heading-text #{ list_label }
 
     - for episode in episodes
       == slim :"includes/_episode", :locals => { :episode => episode, :mode => "short" }

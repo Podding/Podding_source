@@ -569,17 +569,24 @@ podding - stylesheet for generic objects (lol)
       .title-label;
     }
 
-/* Episode lists */
-  .episodeListPage .episodeList {
-    margin-top: 2*@line;
+/* Episode Lists */
 
-    @media (max-width: @break2) {
-      margin-top: @line;
+  /* Base Styles */
+
+  .episodeList {
+    width: 100%;
+    float: left;
+
+    .episode {
+      float: left; // mostly for box model reasons
+    }
+
+    @media all and (max-width: @break2)   {
+      padding-top: @line;
     }
   }
 
-  /* Episode List Short (as used on index) */
-    .episodeList-heading {
+  .episodeList-heading {
       float: left;
       margin-right: 1em;
       font-family: @supportFonts;
@@ -594,48 +601,44 @@ podding - stylesheet for generic objects (lol)
       }
     }
 
-    .episodeListShort .episodeList-heading {
+  .episodeList-heading-icon {
+    font-size: 1.25*@base-size;
+    margin-right: 0.3em;
+    position: relative;
+    @media (min-width: @break2) {
+      top: -0.1em;
+    }
+  }
+
+  .episodeListPage .episodeList {
+    margin-top: 2*@line;
+
+    @media (max-width: @break2) {
+      margin-top: @line;
+    }
+  }
+
+  /* Episode List Short (as used on index) */
+    
+    .episodeListShort-heading {
+      .episodeList-heading; // extends
+
       @media (min-width: @break2) {
        .hidden; 
       }
     }
 
-    .episodeList-heading-icon {
-      font-size: 1.25*@base-size;
-      margin-right: 0.3em;
-      position: relative;
-      @media (min-width: @break2) {
-        top: -0.1em;
-      }
+
+    .episodeListShort-heading-icon {
+      .episodeList-heading-icon; // extends
     }
     
-    .episodeList {
-      width: 100%;
-      float: left;
-
-      .episodeList-moreLink {      
-        color: @text-less;
-        .hide-link-hardcore;
-      }
-
-      .episode {
-        float: left; // mostly for box model reasons
-      }
-
+    .episodeListShort {
       .episode--published {
         border-bottom: 1px solid @sub;
 
         &:last-of-type {
           border: none;
-        }
-      }
-
-      @media all and (max-width: @break2)   {
-       padding-top: @line;
-
-       &:first-child {
-         border-top: none;
-         padding-top: 0; 
         }
       }
     }
@@ -648,7 +651,7 @@ podding - stylesheet for generic objects (lol)
     }
 
     .episodeListArchive-heading {
-      .sectionHeading;
+      .sectionHeading; // extends
       margin-top: @line;
 
       @media (max-width: @break2) {
@@ -657,7 +660,12 @@ podding - stylesheet for generic objects (lol)
     }
 
   /* Episode List Mini */
-    .episodeListMini { // used for planned episodes for example
+
+    .episodeListMini-wrapper {
+      float: left;
+    }
+
+    .episodeListMini {
       float: left;
       padding: 0;
       .inline-list;
@@ -679,13 +687,17 @@ podding - stylesheet for generic objects (lol)
     }
 
     .episodeListMini-heading {
-      .episodeList-heading;
+      .episodeList-heading; // extends
+    }
 
-      .episodeList-heading-text {
+    .episodeListMini-heading-text {
         @media (min-width: @break2) {
           .hidden;
         }
       }
+
+    .episodeListMini-heading-icon {
+      .episodeList-heading-icon; // extends
     }
 
     .episodeListMini-moreLink {
@@ -697,9 +709,6 @@ podding - stylesheet for generic objects (lol)
       
     }
 
-    .episodeListContainer { // this contains the mini episode lists, mostly needed for somewhat arcane box model reasons
-      float: left; // if you don't float this, the box model can't properly asses the height of the div and layout breaks in weird ways
-    }
 
     .episodeMini {
 
