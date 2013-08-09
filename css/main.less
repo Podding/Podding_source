@@ -571,7 +571,11 @@ podding - stylesheet for generic objects (lol)
 
 /* Episode lists */
   .episodeListPage .episodeList {
-    margin-top: @line;
+    margin-top: 2*@line;
+
+    @media (max-width: @break2) {
+      margin-top: @line;
+    }
   }
 
   /* Episode List Short (as used on index) */
@@ -670,6 +674,16 @@ podding - stylesheet for generic objects (lol)
         @media all and (max-width: @break2)   {
           font-size: @base-size;
           font-weight: 300;
+        }
+      }
+    }
+
+    .episodeListMini-heading {
+      .episodeList-heading;
+
+      .episodeList-heading-text {
+        @media (min-width: @break2) {
+          .hidden;
         }
       }
     }
