@@ -1,8 +1,39 @@
+ruby:
+  if locals.has_key?( :page )
+    if page.title
+      page_title = page.title
+    end
+    if page.quip
+      page_quip = page.quip
+    end
+    if page.label
+      page_label = page.label
+    end
+    if page.icon 
+      page_icon = page.icon
+    end
+  else 
+    unless locals.has_key?( :page_icon )
+      page_icon = false
+    end
+
+    unless locals.has_key?( :page_label )
+      page_label = false
+    end
+
+    unless locals.has_key?( :page_quip )
+      page_quip = false
+    end
+  end
+
+  
+
+
 h2.page-title: a.basicLink href=""
-  - if @page.icon
-    i class="icon-#{ @page.icon }"
-  - if @page.label
-    span.title-label #{ @page.label }
-  span  #{ @page.title }
-  - if @page.quip
-    span.quip #{ @page.quip }
+  - if page_icon
+    i class="icon-#{ page_icon }"
+  - if page_label
+    span.title-label #{ page_label }
+  span  #{ page_title }
+  - if page_quip
+    span.quip #{ page_quip }

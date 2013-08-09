@@ -1,5 +1,5 @@
 #content.archive
-  == slim :"includes/_page-title"
+  == slim :"includes/_page-title", :locals => { :page_title => "Archiv", :page_icon => "archive" }
 
   - for year in @episodes.keys do
     == slim :"includes/_episode-list", :locals => { :episodes => @episodes[year], :mode => "archive", :list_label => year}
