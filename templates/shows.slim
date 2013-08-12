@@ -1,5 +1,5 @@
 #content.shows
-  == slim :"includes/_page-title", :locals => { :page_title => "Shows", :page_icon => "star-empty" }
+  == slim :"includes/_page-title", :locals => { :page => @page }
 
   - for show in @shows do
       == slim :"includes/_show", :locals => { :show => show, :mode => "short" }
