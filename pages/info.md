@@ -1,6 +1,6 @@
 ---
 name: "info"
-title: "Über uns"
+title: "Info"
 icon: "book"
 ---
 

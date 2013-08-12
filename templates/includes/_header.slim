@@ -4,8 +4,28 @@ header.instapaper_ignore
   p#tagline
   nav#mainNav
     ul#mainNav-navList
-      li.mainNav-navItem: a.mainNav-navLink href="/pages/info"
-        | <i class="icon-book hide-at-break2"></i><span>Info<span class="hide-at-break1">rmationen</span></span>
+      - for page in Page.all do
+        - unless page.is_unimportant || page.is_hidden
+          - unless page.is_secondary
+            li.mainNav-navItem: a.mainNav-navLink href="#{ url_for(page) }"
+              - if page.icon
+                i class="icon-#{ page.icon } hide-at-break2"
+              - if page.short_title
+                span.show-at-break1 #{ page.short_title  }
+                span.hide-at-break1 #{ page.title }
+              - else
+                span #{ page.title }
+          - else
+            li.mainNav-navItem.hide-at-break2: a.mainNav-navLink href="#{ url_for(page) }"
+              - if page.icon
+                i class="icon-#{ page.icon } hide-at-break2"
+              - if page.short_title
+                span.show-at-break1 #{ page.short_title  }
+                span.hide-at-break1 #{ page.title }
+              - else
+                span #{ page.title }
+
+            
       
       li.mainNav-navItem.popover-menu.hide-at-break3 
         a.mainNav-navLink href="/hosts"
@@ -22,19 +42,7 @@ header.instapaper_ignore
           - for show in all_shows do
             li: a.inlineIcon href="#{ url_for(show) }" 
               |  #{ show.title }
-            
-      li.mainNav-navItem: a.mainNav-navLink href="/pages/abo"
-        | <i class="icon-rss hide-at-break2"></i><span>Abo<span class="hide-at-break1">nnieren</span></span>
-
-      
-
-      li.mainNav-navItem: a.mainNav-navLink href="/pages/feedback"
-        | <i class="icon-comments-alt hide-at-break2"></i><span>Feedback</span>
-
-      
-
-      li.mainNav-navItem: a.mainNav-navLink href="/archive"
-        | <i class="icon-archive hide-at-break2"></i><span>Archiv</span>
 
       li.mainNav-navItem.show-at-break2: a.mainNav-navLink href="#search"
         | <i class="icon-search"></i>
+            

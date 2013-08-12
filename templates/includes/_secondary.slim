@@ -10,22 +10,16 @@
   .secondary-nav
     
     ul.secondary-navList
-      li.secondary-navItem: a.secondary-navLink href="/pages/info"
-        | <i class="icon-book"></i><span>Info</span>
-
-      li.secondary-navItem: a.secondary-navLink href="/pages/abo"
-        | <i class="icon-rss"></i><span>Abonnieren</span>
-
-      li.secondary-navItem: a.secondary-navLink href="/pages/feedback"
-        | <i class="icon-comments-alt"></i><span>Feedback</span>
-
-      li.secondary-navItem: a.secondary-navLink href="/archive"
-        | <i class="icon-archive"></i><span>Archiv</span>
-
-      li.secondary-navItem: a.secondary-navLink href="/pages/impressum"
-        | <i class="icon-umbrella"></i><span>Impressum</span>
-      
-      
+      - for page in Page.all do
+        - unless page.is_hidden
+          li.secondary-navItem: a.secondary-navLink href="#{ url_for(page) }"
+            - if page.icon
+              i class="icon-#{ page.icon } hide-at-break2"
+            - if page.short_title
+              span.show-at-break1 #{ page.short_title  }
+              span.hide-at-break1 #{ page.title }
+            - else
+              span #{ page.title }
 
     ul.secondary-navList
       li.secondary-navItem
