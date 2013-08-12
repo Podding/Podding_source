@@ -75,7 +75,7 @@ podding - stylesheet for generic objects (lol)
       margin: @line 0;
       background-color: @highlight;
       font-family: @supportFonts;
-      text-align: center; 
+      text-align: center;
 
       @media (max-width: @break2){
         font-size: 0.9*@base-size;
@@ -113,6 +113,10 @@ podding - stylesheet for generic objects (lol)
 
       &:last-child {
         margin-right: 0;
+      }
+
+      @media (min-width: @break1) {
+        margin-right: 0.8em;
       }
 
       @media (min-width: @break2) {
