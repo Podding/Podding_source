@@ -14,7 +14,7 @@
         - unless page.is_hidden
           li.secondary-navItem: a.secondary-navLink href="#{ url_for(page) }"
             - if page.icon
-              i class="icon-#{ page.icon } hide-at-break2"
+              i class="icon-#{ page.icon }"
             - if page.short_title
               span.show-at-break1 #{ page.short_title  }
               span.hide-at-break1 #{ page.title }
