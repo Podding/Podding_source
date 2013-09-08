@@ -1,0 +1,4 @@
+---
+name: opus
+extension: .opus
+---

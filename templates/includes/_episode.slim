@@ -48,9 +48,9 @@
         a.moreLink href="#{ url_for(episode) }" title="Link zu den Shownotes zu #{ episode.show.title } - #{ episode.title }"
            | <i class="icon-book"></i>Shownotes
         p.shortEpisode-downloadLinks
-          - for audio_format in episode.audioformats.keys do
-            a.shortEpisode-downloadLink.popover href="#{episode.audioformats[audio_format]}"
-              | <i class="icon-download"></i>#{audio_format}
-              span.popover-content Download #{ episode.show.title }: #{ episode.title } in #{ audio_format }
+          - episode.audio_files.each do |audioformat, url|
+            a.shortEpisode-downloadLink.popover href="#{ url }"
+              | <i class="icon-download"></i>#{ audioformat.name }
+              span.popover-content Download #{ episode.show.title }: #{ episode.title } in #{ audioformat.name }
 
           
