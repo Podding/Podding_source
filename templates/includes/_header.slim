@@ -31,9 +31,10 @@ header.instapaper_ignore
         a.mainNav-navLink href="/hosts"
           | <i class="icon-group hide-at-break2"></i><span>Hosts</span>
         ul.popover-content
-          - for host in all_hosts do
-            li: a.inlineIcon href="#{ url_for(host) }" 
-              |  #{ host.full_name }
+          - all_hosts.each do |host|
+            - unless host.guest
+              li: a.inlineIcon href="#{ url_for(host) }" 
+                |  #{ host.full_name }
 
       li.mainNav-navItem.popover-menu.hide-at-break4
         a.mainNav-navLink href="/shows"
