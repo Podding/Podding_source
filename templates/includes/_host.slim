@@ -11,7 +11,7 @@ ruby:
   .card-main
     .card-main-wrapper
       h4.card-title: a href="#{ url_for(host) }"
-        | #{ "Gast: " if host.guest }#{ host.full_name }
+        | #{ t 'guest' if host.guest } #{ host.full_name }
 
         - if host.quip
           <span class="quip">#{ host.quip }</span>
@@ -39,6 +39,6 @@ ruby:
         == markdown host.content
 
         - if mode == "short"
-          a.moreLink href="#{ url_for(host) }" title="Mehr über #{ host.name } "
-                 |  mehr... <i class="icon-circle-arrow-right"></i>
+          a.moreLink href="#{ url_for(host) }" title="#{ t 'more_about' } #{ host.name } "
+                 |  #{ t 'more' }... <i class="icon-circle-arrow-right"></i>
 

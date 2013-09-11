@@ -1,14 +1,13 @@
 #content.episodeListPage
   == slim :"includes/_episode-lists", :locals => { :planned_episodes => @planned_episodes, :live_episodes => @live_episodes, :published_episodes => @published_episodes }  
-    
 
   - if @paginated
     #pagination-links
       - if @page_num < @page_max
         a.pagination-linkOlder href="/page/#{ @page_num + 1 }"
-          |  <i class="icon-long-arrow-left"></i> Ältere Folgen
+          |  <i class="icon-long-arrow-left"></i> #{ t 'older_episodes' }
 
       - if @page_num > 1 && @page_num <= @page_max
         a.pagination-linkNewer href="/page/#{ @page_num - 1 }"
-          |  Neuere Folgen <i class="icon-long-arrow-right"></i>
+          |  #{ t 'newer_episodes' } <i class="icon-long-arrow-right"></i>
 

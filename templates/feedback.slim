@@ -21,21 +21,21 @@
           <input id="mail" type="email" placeholder="don.draper@scpd.com" required>
         li
           label for="message" 
-            | <i class="icon-comment"></i> Nachricht
-          <textarea rows="7" id="message" type="text" placeholder="Liebes Retinacast-Team, ich finde eure Sendung voll toll. Bis auf das, was ihr über Homeland gesagt habt. Was für ein Blödisnn! Liebe Grüße, Don" required></textarea>
+            | <i class="icon-comment"></i> #{ t 'message' }
+          <textarea rows="7" id="message" type="text" placeholder="#{ t 'feedback_placeholder', title: settings.title }" required></textarea>
 
         li
           label for="add"
             | <i class="icon-plus-sign"></i> <code>#{ rand(10) }+#{ rand(10) }=?</code>
           <input id="add" type="number" placeholder="#{ rand(10) }" required>
-          p.support-text Um zu beweisen, dass du kein Roboter, sondern ein Mensch (oder eine gute KI) bist, löse bitte die Rechenaufgabe.
+          p.support-text #{ t 'feedback_captcha' }
           
 
         li
-          p.form-note Alle Felder sind Pflichtfelder. Deine Daten bleiben bei uns, keine Angst. Wir spammen auch nicht.
+          p.form-note #{ t 'feedback_disclaimer' }
       
         li
           button.spaced type="submit" name="submit" 
-            | <i class="icon-envelope-alt"></i> Abschicken
+            | <i class="icon-envelope-alt"></i> #{ t 'submit' }
 
          

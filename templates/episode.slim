@@ -3,19 +3,12 @@
     == slim :"includes/_episode-header", :locals => { :episode => @episode }
 
     .fullEpisode-teaser.text-content
-      - if @episode.teaser != ""
-        == markdown @episode.teaser
-      - elsif @episode.status != "published" and episode.live_date
-        == markdown "Diese Episode wird am #{ @episode.live_date.strftime("%-d. %B %Y") } live gestreamt. Den Stream findest du [hier]( #{ settings.streaming_url } ) und weitere Informationen auf der [Live-Seite]( /pages/live )."
-      - elsif @episode.status == "planned"
-        p Diese Folge ist im Moment nur geplant und hat deshalb noch keine Beschreibung. :/
-      - else
-        p In dieser Folge reden Menschen über Dinge.
+      == markdown @episode.teaser
 
     
     .fullEpisode-secondary
       h3
-        | Zuhören
+        | #{ t 'listen' }
       ul.fullEpisode-downloadLinks
         - for audio_format in @episode.audioformats.keys do
           li: a.fullEpisode-downloadLink href="#{ @episode.audioformats[audio_format]}" title="Download #{ @episode.show.title }: #{ @episode.title } in #{ audio_format }"
@@ -29,6 +22,6 @@
     .clear
     
     h2.sectionHeading
-      | Shownotes
+      | #{ t 'shownotes' }
     .shownotes.text-content
       == markdown @episode.content

@@ -3,7 +3,7 @@
     fieldset role="search"
       input type="hidden" name="query" value=""
       i.icon-search.input-icon
-      input class="search" type="text" name="q" results="0" placeholder="Suchen…"
+      input class="search" type="text" name="q" results="0" placeholder="#{ t 'search' }…"
         
         
 
@@ -39,9 +39,8 @@
               |  #{ show.title }
 
   .secondary-about
-    h3 Über uns
-    p Der Retinacast ist ein Podcast über Serien, Filme und andere Dinge die wir interessant finden. Alle zwei Wochen sprechen die Retinauten über Aktuelles, unregelmäßig wird beim Retinacast über eine bestimmte Serie diskutiert und zwischendurch stellen wir bei den Pilotenprüfungen kurz neue Serien vor.
-    p Unterstützen kann man uns am besten per Flattr.
+    h3 #{ t 'about' }
+    == markdown settings.description
 
   
             

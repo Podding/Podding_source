@@ -5,15 +5,15 @@ ruby:
     if locals.has_key?( :list_status ) # set icons for the three known statuses as well as set a default status
       if list_status == "planned"
         list_icon = "calendar"
-        list_label = "Geplante Folgen"
+        list_label = t 'planned_episodes'
         id = "planned_episodes"
       elsif list_status == "live"
         list_icon = "bullhorn"
-        list_label = "Live gestreamte Folgen"
+        list_label = t 'live_episodes'
         id = "live_episodes"
       elsif list_status == "published"
         list_icon = "archive"
-        list_label = "Veröffentlichte Folgen"
+        list_label = t 'published_episodes'
         id = "published_episodes"
       end
     else 
@@ -22,7 +22,7 @@ ruby:
 
   else
     unless locals.has_key?( :list_label )
-      list_label = "Folgen"
+      list_label = t 'episodes'
     end
 
     unless locals.has_key?( :list_icon )
@@ -47,7 +47,7 @@ ruby:
         - if locals.has_key?( :more_link ) # you can pass an optional more-link to this partial
          li.episodeListMini-moreLink 
           a.basicLink href="#{ more_link }"
-            |  mehr... <i class="icon-circle-arrow-right"></i>
+            |  #{ t 'more' }... <i class="icon-circle-arrow-right"></i>
 
 - elsif mode == "archive"
   section class=["episodeListArchive","episodeList"]

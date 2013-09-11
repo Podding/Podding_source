@@ -6,7 +6,7 @@
       == slim :"includes/_host", :locals => { :host => host, :mode => "short" }
 
   h2.sectionHeading
-    | Gäste
+    | #{ t 'guests' }
 
   - @hosts.each do |host|
     - if host.guest

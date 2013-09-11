@@ -3,15 +3,15 @@
     a href="#{ url_for(episode) }"
       - if episode.title != ""
         - if episode.live_date and episode.status == "planned"
-          | <span class="episodeMini-episodeNumber"> #{ episode.live_date.strftime("%-d. %B %Y") }</span>#{ episode.title } (live)
+          | <span class="episodeMini-episodeNumber"> #{ l episode.live_date, format: :mini_date }</span>#{ episode.title } (live)
         - else
-          | <span class="episodeMini-episodeNumber"> #{ episode.date.strftime("%-d. %B %Y") }</span>#{ episode.title }
+          | <span class="episodeMini-episodeNumber"> #{ l episode.date, format: :mini_date }</span>#{ episode.title }
       - else
-        | <span class="episodeMini-episodeNumber"> #{ episode.date.strftime("%-d. %B %Y") }</span>#{ episode.show.title }
+        | <span class="episodeMini-episodeNumber"> #{ l episode.date, format: :mini_date }</span>#{ episode.show.title }
 
 - elsif mode == "archive"
   .episodeArchive
-    span.episodeArchive-date #{ episode.date.strftime("%d.%m.%Y") }
+    span.episodeArchive-date #{ l episode.date }
     span.episodeArchive-heading
       a.episodeArchive-episodeNumber href="#{ url_for(episode) }"
         | <span class="hide-at-break2">#{ episode.show.title }</span><span class="show-at-break2 episodeNumber-showName">#{ episode.show.name.upcase }</span><span class="episodeNumber-number">#{ episode.number }</span>
@@ -19,7 +19,7 @@
         | #{ episode.title }
     
     span.episodeArchive-hosts
-      span.episodeArchive-spacer mit
+      span.episodeArchive-spacer #{ t 'with' }
       - if episode.hosts.length == 1
         - for host in episode.hosts  
           a.single.host-link href="/hosts/#{ host.name }" #{ host.name }
@@ -45,7 +45,7 @@
           p In dieser Folge reden Menschen über Dinge.
 
       - if episode.status == "published"
-        a.moreLink href="#{ url_for(episode) }" title="Link zu den Shownotes zu #{ episode.show.title } - #{ episode.title }"
+        a.moreLink href="#{ url_for(episode) }" title="#{ t 'shownotes' } #{ t 'for' } #{ episode.show.title } - #{ episode.title }"
            | <i class="icon-book"></i>Shownotes
         p.shortEpisode-downloadLinks
           - episode.audio_files.each do |audioformat, url|

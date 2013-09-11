@@ -14,7 +14,7 @@
       | #{ episode.title }
   .episode-metaInfo
     
-    span.episode-header-spacer mit
+    span.episode-header-spacer #{ t 'with' }
 
     span.episode-hostsList
       - if episode.hosts.length == 1
@@ -27,12 +27,12 @@
     
     span.episode-header-spacer ∙
     span.date
-     | <span>#{ episode.date.strftime("%d.%m.%Y") }</span>
+     | <span>#{ l episode.date }</span>
 
   
     span.episode-header-spacer ∙
     a.comments-number href="" title="Kommentare zu #{ episode.title }"
-     | #{ episode.comments } <span class="hide-at-break2">Kommentare</span><i class="icon-comments show-at-break2"></i>
+     | #{ episode.comments } <i class="icon-comments"></i>
 
     
     
