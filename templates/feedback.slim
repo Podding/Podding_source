@@ -1,9 +1,6 @@
 #content.page-single.page-feedback
   == slim :"includes/_page-title", :locals => { :page => @page }
 
-  
-
-
   .column-left.column-secondary
       == markdown @page.content
 
@@ -14,20 +11,20 @@
         li
           label for="name" 
             | <i class="icon-user"></i> Name
-          <input id="name" placeholder="Donald Draper" required>
+          <input id="name" name="name" placeholder="Donald Draper" required>
         li
           label for="email"
             | <i class="icon-envelope-alt"></i> Mail
-          <input id="mail" type="email" placeholder="don.draper@scpd.com" required>
+          <input id="mail" type="email" name="mail" placeholder="don.draper@scpd.com" required>
         li
           label for="message" 
             | <i class="icon-comment"></i> #{ t 'message' }
-          <textarea rows="7" id="message" type="text" placeholder="#{ t 'feedback_placeholder', title: settings.title }" required></textarea>
+          <textarea rows="7" id="message" type="text" name="message" placeholder="#{ t 'feedback_placeholder', title: settings.title }" required></textarea>
 
         li
           label for="add"
-            | <i class="icon-plus-sign"></i> <code>#{ rand(10) }+#{ rand(10) }=?</code>
-          <input id="add" type="number" placeholder="#{ rand(10) }" required>
+            | <i class="icon-plus-sign"></i> <code>#{ @num_1 }+#{ @num_2 }=?</code>
+          <input id="add" type="number" name="result" placeholder="?!" required>
           p.support-text #{ t 'feedback_captcha' }
           
 
@@ -35,7 +32,7 @@
           p.form-note #{ t 'feedback_disclaimer' }
       
         li
-          button.spaced type="submit" name="submit" 
+          button.spaced type="submit" name="submit" value="#{@num_1}+#{@num_2}"
             | <i class="icon-envelope-alt"></i> #{ t 'submit' }
 
          

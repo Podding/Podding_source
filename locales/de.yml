@@ -9,6 +9,13 @@ de:
   guests: "Gäste"
   listen: "Zuhören"
 
+  # Feedback auf der Seite von podding
+
+  feedback_from: 'Feedback von '
+  wrote: 'schrieb'
+  captcha_fail: "die Antwort auf die Aufgabe falsch war. Du bist also doch ein Roboter! Oder?"
+  unknown: "...hm. Wir wissen nicht, warum. Bitte sag' auf einem anderen Weg Bescheid."
+
   # Dinge, die das Template so benutzt
 
   with: "mit"
@@ -30,6 +37,8 @@ de:
   feedback_captcha: "Um zu beweisen, dass du kein Roboter, sondern ein Mensch (oder eine gute KI) bist, löse bitte die Rechenaufgabe."
   feedback_disclaimer: "Alle Felder sind Pflichtfelder. Deine Daten bleiben bei uns, keine Angst. Wir spammen auch nicht."
   submit: "Abschicken"
+  success: "Erfolgreich versendet. Danke für das Feedback! <3"
+  fail: "Deine Nachricht konnte nicht abgeschickt werden, weil %{reason}"
 
 
   # Hosts

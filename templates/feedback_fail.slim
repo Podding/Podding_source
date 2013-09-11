@@ -1,0 +1,11 @@
+#content.page-single.page-feedback
+  == slim :"includes/_page-title", :locals => { :page => @page }
+
+  .column-left.column-secondary
+      == markdown @page.content
+
+  .column-right.column-main
+    h3.column-heading Feedback-Formular
+    p #{ t 'fail', reason: @reason }
+
+         
