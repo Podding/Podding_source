@@ -1,0 +1,42 @@
+de:
+  # Grundsätzliche Begriffe
+  episode: "Folge"
+  episodes: "Folgen"
+  show: "Sendung"
+  shows: "Sendungen"
+  shownotes: "Shownotes"
+  guest: "Gast"
+  guests: "Gäste"
+  listen: "Zuhören"
+
+  # Dinge, die das Template so benutzt
+
+  with: "mit"
+  more: "mehr"
+  for: "für"
+  search: "Suchen"
+  about: "Über uns"
+  more_about: "Mehr über"
+  planned_episodes: "Geplante Folgen"
+  live_episodes: "Live gestreamte Folgen"
+  published_episodes: "Veröffentlichte Folgen"
+  older_episodes: "Ältere Folgen"
+  newer_episodes: "Neuere Folgen"
+
+  # Feedback-Seite
+
+  message: "Nachricht"
+  feedback_placeholder: "Liebes %{title}-Team, ich finde eure Sendung voll toll. Bis auf das, was ihr über Homeland gesagt habt. Was für ein Blödisnn! Liebe Grüße, Don"
+  feedback_captcha: "Um zu beweisen, dass du kein Roboter, sondern ein Mensch (oder eine gute KI) bist, löse bitte die Rechenaufgabe."
+  feedback_disclaimer: "Alle Felder sind Pflichtfelder. Deine Daten bleiben bei uns, keine Angst. Wir spammen auch nicht."
+  submit: "Abschicken"
+
+
+  # Hosts
+
+  episodes_with: "Folgen mit"
+
+  date:
+    formats:
+      default: "%d.%m.%Y"
+      mini_date: "%-d. %B %Y"

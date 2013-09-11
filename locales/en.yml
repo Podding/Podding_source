@@ -1,0 +1,40 @@
+en:
+  # Basics
+  episode: "Episode"
+  episodes: "Episodes"
+  show: "Show"
+  shows: "Shows"
+  shownotes: "Shownotes"
+  guest: "Guest"
+  guests: "Guests"
+  listen: "Listen"
+
+  # Dinge, die das Template so benutzt
+
+  with: "with"
+  more: "more"
+  for: "for"
+  search: "Search"
+  about: "About"
+  more_about: "More about"
+  planned_episodes: "Planned episodes"
+  live_episodes: "Live episodes"
+  published_episodes: "Published episodes"
+  older_episodes: "Older episodes"
+  newer_episodes: "Newer episodes"
+
+  # Feedback-Seite
+
+  message: "Message"
+  feedback_placeholder: "Hey, I just wanted to tell you that I love you. Best, Don"
+  feedback_captcha: "To prove that you're human or at least a competent AI, please solve that exercise."
+  feedback_disclaimer: "No fields are optional. We don't spam, we promise!"
+  submit: "Send"
+
+
+  # Hosts
+
+  episodes_with: "Episodes with"
+  date:
+      formats:
+        default: "%d/%m/%Y"
