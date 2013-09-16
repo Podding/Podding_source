@@ -2,7 +2,7 @@
     #content.episodeList.archive
       == slim :"includes/_page-title", :locals => { :page => @page }
 
-      == markdown @page.content
+      == @page.content.render
 
       
 

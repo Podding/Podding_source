@@ -2,7 +2,7 @@
   == slim :"includes/_page-title", :locals => { :page => @page }
 
   .column-left.column-secondary
-      == markdown @page.content
+      == @page.content.render
 
   .column-right.column-main
     h3.column-heading Feedback-Formular

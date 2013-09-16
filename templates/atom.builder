@@ -32,10 +32,10 @@ xml.feed("xml:lang" => 'de',"xmlns" => "http://www.w3.org/2005/Atom", "xmlns:itu
           xml.updated episode.date.rfc3339
           xml.author { xml.name("author") }
           xml.summary do
-            xml.cdata!(markdown episode.content)
+            xml.cdata!(episode.content.render)
           end
           xml.content do
-            xml.cdata!(markdown episode.content)
+            xml.cdata!(episode.content.render)
           end
         end
       end

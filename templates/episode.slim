@@ -3,7 +3,7 @@
     == slim :"includes/_episode-header", :locals => { :episode => @episode }
 
     .fullEpisode-teaser.text-content
-      == markdown @episode.teaser
+      == @episode.teaser.render
 
     
     .fullEpisode-secondary
@@ -24,4 +24,4 @@
     h2.sectionHeading
       | #{ t 'shownotes' }
     .shownotes.text-content
-      == markdown @episode.content
+      == @episode.content.render

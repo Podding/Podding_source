@@ -8,7 +8,7 @@
 
       .description.card
 
-        == markdown show.content
+        == show.content.render
 
         - if mode == "short"
           a.moreLink href="#{ url_for(show) }" title="Mehr über #{ show.title } "

@@ -36,7 +36,7 @@ ruby:
 
       .description.text-content
 
-        == markdown host.content
+        == host.content.render
 
         - if mode == "short"
           a.moreLink href="#{ url_for(host) }" title="#{ t 'more_about' } #{ host.name } "
