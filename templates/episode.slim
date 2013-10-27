@@ -24,4 +24,4 @@
     h2.sectionHeading
       | #{ t 'shownotes' }
     .shownotes.text-content
-      == @episode.content.render
+      == @episode.content.render(heading_start_level: 3)
