@@ -1,3 +1,4 @@
+
 xml.instruct! :xml, :version=>"1.0", :encoding=>"UTF-8"
 xml.feed("xml:lang" => 'de',"xmlns" => "http://www.w3.org/2005/Atom", "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd") do
   xml.title @show ? @show.title : settings.title
@@ -18,7 +19,7 @@ xml.feed("xml:lang" => 'de',"xmlns" => "http://www.w3.org/2005/Atom", "xmlns:itu
   }
 
   xml.link({"rel" => "self", "href" => request.url})
-  @episodes.each do |episode| 
+  @episodes.each do |episode|
     if !episode.meta_data["audioformats"].nil?
       xml.tag!("debug", episode.meta_data["audioformats"][@audio_format])
 
@@ -32,13 +33,14 @@ xml.feed("xml:lang" => 'de',"xmlns" => "http://www.w3.org/2005/Atom", "xmlns:itu
           xml.updated episode.date.rfc3339
           xml.author { xml.name("author") }
           xml.summary do
-            xml.cdata!(episode.content.render)
+            xml.cdata!(render_content(episode.content))
           end
           xml.content do
-            xml.cdata!(episode.content.render)
+            xml.cdata!(render_content(episode.content))
           end
         end
       end
     end
   end
 end
+

@@ -1,5 +1,5 @@
 #content
   == slim :"includes/_page-title", :locals => { :page => @page }
   #page-content.text-content-long
-    == @page.content.render
+    == render_content(@page.content)
 

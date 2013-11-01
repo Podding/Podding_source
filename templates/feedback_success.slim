@@ -2,10 +2,10 @@
   == slim :"includes/_page-title", :locals => { :page => @page }
 
   .column-left.column-secondary
-      == @page.content.render
+      == render_content(@page.content)
 
   .column-right.column-main
     h3.column-heading Feedback-Formular
     p #{ t 'success' }
 
-         
+

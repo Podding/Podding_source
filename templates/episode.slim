@@ -3,9 +3,8 @@
     == slim :"includes/_episode-header", :locals => { :episode => @episode }
 
     .fullEpisode-teaser.text-content
-      == @episode.teaser.render
+      == render_content(@episode.teaser)
 
-    
     .fullEpisode-secondary
       h3
         | #{ t 'listen' }
@@ -15,13 +14,13 @@
             | <i class="icon-download"></i>#{audio_format}
         li: a.fullEpisode-downloadLink href="" title="Play #{ @episode.show.title }: #{ @episode.title } "
             | <i class="icon-play"></i>Play
-            
+
 
       //== slim :"includes/_episode-player", :locals => { :episode => @episode}
 
     .clear
-    
+
     h2.sectionHeading
       | #{ t 'shownotes' }
     .shownotes.text-content
-      == @episode.content.render(heading_start_level: 3)
+      == render_content(@episode.content, heading_start_level: 3)

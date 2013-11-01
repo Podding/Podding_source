@@ -17,13 +17,13 @@
         | <span class="hide-at-break2">#{ episode.show.title }</span><span class="show-at-break2 episodeNumber-showName">#{ episode.show.name.upcase }</span><span class="episodeNumber-number">#{ episode.number }</span>
       a.episodeArchive-title href="#{ url_for(episode) }"
         | #{ episode.title }
-    
+
     span.episodeArchive-hosts
       span.episodeArchive-spacer #{ t 'with' }
       - if episode.hosts.length == 1
-        - for host in episode.hosts  
+        - for host in episode.hosts
           a.single.host-link href="/hosts/#{ host.name }" #{ host.name }
-      
+
       - elsif episode.hosts.length != 1
         - for host in episode.hosts
           a.host-link href="/hosts/#{ host.name }" #{ host.name }
@@ -32,12 +32,12 @@
   div class=["episode", "#{ episode.show }", "episode--#{ episode.status }"]
 
     == slim :"includes/_episode-header", :locals => { :episode => episode }
-    
+
     .episode-content
       .episode-teaser.text-content
         - unless episode.teaser.empty?
-          == episode.teaser.render
-        - if episode.teaser.empty? 
+          == render_content(episode.teaser)
+        - if episode.teaser.empty?
           - if episode.status != "published" and episode.live_date
             == markdown "Diese Episode wird am #{ episode.live_date.strftime("%-d. %B %Y") } live gestreamt. Den Stream findest du [hier]( #{ settings.streaming_url } ) und weitere Informationen auf der [Live-Seite]( /pages/live )."
           - elsif episode.status == "planned"
@@ -54,4 +54,4 @@
               | <i class="icon-download"></i>#{ audioformat.name }
               span.popover-content Download #{ episode.show.title }: #{ episode.title } in #{ audioformat.name }
 
-          
+

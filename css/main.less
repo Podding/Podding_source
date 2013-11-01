@@ -57,7 +57,7 @@ podding - stylesheet for generic objects (lol)
       a {
         color: @text;
         .hide-link;
-      } 
+      }
     }
 
     #tagline {
@@ -235,7 +235,7 @@ podding - stylesheet for generic objects (lol)
     }
 
     .secondary-navList, .secondary-navList ul {
-      list-style: none; 
+      list-style: none;
     }
 
     .secondary-navLink {
@@ -266,20 +266,20 @@ podding - stylesheet for generic objects (lol)
     @media (min-width: @break2) {
       border: 0;
     }
-    
-    a { 
-      
+
+    a {
+
     }
   }
 
 /* Episodes */
-  
+
   /* Episode player */
 
     .episode-player {
       clear: both;
       margin: 0 auto;
-    }  
+    }
 
   /* Common Episode Styles (used in more than one mode) */
     .episode { // class shared by short & full
@@ -295,7 +295,7 @@ podding - stylesheet for generic objects (lol)
 
     /* Episode Header for short & full */
 
-      .episode-header { 
+      .episode-header {
         margin-bottom: 0.5*@line;
       }
 
@@ -421,7 +421,7 @@ podding - stylesheet for generic objects (lol)
         padding: 0;
         font-family: @supportFonts;
         list-style: none;
-        
+
         @media (max-width: @break2) {
           text-align: center;
           .inline-list;
@@ -435,7 +435,7 @@ podding - stylesheet for generic objects (lol)
         float: none;
         color: @text-less;
         text-transform: uppercase;
-        
+
         @media (max-width: @break2) {
           margin-left: 1em;
         }
@@ -475,7 +475,7 @@ podding - stylesheet for generic objects (lol)
 
     .shortEpisode-downloadLinks { // these are displayed in short mode when rendering an episode
       margin-right: 20%;
-      
+
       @media all and (max-width: @break3)   {
         float: left;
         width: 50%;
@@ -517,7 +517,7 @@ podding - stylesheet for generic objects (lol)
       float: left;
       width: 6em;
       margin-right: 1em;
-      
+
       color: @text-less;
       font-family: @displayFonts;
       font-size: 0.9*@base-size;
@@ -538,7 +538,7 @@ podding - stylesheet for generic objects (lol)
     }
 
     .episodeArchive-episodeNumber {
-      .episode-episodeNumber; 
+      .episode-episodeNumber;
     }
 
     .episodeArchive-spacer {
@@ -561,7 +561,7 @@ podding - stylesheet for generic objects (lol)
         width: 100%;
       }
     }
-    
+
   /* Mini Episodes */
 
     .episodeMini { // used in planned episodes for example
@@ -597,7 +597,7 @@ podding - stylesheet for generic objects (lol)
       font-size: @base-size;
       line-height: @line;
       font-weight: normal;
-      @media all and (max-width: @break2)   { 
+      @media all and (max-width: @break2)   {
         width: 100%;
         text-align: center;
         margin-right: 0;
@@ -619,12 +619,12 @@ podding - stylesheet for generic objects (lol)
         margin-top: @line;
       }
     }
-    
+
     .episodeListShort-heading {
       .episodeList-heading; // extends
 
       @media (min-width: @break2) {
-       .hidden; 
+       .hidden;
       }
     }
 
@@ -632,7 +632,7 @@ podding - stylesheet for generic objects (lol)
     .episodeListShort-heading-icon {
       .episodeList-heading-icon; // extends
     }
-    
+
     .episodeListShort {
       .episode--published {
         border-bottom: 1px solid @sub;
@@ -670,7 +670,7 @@ podding - stylesheet for generic objects (lol)
       padding: 0;
       .inline-list;
 
-      @media all and (max-width: @break2)   { 
+      @media all and (max-width: @break2)   {
         margin-left: 0;
       }
 
@@ -702,11 +702,11 @@ podding - stylesheet for generic objects (lol)
 
     .episodeListMini-moreLink {
       .inlineIcon;
-      
+
       padding-left: 0.2*@base-size;
       color: @text-even-less;
       font-family: @supportFonts;
-      
+
     }
 
 
@@ -718,7 +718,7 @@ podding - stylesheet for generic objects (lol)
           font-weight: 800;
         }
 
-        a { 
+        a {
           color: @highlight-less;
           span { color: @text-less;}
           &:hover {
@@ -745,13 +745,13 @@ podding - stylesheet for generic objects (lol)
           font-size: 0.6em;
         }
       }
-    
+
     .episodeListContainer {
       width: 100%;
     }
   }
 
-/* Hosts */ 
+/* Hosts */
 
   .hostCard {
     .card;
@@ -889,11 +889,11 @@ podding - stylesheet for generic objects (lol)
       width: 60%;
       margin-top: -0.25*@line; // needed for lining up the fields with their labels
       margin-bottom: 0.75*@line;
-      
+
     }
 
     @media all and (max-width: @break2)   { // on small screens, labels and inputs stack
-  
+
       label, input, textarea, button, .support-text {
         clear: both;
         float: left;
@@ -934,7 +934,7 @@ podding - stylesheet for generic objects (lol)
 
 /* Icons */
 
-// Correct the alignment of some icons (it's driving me nuts)  
+// Correct the alignment of some icons (it's driving me nuts)
 
 a {
   .icon-long-arrow-right, .icon-long-arrow-left {

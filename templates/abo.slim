@@ -2,9 +2,7 @@
     #content.episodeList.archive
       == slim :"includes/_page-title", :locals => { :page => @page }
 
-      == @page.content.render
-
-      
+      == render_content(@page.content)
 
       table.feedtable
         tr

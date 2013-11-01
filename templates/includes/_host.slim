@@ -1,5 +1,5 @@
 ruby:
-  unless locals.has_key?( :mode ) 
+  unless locals.has_key?( :mode )
     mode = "full"
   end
 
@@ -36,7 +36,7 @@ ruby:
 
       .description.text-content
 
-        == host.content.render
+        == render_content(host.content)
 
         - if mode == "short"
           a.moreLink href="#{ url_for(host) }" title="#{ t 'more_about' } #{ host.name } "
