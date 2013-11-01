@@ -1,20 +1,13 @@
 doctype html
 html
-  - if defined? @page.title
-    == slim :"includes/_head", :locals => { :title => @page.title }
-  - if defined? @pagetitle
-    == slim :"includes/_head", :locals => { :title => @pagetitle }  
-  - else 
-    == slim :"includes/_head", :locals => { :title => "" }
+
+  == slim :"includes/_head", :locals => { :title => @pagetitle || '' }
 
   body
     #wrapper
-
       == slim :"includes/_header"
-
       == yield
 
       .clear
-
       == slim :"includes/_secondary"
 
