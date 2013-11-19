@@ -1,8 +1,10 @@
 # Required
 
 title: "Retinacast"
-base_url: "http://0.0.0.0:3000"
-cover_url: "/images/cover.png"
+author: "Retinacast-Crew"
+mail: "admin@retinacast.de"
+base_url: "http://localhost:9393"
+cover_url: "http://localhost:9393/images/cover.png"
 base_audio_url: "/audio"
 source_repository: "github.com/Podding/Podding_source"
 episodes_per_page: 10
@@ -10,9 +12,9 @@ description: |
   Der Retinacast ist ein Podcast über Serien, Filme und andere Dinge die wir interessant finden. 
   Alle zwei Wochen sprechen die Retinauten über Aktuelles, unregelmäßig wird beim Retinacast über eine bestimmte Serie diskutiert 
   und zwischendurch stellen wir bei den Pilotenprüfungen kurz neue Serien vor.
-  
 
-  Unterstützen kann man uns am besten per Flattr.
+copyright: "CC-BY-SA"
+subtitle: "Der Podcast für's Auge"
 
 # Optional
 
@@ -22,3 +24,5 @@ streaming_url: "https//streams.xenim.de"
 github_url: "https://github.com/Podding"
 amazon_base_url: "https://amazon.de"
 language: de
+explicit: no # defaults to no, set to yes if you talk about nsfw stuff
+category: "TV & Film" # itunes category see here

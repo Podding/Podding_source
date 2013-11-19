@@ -1,4 +1,3 @@
-
 xml.instruct! :xml, :version=>"1.0", :encoding=>"UTF-8"
 xml.feed("xml:lang" => 'de',"xmlns" => "http://www.w3.org/2005/Atom", "xmlns:itunes" => "http://www.itunes.com/dtds/podcast-1.0.dtd") do
   xml.title @show ? @show.title : settings.title
@@ -39,8 +38,8 @@ xml.feed("xml:lang" => 'de',"xmlns" => "http://www.w3.org/2005/Atom", "xmlns:itu
             xml.cdata!(render_content(episode.content))
           end
         end
+
       end
     end
   end
 end
-
