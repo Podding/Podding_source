@@ -47,11 +47,9 @@
 
       - if episode.status == "published"
         a.moreLink href="#{ url_for(episode) }" title="#{ t 'shownotes' } #{ t 'for' } #{ episode.show.title } - #{ episode.title }"
-           | <i class="icon-book"></i>Shownotes
+           | Shownotes
         p.shortEpisode-downloadLinks
           - episode.audio_files.each do |audioformat, url|
             a.shortEpisode-downloadLink.popover href="#{ url }"
-              | <i class="icon-download"></i>#{ audioformat.name }
+              | #{ audioformat.name }
               span.popover-content Download #{ episode.show.title }: #{ episode.title } in #{ audioformat.name }
-
-

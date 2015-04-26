@@ -1,12 +1,5 @@
 .episode-header
-  /- if episode.status != "live"
-    /a.episode-icon.basicLink
-      /i.icon-play
-  /- elsif episode.status == "live"
-   / a.episode-icon.basicLink
-    /  i.icon-bullhorn
 
-  
   h2.episode-heading 
     a.episode-episodeNumber href="#{ url_for(episode) }"
       | <span class="hide-at-break2">#{ episode.show.title }</span><span class="show-at-break2 episodeNumber-showName">#{ episode.show.name.upcase }</span><span class="episodeNumber-number">#{ episode.number }</span>
@@ -28,11 +21,3 @@
     span.episode-header-spacer ∙
     span.date
      | <span>#{ l episode.date }</span>
-
-  
-    span.episode-header-spacer ∙
-    a.comments-number href="" title="Kommentare zu #{ episode.title }"
-     | #{ episode.comments } <i class="icon-comments"></i>
-
-    
-    
