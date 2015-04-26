@@ -1,6 +1,5 @@
 #content.episodeListPage
-  == slim :"includes/_episode-lists", :locals => { :planned_episodes => @planned_episodes, :live_episodes => @live_episodes, :published_episodes => @published_episodes }  
-
+  == slim :"includes/_episode-list", :locals => { :episodes => @published_episodes, :mode => "short", :list_status => "published", :display_list_label => @display_published_label }
   - if @paginated
     #pagination-links
       - if @page_num < @page_max
