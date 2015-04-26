@@ -1,5 +1,3 @@
-/ template: a single host (starring ryan gosling)
-
 #content.page-single.host-single
   == slim :"includes/_host", :locals => { :host => @host }
   == slim :"includes/_episode-list", :locals => { :list_icon => "group", :list_status => "published", :list_label => "#{ t 'episodes_with' } #{ @host.full_name }", :mode => "archive", :episodes => Episode.all }

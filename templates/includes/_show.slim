@@ -10,20 +10,5 @@
 
         == render_content(show.content)
 
-        - if mode == "short"
-          a.moreLink href="#{ url_for(show) }" title="Mehr über #{ show.title } "
-                 |  mehr... <i class="icon-circle-arrow-right"></i>
-
-
-  - if mode == "full"
-    .card-secondary
-    - if show.planned_episodes.length != 0
-      == slim :"includes/_episode-list", :locals => { :episodes => show.planned_episodes, :mode => "mini-date", :status => "planned" }
-
-    - if show.live_episodes.length != 0
-      == slim :"includes/_episode-list", :locals => { :episodes => show.planned_episodes, :mode => "short", :status => "live" }
-
-    - if show.published_episodes.length != 0
-      == slim :"includes/_episode-list", :locals => { :episodes => show.published_episodes, :list_icon => "", :mode => "short", :status => "published" }
-
-
+        a.moreLink href="#{ url_for(show) }" title="Mehr über #{ show.title } "
+               |  mehr... <i class="icon-circle-arrow-right"></i>

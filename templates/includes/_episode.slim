@@ -1,15 +1,4 @@
-- if mode == "mini-date"
-  li class=["episodeMini", "#{ episode.show }", "episode--#{ episode.status }"]
-    a href="#{ url_for(episode) }"
-      - if episode.title != ""
-        - if episode.live_date and episode.status == "planned"
-          | <span class="episodeMini-episodeNumber"> #{ l episode.live_date, format: :mini_date }</span>#{ episode.title } (live)
-        - else
-          | <span class="episodeMini-episodeNumber"> #{ l episode.date, format: :mini_date }</span>#{ episode.title }
-      - else
-        | <span class="episodeMini-episodeNumber"> #{ l episode.date, format: :mini_date }</span>#{ episode.show.title }
-
-- elsif mode == "archive"
+- if mode == "archive"
   .episodeArchive
     span.episodeArchive-date #{ l episode.date }
     span.episodeArchive-heading
