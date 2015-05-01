@@ -5,7 +5,7 @@ author: "Retinacast-Crew"
 mail: "admin@retinacast.de"
 base_url: "http://localhost:9393"
 cover_url: "http://localhost:9393/images/cover.png"
-base_audio_url: "/audio"
+base_audio_url: "http://download.retinacast.de"
 source_repository: "github.com/Podding/Podding_source"
 episodes_per_page: 10
 description: |

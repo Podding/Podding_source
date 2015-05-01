@@ -9,11 +9,9 @@
       h3
         | #{ t 'listen' }
       ul.fullEpisode-downloadLinks
-        - for audio_format in @episode.audioformats do
-          li: a.fullEpisode-downloadLink href="" title="Download #{ @episode.show.title }: #{ @episode.title } in #{ audio_format }"
-            | #{audio_format}
-        li: a.fullEpisode-downloadLink href="" title="Play #{ @episode.show.title }: #{ @episode.title } "
-            | Play
+        - @episode.audioformats.each do |audioformat|
+          li: a.fullEpisode-downloadLink href="#{audio_url(@episode.name,audioformat)}" title="Download #{ @episode.show.title }: #{ @episode.title } in #{ audioformat.name }"
+            | #{audioformat.name}
 
     .clear
 

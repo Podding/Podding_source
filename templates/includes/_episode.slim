@@ -38,7 +38,7 @@
         a.moreLink href="#{ url_for(episode) }" title="#{ t 'shownotes' } #{ t 'for' } #{ episode.show.title } - #{ episode.title }"
            | Shownotes
         p.shortEpisode-downloadLinks
-          - episode.audio_files.each do |audioformat, url|
-            a.shortEpisode-downloadLink.popover href="#{ url }"
+          - episode.audioformats.each do |audioformat|
+            a.shortEpisode-downloadLink.popover href="#{ audio_url(episode.name,audioformat) }"
               | #{ audioformat.name }
               span.popover-content Download #{ episode.show.title }: #{ episode.title } in #{ audioformat.name }
